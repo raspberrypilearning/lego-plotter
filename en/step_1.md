@@ -1,6 +1,6 @@
 ## Introduction
 
-Add project description here. What will learners be making? Broadly what skills will they be learning?
+Use LEGO and the Raspberry Pi Build HAT to create a data plotter. 
 
 ### What you will make
 
@@ -22,13 +22,17 @@ title: What you will need
 ---
 ### Hardware
 
-+ A computer or tablet capable of running Scratch 3
+++ A Raspberry Pi computer
++ A Raspberry Pi Build HAT
++ Two LEGO Technic motors
++ Assortment of LEGO, including two small wheels. We used a selection from the [LEGO Spike Prime kit](https://education.lego.com/en-gb/product/spike-prime)
++ A 9v power supply with a barrel jack. This can be a battery pack, but make sure that all cells are fully charged. 
 
 ### Software
 
-+ Scratch 3 (either [online](https://scratch.mit.edu/){:target="_blank"} or [offline](https://scratch.mit.edu/download){:target="_blank"})
+
 + Python 3
-+ This project can be completed in a web browser using [trinket.io](https://trinket.io/)
+
 
 ### Downloads
 
