@@ -1,0 +1,11 @@
+title: my-private-repo
+hero_image: images/banner.png
+description: my-private-repo description
+version: 4
+listed: false
+copyedit: false
+last_tested: "2020-10-27"
+steps:
+  - title: Introduction
+  - title: Step title
+  - title: What next?
