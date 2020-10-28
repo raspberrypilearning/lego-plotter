@@ -7,5 +7,7 @@ copyedit: false
 last_tested: "2020-10-27"
 steps:
   - title: Introduction
-  - title: Step title
+  - title: Simulated data
+  - title: Building the plotter
+  - title: Adding a data source
   - title: What next?
