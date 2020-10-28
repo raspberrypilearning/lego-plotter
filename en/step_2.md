@@ -29,12 +29,6 @@ Then [part 2](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/build
 
 --- task ---
 
-
-
---- /task ---
-
---- task ---
-
 Step content...
 
 --- /task ---
