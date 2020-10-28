@@ -1,7 +1,28 @@
-## What next?
+## Simulated data
 
-If you are following the [PathwayName](https://projects.raspberrypi.org/en/raspberrypi/pathway-name) pathway, you can move on to the [ProjectName](https://projects.raspberrypi.org/en/projects/project-name) project. In this project, you will make a (add description here).
+Before you use your plotter to record real data, let's test it with sime simulated measurements.
 
-![ProjectName project](images/projectname-project.png)
 
-If you want to have more fun exploring Scratch, then you could try out any of [these projects](https://projects.raspberrypi.org/en/projects?software%5B%5D=scratch&curriculum%5B%5D=%201).
+--- task ---
+
+Open Thonny and add the following lines to begin your program by importing the libraries you will be using:
+
+```python
+from random import randint
+from time import sleep
+from build_hat import BuildHAT
+```
+
+--- /task ---
+
+Now you can use the `randint` function to create a random value between a pre-defined range:
+
+```python3
+sensor_data = randint(0,100)
+--- task ---
+
+Step content...
+
+--- /task ---
+
+--- save ---
