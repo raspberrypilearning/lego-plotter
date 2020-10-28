@@ -19,6 +19,8 @@ Now you can use the `randint` function to create a random value between a pre-de
 
 ```python3
 sensor_data = randint(0,100)
+```
+
 --- task ---
 
 Step content...
