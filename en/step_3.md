@@ -64,9 +64,10 @@ In the positive y direction, you need to make sure that enough of the toothed ba
 Make a note of the maximum safe position value for positive (clockwise) movement. 
 --- /task ---
 
- In the opposite (negative y) direction, the limit to movement is set by the light blue bar that sits below the pen.
+In the opposite (negative y) direction, the limit to movement is set by the light blue bar that sits below the pen.
 
- ![Build part 1](images/motion_limit1.JPG)
+![Build part 1](images/motion_limit1.JPG)
+
 --- task ---
 
 Repaet the calibration process in the negative y direction. This time when you incrementally move the arm anticlockwise, you'll need to include the direction parameter:
