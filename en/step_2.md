@@ -1,6 +1,6 @@
 ## Simulated data
 
-Before you use your plotter to record real data, let's test it with sime simulated measurements.
+Before you use your plotter to record real data, let's test it with some simulated measurements.
 
 --- task ---
 
@@ -32,16 +32,6 @@ print(sensor_data)
 
 --- /task ---
 
---- task ---
-
-Now you can use the `randint` function to create a random value between a pre-defined range and store it in a variable:
-
-```python
-sensor_data = randint(0,100)
-print(sensor_data)
-```
-
---- /task ---
 If you run that program you should see a single integer value displayed. Run it again and you should gt a different value.
 
 --- task ---
@@ -71,7 +61,7 @@ while True:
 Now we have some relaible data, we can use this to control the position of a motor.
 
 --- task ---
-Connect a LEGO Technic motor to port A on the Build HAT. Add some additional LEGO elemnets to the motor axel so that it is easy to see the motor turning (a ling staright piece works well as a pointer). Line up the elemnet with the line mark on the motor and then set the motor to the zero position
+Connect a LEGO Technic motor to port A on the Build HAT. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning (a ling staright piece works well as a pointer). Line up the elemnet with the line mark on the motor and then set the motor to the zero position
 
 ![encoder](images/zero.JPG)
 
@@ -97,6 +87,55 @@ You should see your motor spin clockwise to different positions in response to t
 
 The second parameter passed to the `run_to_position()` function sets the speed at which the motor moves (100 is the fastest). Whne the plotter is in action you will want the trace to repsond quickly to changes in data so it will need to move as quickly as possible.
 
+You may have noticed that at the momnet your motor will always take the shortest path to the new poistion. So for example if the motor is at 300 degrees and the next position is 10 degrees, it will travel in a clockwise direction, passing through the zero position in order to get to its destination as quickly as possible. This is fine for our simulation, but our plotter will not have this fredom of movement. Once the pen has reached the top of bottom of the paper (y-axis) it cannot continue to travel up to emerge at the bootom like a Pac-man leaving the maze at the top and re-apperaing at the bottom.
+
+So your plotter will always need to be prevented from travelling clockwise past the zero mark.  This can be achived by altering the behaviour of the motor when moving to a position. By passing an additional `direction=` parameter to the `run_to_position()` function. Setting this value to `0` will force the motor to move clockwise while a value of `1` will drive it anti-clockwise (a vlaue of `2` seletcs the default 'shortest path' behaviour).
+
+So for example:
+```python
+motor_y.run_to_position(50,100,direction=1)
+```
+Will drive a motor to 50 degrees position, turning anti-clockwise at maxmimum speed
+
+--- task ---
+
+Add a conditional check to your loop to ensure that the motor never never passes through zero degrees and always moves from a higher angle to a lower one by turning in an anti-clockwise direction. 
+
+--- hints ---
+--- hint ---
+You can store the last position in a variable at the end of the loop and use that at the start of loop to see if the new position is greater or smaller than the preceding one. 
+```python
+last_value = sensor_data
+```
+--- /hint ---
+--- hint ---
+Carry out this check using an `if` conditional:
+```python
+if sensor_data < last value:
+    # move anit-clockwise
+else:
+    # move clockwise
+```
+--- /hint ---
+--- hint ---
+Your modified program should look this this (with the `import` lines and BuildHAT setup at the top). Note that you need set the `last_value` to be the start position (in this case, 0) before the `while` loop. 
+
+```python
+last_value = 0
+while True:
+    sensor_data = randint(0,360)
+    print(sensor_data)
+    if sensor_data < last value:
+        motor_y.run_to_position(sensor_data, 100, direction=1) # move anit-clockwise
+    else:
+        motor_y.run_to_position(sensor_data, 100, direction=0) # move clockwise
+    sleep(0.1)
+```
+--- /hint ---
+--- /hints ---
+--- /task ---
+
+
 This approach will be fine for a data source that only ever produces positive values. How about data which might also have values less than zero (e.g. temperature, acceleration)?
 
 --- task ---
@@ -120,6 +159,8 @@ Change the line to be
 --- /hints ---
 --- /task ---
 
-Run your program again. This time the motor should swing both clockwise and anti-clockwise depending on the sign of the simulated data.
+Run your program again. This time the motor should swing both clockwise and anti-clockwise depending on the sign of the simulated data. 
+
+The conditionla test we created previously should still work. Now it will be preventing the motor from turning from a nagative value to a positive one *without* passing through zero (and vice versa).
 
 --- save ---
