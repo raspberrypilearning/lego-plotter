@@ -28,6 +28,9 @@ title: What you will need
 
 
 + Python 3
++ The Vcgencmd Python3 library:
+Install on your Raspberry Pi with
+`sudo pip3 install vcgencmd`
 
 
 ### Downloads
