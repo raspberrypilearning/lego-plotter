@@ -27,6 +27,12 @@ Then [part 2](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/build
 
 --- /task ---
 
+--- task ---
+
+Connect the medium LEGO Technic motor (the one that drives the pen up and down) to port A on the BuildHAT.
+
+--- /task ---
+
 Now you can use your simulated data source to test your plotter. For now, keep the lid on your pen or remove it all together while you observe the motion caused by the data.
 
 ### Calibrating the plotter
@@ -54,19 +60,19 @@ Then re-enter the last line, but with a non-zero value for the position paramete
 
 The pen arm should move up away from the motor.
 
-Keep increasing this position value in small intervals until the arm apporachs the limit of how far in can travel or the position value reaches 350 degrees.
+Keep increasing this position value in small intervals until the arm apporachs the limit of how far in can travel or the position value reaches 350 degrees (you don't want the motor to complete more than one whole revolution as you'd then also need to keep track of how many rotations had occured to calculate the change required to move to the next position). 
 
 In the positive y direction, you need to make sure that enough of the toothed bar remains in contact with the the black cog on which it sits. 
 
 
-![Build part 1](images/motion_limit2.JPG)
+![positive y motion limit](images/motion_limit2.JPG)
 
 Make a note of the maximum safe position value for positive (clockwise) movement. 
 --- /task ---
 
 In the opposite (negative y) direction, the limit to movement is set by the light blue bar that sits below the pen.
 
-![Build part 1](images/motion_limit1.JPG)
+![negative x motion limit](images/motion_limit1.JPG)
 
 --- task ---
 
