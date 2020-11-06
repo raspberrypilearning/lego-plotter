@@ -4,7 +4,7 @@ Before you use your plotter to record real data, let's test it with some simulat
 
 --- task ---
 
-Connect a monitor, keyboard and mouse to your Raspberry Pi.
+Connect a monitor, keyboard and mouse to your Raspberry Pi. If you've never used a Raspberry Pi before, you might want to start with [this project](https://learning-admin.raspberrypi.org/en/projects/raspberry-pi-getting-started).
 
 Attach the Build HAT to your Raspberry Pi and connect a 7.5v power supply to the barrel jack of the BuildHAT. 
 --- /task ---
@@ -18,12 +18,13 @@ from random import randint
 from time import sleep
 from build_hat import BuildHAT
 ```
+Save this program as plotter.py
 
 --- /task ---
 
 --- task ---
 
-Now you can use the `randint` function to create a random value between a pre-defined range and store it in a variable:
+Now you can use the `randint` function to create a random value between a pre-defined range (in this case 0 to 360) and store it in a variable:
 
 ```python
 sensor_data = randint(0,360)
@@ -58,10 +59,10 @@ while True:
 --- /hints ---
 --- /task ---
 
-Now we have some relaible data, we can use this to control the position of a motor.
+Now we have some reliable data, we can use this to control the position of a motor.
 
 --- task ---
-Connect a LEGO Technic motor to port A on the Build HAT. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning (a ling staright piece works well as a pointer). Line up the elemnet with the line mark on the motor and then set the motor to the zero position
+Connect a LEGO Technic motor to port A on the Build HAT. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning (a ling straight piece works well as a pointer). Line up the element with the line mark on the motor and then set the motor to the zero position
 
 ![encoder](images/zero.JPG)
 
@@ -83,19 +84,19 @@ while True:
 ```
 --- /task ---
 
-You should see your motor spin clockwise to different positions in response to the chnaging data. If you run the progarm again it should initially reset the motor position back to 0 before following the simulated data values. 
+You should see your motor spin clockwise to different positions in response to the changing data. If you run the program again it should initially reset the motor position back to 0 before following the simulated data values. 
 
-The second parameter passed to the `run_to_position()` function sets the speed at which the motor moves (100 is the fastest). Whne the plotter is in action you will want the trace to repsond quickly to changes in data so it will need to move as quickly as possible.
+The second parameter passed to the `run_to_position()` function sets the speed at which the motor moves (100 is the fastest). When the plotter is in action you will want the trace to respond quickly to changes in data so it will need to move as quickly as possible.
 
-You may have noticed that at the momnet your motor will always take the shortest path to the new poistion. So for example if the motor is at 300 degrees and the next position is 10 degrees, it will travel in a clockwise direction, passing through the zero position in order to get to its destination as quickly as possible. This is fine for our simulation, but our plotter will not have this fredom of movement. Once the pen has reached the top of bottom of the paper (y-axis) it cannot continue to travel up to emerge at the bootom like a Pac-man leaving the maze at the top and re-apperaing at the bottom.
+You may have noticed that at the moment your motor will always take the shortest path to the new position. So for example if the motor is at 300 degrees and the next position is 10 degrees, it will travel in a clockwise direction, passing through the zero position in order to get to its destination as quickly as possible. This is fine for our simulation, but our plotter will not have this freedom of movement. Once the pen has reached the top of bottom of the paper (y-axis) it cannot continue to travel up to emerge at the bottom like a Pac-man leaving the maze at the top and re-appearing at the bottom.
 
-So your plotter will always need to be prevented from travelling clockwise past the zero mark.  This can be achived by altering the behaviour of the motor when moving to a position. By passing an additional `direction=` parameter to the `run_to_position()` function. Setting this value to `0` will force the motor to move clockwise while a value of `1` will drive it anti-clockwise (a vlaue of `2` seletcs the default 'shortest path' behaviour).
+So your plotter will always need to be prevented from travelling clockwise past the zero mark.  This can be achieved by altering the behaviour of the motor when moving to a position. By passing an additional `direction=` parameter to the `run_to_position()` function. Setting this value to `0` will force the motor to move clockwise while a value of `1` will drive it anti-clockwise (a value of `2` selects the default 'shortest path' behaviour).
 
 So for example:
 ```python
 motor_y.run_to_position(50,100,direction=1)
 ```
-Will drive a motor to 50 degrees position, turning anti-clockwise at maxmimum speed
+Will drive a motor to 50 degrees position, turning anti-clockwise at maximum speed
 
 --- task ---
 
@@ -161,6 +162,6 @@ Change the line to be
 
 Run your program again. This time the motor should swing both clockwise and anti-clockwise depending on the sign of the simulated data. 
 
-The conditionla test we created previously should still work. Now it will be preventing the motor from turning from a nagative value to a positive one *without* passing through zero (and vice versa).
+The conditional test we created previously should still work. Now it will be preventing the motor from turning from a negative value to a positive one *without* passing through zero (and vice versa).
 
 --- save ---

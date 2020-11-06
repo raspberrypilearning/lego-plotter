@@ -1,6 +1,6 @@
 ## Building the plotter
 
-Nowadays when data is collected from a sensor, it is typically uploaded to an online dashboard. However this requires a reliable connection to the Internet which may not always be available if your sensor is located in a hut half way up a volcano or out on your school playing field. One solution is to record the data directly onto a very long roll of paper and this was a technique you may have seen in eartyhquake disaster movies where a [seismometer](https://en.wikipedia.org/wiki/Seismometer) is used to show the impending tremors. 
+Nowadays when data is collected from a sensor, it is typically uploaded to an online dashboard. However this requires a reliable connection to the Internet which may not always be available if your sensor is located in a hut half way up a volcano or out on your school playing field. One solution is to record the data directly onto a very long roll of paper and this was a technique you may have seen in earthquake disaster movies where a [seismometer](https://en.wikipedia.org/wiki/Seismometer) is used to show the impending tremors. 
 
 The design of such devices is quite simple: one motor is used to move the paper across the pen (the x-axis) while another at right angles to the first, moves the pen up and down in response to the changing data (y-axis). 
 
@@ -21,7 +21,7 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
 --- /task ---
 
 --- task ---
-Then [part 2](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf) complets the mechanism that uses the two motors to brive the plotter.
+Then [part 2](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf) completes the mechanism that uses the two motors to drive the plotter.
 
 ![Build part 2](images/build2.png)
 
@@ -60,7 +60,7 @@ Then re-enter the last line, but with a non-zero value for the position paramete
 
 The pen arm should move up away from the motor.
 
-Keep increasing this position value in small intervals until the arm apporachs the limit of how far in can travel or the position value reaches 350 degrees (you don't want the motor to complete more than one whole revolution as you'd then also need to keep track of how many rotations had occured to calculate the change required to move to the next position). 
+Keep increasing this position value in small intervals until the arm approaches the limit of how far in can travel or the position value reaches 350 degrees (you don't want the motor to complete more than one whole revolution as you'd then also need to keep track of how many rotations had occurred to calculate the change required to move to the next position). 
 
 In the positive y direction, you need to make sure that enough of the toothed bar remains in contact with the the black cog on which it sits. 
 
@@ -76,7 +76,7 @@ In the opposite (negative y) direction, the limit to movement is set by the ligh
 
 --- task ---
 
-Repaet the calibration process in the negative y direction. This time when you incrementally move the arm anticlockwise, you'll need to include the direction parameter:
+Repeat the calibration process in the negative y direction. This time when you incrementally move the arm anticlockwise, you'll need to include the direction parameter:
 
 ```python
 >>> motor_y.run_to_position(-50, 100, direction=1)

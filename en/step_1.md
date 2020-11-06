@@ -21,6 +21,9 @@ title: What you will need
 + A Raspberry Pi computer
 + A Raspberry Pi Build HAT
 + Two LEGO Technic motors
++ A LEGO Technic Force sensor 
+OR
++ A push button, breadboard and jumper wires
 + Assortment of LEGO, including two small wheels. We used a selection from the [LEGO Spike Prime kit](https://education.lego.com/en-gb/product/spike-prime)
 + A 9v power supply with a barrel jack. This can be a battery pack, but make sure that all cells are fully charged. 
 
@@ -46,7 +49,7 @@ title: What you will learn
 ---
 
 + Learning objective 1
-+ Learning objective 2
++ How to map data ranges onto appropriate scales for visualisation
 + Learning objective 3
 
 --- /collapse ---
