@@ -18,6 +18,7 @@ There are plenty of ways you could do this, but the build instructions for the L
 --- task ---
 You will need to adapt the build slightly so that the arm is able to hold a pen. Rubber bands are a great way to hold a pen snugly against LEGO.
 
+![Build part 2](images/rubber_bands.JPG)
 --- /task ---
 
 --- task ---

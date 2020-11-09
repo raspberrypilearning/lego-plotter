@@ -6,6 +6,8 @@ Use LEGO and the Raspberry Pi Build HAT to create a data plotter.
 
 --- no-print ---
 
+![finished](images/plotter_demo.gif)
+
 --- /no-print ---
 
 --- print-only ---

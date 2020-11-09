@@ -34,7 +34,9 @@ To stop and start the plotter running, you can add a button to your build.
 
 --- task ---
 
-The LEGO Force sensor can act as a simple button. Connect one to port C on your BuildHAT
+The LEGO Force sensor can act as a simple button. Connect one to port C on your BuildHAT.
+
+![Build part 2](images/force.JPG)
 
 --- /task ---
 
