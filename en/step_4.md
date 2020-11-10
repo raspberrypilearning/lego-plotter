@@ -76,4 +76,5 @@ Start the program in Thonny, and watch as the pen plots your random data on your
 
 Once the paper has been used, press the Force sensor button to stop everything. 
 
+![finished](images/paper.JPG)
 --- /task ---

@@ -86,11 +86,17 @@ while True:
 
 You should see your motor spin clockwise to different positions in response to the changing data. If you run the program again it should initially reset the motor position back to 0 before following the simulated data values. 
 
+![finished](images/motor_180.gif)
+
 The second parameter passed to the `run_to_position()` function sets the speed at which the motor moves (100 is the fastest). When the plotter is in action you will want the trace to respond quickly to changes in data so it will need to move as quickly as possible.
 
 You may have noticed that at the moment your motor will always take the shortest path to the new position. So for example if the motor is at 300 degrees and the next position is 10 degrees, it will travel in a clockwise direction, passing through the zero position in order to get to its destination as quickly as possible. This is fine for our simulation, but our plotter will not have this freedom of movement. Once the pen has reached the top of bottom of the paper (y-axis) it cannot continue to travel up to emerge at the bottom like a Pac-man leaving the maze at the top and re-appearing at the bottom.
 
+![finished](images/motor_through_zero.gif)
+
 So your plotter will always need to be prevented from travelling clockwise past the zero mark.  This can be achieved by altering the behaviour of the motor when moving to a position. By passing an additional `direction=` parameter to the `run_to_position()` function. Setting this value to `0` will force the motor to move clockwise while a value of `1` will drive it anti-clockwise (a value of `2` selects the default 'shortest path' behaviour).
+
+![finished](images/motor_not_zero.gif)
 
 So for example:
 ```python
