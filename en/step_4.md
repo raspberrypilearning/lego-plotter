@@ -36,7 +36,7 @@ To stop and start the plotter running, you can add a button to your build.
 
 The LEGO Force sensor can act as a simple button. Connect one to port C on your BuildHAT.
 
-![Build part 2](images/force.jpg)
+![A close-up photo of part of the LEGO plotter that a LEGO force sensor has been added.](images/force.jpg)
 
 --- /task ---
 
@@ -50,7 +50,7 @@ button = ForceSensor('C')
 then change your main loop from `while True` to:
 
 ```python
-while button.get()[1] ! = 1
+while not button.is_pressed()
 
 ```
 --- /task ---
@@ -76,5 +76,5 @@ Start the program in Thonny, and watch as the pen plots your random data on your
 
 Once the paper has been used, press the Force sensor button to stop everything. 
 
-![finished](images/paper.JPG)
+![A photo of a piece of paper which on which the plotter has draw a green trace](images/paper.JPG)
 --- /task ---

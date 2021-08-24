@@ -63,17 +63,17 @@ The pen arm should move up away from the motor.
 
 Keep increasing this position value in small intervals until the arm approaches the limit of how far in can travel or the position value reaches 350 degrees (you don't want the motor to complete more than one whole revolution as you'd then also need to keep track of how many rotations had occurred to calculate the change required to move to the next position). 
 
-In the positive y direction, you need to make sure that enough of the toothed bar remains in contact with the the black cog on which it sits. 
+In the positive y direction, you need to make sure that enough of the toothed bar remains in contact with the black cog on which it sits. 
 
 
-![positive y motion limit](images/motion_limit2.JPG)
+![A close-up photo of part of the LEGO plotter showing an arrow pointing at the toothed bar which is touching the black cog on which it sits.](images/motion_limit2.JPG)
 
 Make a note of the maximum safe position value for positive (clockwise) movement. 
 --- /task ---
 
 In the opposite (negative y) direction, the limit to movement is set by the light blue bar that sits below the pen.
 
-![negative x motion limit](images/motion_limit1.JPG)
+![A close-up photo of part of the LEGO plotter showing an arrow the blue element which prevents the pen arm from moving too far.](images/motion_limit1.JPG)
 
 --- task ---
 
