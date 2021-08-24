@@ -11,21 +11,21 @@ There are plenty of ways you could do this, but the build instructions for the L
 
 [Part one](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf) shows you how to construct the base and the arm that will hold the pen.
 
-![Build part 1](images/build1.png)
+![A drawing from the LEGO instructions](images/build1.png)
 
 --- /task ---
 
 --- task ---
 You will need to adapt the build slightly so that the arm is able to hold a pen. Rubber bands are a great way to hold a pen snugly against LEGO.
 
-![Elastic bands](images/rubber_bands.jpg)
+![A photo of the partially assembled plotter model, with a pen attached to the LEGO elements with a rubber band](images/rubber_bands.jpg)
 
 --- /task ---
 
 --- task ---
 Then [part 2](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf) completes the mechanism that uses the two motors to drive the plotter.
 
-![Build part 2](images/build2.png)
+![A drawing from the second part of the LEGO instructions](images/build2.png)
 
 --- /task ---
 
@@ -48,9 +48,8 @@ Click into the Shell (REPL) pane of Thonny so that we can execute Python one lin
 Enter these lines into the shell (you can just copy-and-paste them from your program above):
 
 ```python
->>> from build_hat import BuildHAT
->>> bh=BuildHAT()
->>> motor_y = bh.port.A.motor
+>>> from buildhat import Motor
+>>> motor_y = Motor('A')
 >>> motor_y.run_to_position(0, 100)
 ```
 

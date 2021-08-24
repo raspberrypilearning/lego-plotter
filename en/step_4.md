@@ -13,7 +13,7 @@ Plug the large Technic motor (which drives these wheels) into port B on the Buil
 --- task ---
 Create a shortcut variable for this motor below the similar line for `motor_y`:
 ```python
-motor_x = bh.port.B.motor
+motor_x = Motor('B')
 
 ```
 --- /task ---
@@ -44,7 +44,7 @@ The LEGO Force sensor can act as a simple button. Connect one to port C on your 
 Edit your plotter.py program to include button control. Add this line to set up a shortcut variable for the button after the similar lines for the motors.
 
 ```python
-button = bh.port.C.device
+button = ForceSensor('C')
 
 ```
 then change your main loop from `while True` to:
