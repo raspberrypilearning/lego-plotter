@@ -61,8 +61,8 @@ Now you can stop the plotter operating by pressing the button. To tidy everythin
 
 ```python
 motor_y.run_to_position(0,100)
-motor_y.brake()
-motor.x.brake()
+motor_y.stop()
+motor.x.stop()
 
 ```
 --- /task ---

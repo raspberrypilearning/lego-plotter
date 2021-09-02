@@ -93,13 +93,13 @@ You may have noticed that at the moment your motor will always take the shortest
 
 ![A movie clip showing a LEGO motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor  turns through a full 360 degrees, travelling clockwise and anti-clockwise and sometimes passing through the zero position in either direction.](images/motor_through_zero.gif)
 
-So your plotter will always need to be prevented from travelling clockwise past the zero mark.  This can be achieved by altering the behaviour of the motor when moving to a position. By passing an additional `direction=` parameter to the `run_to_position()` function. Setting this value to `0` will force the motor to move clockwise while a value of `1` will drive it anti-clockwise (a value of `2` selects the default 'shortest path' behaviour).
+So your plotter will always need to be prevented from travelling clockwise past the zero mark.  This can be achieved by altering the behaviour of the motor when moving to a position. By passing an additional `direction=` parameter to the `run_to_position()` function. You can set this value to `"clockwise"`, `"anticlockwise"` or `"shortest"`, which selects the default 'shortest path' behaviour).
 
 ![A movie clip showing a LEGO motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor only turns between 0 and 180 degrees, but never passes through zero.](images/motor_not_zero.gif)
 
 So for example:
 ```python
-motor_y.run_to_position(50,100,direction=1)
+motor_y.run_to_position(50,100,direction="anticlockwise")
 ```
 Will drive a motor to 50 degrees position, turning anti-clockwise at maximum speed
 
@@ -118,7 +118,7 @@ last_value = sensor_data
 Carry out this check using an `if` conditional:
 ```python
 if sensor_data < last value:
-    # move anit-clockwise
+    # move anti-clockwise
 else:
     # move clockwise
 ```
@@ -132,9 +132,9 @@ while True:
     sensor_data = randint(0,360)
     print(sensor_data)
     if sensor_data < last value:
-        motor_y.run_to_position(sensor_data, 100, direction=1) # move anit-clockwise
+        motor_y.run_to_position(sensor_data, 100, direction="anticlockwise") # move anit-clockwise
     else:
-        motor_y.run_to_position(sensor_data, 100, direction=0) # move clockwise
+        motor_y.run_to_position(sensor_data, 100, direction="clockwise") # move clockwise
     sleep(0.1)
 ```
 --- /hint ---

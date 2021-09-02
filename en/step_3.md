@@ -80,7 +80,7 @@ In the opposite (negative y) direction, the limit to movement is set by the ligh
 Repeat the calibration process in the negative y direction. This time when you incrementally move the arm anticlockwise, you'll need to include the direction parameter:
 
 ```python
->>> motor_y.run_to_position(-50, 100, direction=1)
+>>> motor_y.run_to_position(-50, 100, direction="anticlockwise")
 ```
 
 Once again, make a note of the maximum negative (anticlockwise) direction that it is safe to move the plotter arm to.

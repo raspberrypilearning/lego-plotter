@@ -61,7 +61,7 @@ scaling_factor = 13
 And the two lines that move the motor either clockwise or anticlockwise should become:
 
 ```python
-motor_y.run_to_position(sensor_data*scaling_factor, 100, direction=1)
+motor_y.run_to_position(sensor_data*scaling_factor, 100, direction="anticlockwise")
 ```
 
 --- /task ---
