@@ -104,6 +104,7 @@ while True:
     print(sensor_data)
 
 --- /code ---
+
 --- /task ---
 
 --- task ---
@@ -164,15 +165,19 @@ Line up the element with the line mark on the motor and then set the motor to th
 ![A photo of a LEGO technic motor showing the lollipop and zero labels used to set the encoder to 0 degrees](images/zero.JPG)
 
 --- /task ---
+
 Now, modify the main body of your program so that angle turned to by the motor is the same as the latest value produced by our simulated sensor. 
 
 To do this, we need to set up our motor to be accessed in the program. 
 
 --- task ---
+
 Add two new lines above your `while True:` loop by pressing Enter twice.
+
 --- /task ---
 
 --- task ---
+
 On the first new line enter `motor_y = Motor('A')` - this tells the computer there is a motor connected to port A.
 
 --- /task ---
@@ -184,7 +189,9 @@ On the line beneath this type `motor_y.run_to_position(0, 100)` to make sure the
 --- /task ---
 
 --- task ---
+
 The final line of code required makes the motor turn to the angle generated each loop. Above your last line of code, press Enter to create a new line and add `motor_y.run_to_position(0, 100)` 
+
 --- /task ---
 
 Your final script should look like this: 
@@ -211,12 +218,12 @@ while True:
 
 --- /code ---
 
---- /task ---
-
 --- task ---
 
 Click **Run** and you should see your motor spin clockwise to different positions in response to the changing data. If you run the program again it should initially reset the motor position back to 0 before following the simulated data values. 
 
 ![A movie clip showing a LEGO motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor only turns between 0 and 180 degrees, travelling clockwise and anti-clockwise ](images/motor_180.gif)
+
+--- /task ---
 
 In the next step we will stop our plotter motor from doing full circles, as this will break the machine we are building. 
