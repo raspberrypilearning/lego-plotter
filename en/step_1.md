@@ -33,8 +33,7 @@ OR
 
 
 + Python 3
-+ The Vcgencmd Python3 library:
---- /collapse ---
++ The Vcgencmd Python3 library
 
 ### Downloads
 
