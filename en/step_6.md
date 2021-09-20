@@ -103,10 +103,10 @@ while not button.is_pressed():
     sensor_data = int(vcgm.measure_temp()-40)
     print(sensor_data)
     if sensor_data < last_value:
-        motor_y.run_to_position(sensor_data*5, 100, direction="anticlockwise")
+        motor_y.run_to_position(sensor_data, 100, direction="anticlockwise")
         last_value = sensor_data
     else:
-        motor_y.run_to_position(sensor_data*5, 100, direction="clockwise")
+        motor_y.run_to_position(sensor_data, 100, direction="clockwise")
         last_value = sensor_data
     sleep(0.1)
     
