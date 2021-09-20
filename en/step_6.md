@@ -47,9 +47,11 @@ motor_y.run_to_position(0, 100)
 motor_x.start(-20)
 
 --- /code ---
+
 --- /task ---
 
 --- task ---
+
 Change your main loop from `while True` to:
 
 ```python
@@ -58,7 +60,9 @@ while not button.is_pressed():
 --- /task ---
 
 --- task ---
+
 Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines after - and outside of -  the main loop
+
 --- code ---
 ---
 language: python
@@ -72,9 +76,11 @@ motor_y.stop()
 motor_x.stop()
 
 --- /code ---
+
 --- /task ---
 
 Now you are ready to test your plotter. Your final script should look like this:
+
 --- code ---
 ---
 language: python
@@ -112,13 +118,23 @@ motor_x.stop()
 
 
 --- task ---
+
 Feed a piece of paper from the back of the plotter so that one short edge is just beyond the pen.
+
+--- /task ---
+
+--- task ---
 
 Start the program in Thonny, and watch as the pen plots your random data on your paper!
 
+--- /task ---
+
+--- task ---
+
 Once the paper has been used, press the Force sensor button to stop everything. 
+
+--- /task ---
 
 ![A photo of a piece of paper which on which the plotter has draw a green trace](images/paper.JPG)
 
 In the next step you will use a real-time data source for your input data! 
---- /task ---

@@ -46,12 +46,15 @@ You should see the shell return a number value (it should be somewhere around 50
 Now let's warm things up by getting the CPU to do some work!
 
 --- task ---
+
 Open the web browser and watch a YouTube video. After a few seconds, go back to Thonny and re-run the last line of Python and you should see that the temperature has increased. 
+
 --- /task ---
 
 Now that you've seen how to read the temperature of the CPU with Python, we will modify your plotter.py program so that it uses this as its data source. 
 
 --- task ---
+
 First, underneath the existing import lines at the top of the file, add the lines to import the Vcgencmd library:
 
 --- code ---
@@ -68,10 +71,12 @@ from buildhat import Motor, ForceSensor
 from vcgencmd import Vcgencmd
 
 --- /code ---
+
 --- /task ---
 
 --- task ---
 create a vcgencmd instance:
+
 --- code ---
 ---
 language: python
@@ -111,6 +116,8 @@ line_highlights: 15
 while not button.is_pressed():
     sensor_data = int(vcgm.measure_temp())
     print(sensor_data)
+--- /code ---
+
 --- /task ---
 
 Before you can use the temperature of the Raspberry Pi's CPU as a data source for you plotter, you want to make sure that the maximum possible value that will be produced by the data source will be mathematically converted so that it fits on a scale between -180 and 180. 
@@ -133,29 +140,13 @@ And the two lines that move the motor either clockwise or anticlockwise should b
 ```python
 motor_y.run_to_position((sensor_data*scaling_factor)-500, 100, direction="anticlockwise")
 ```
-
---- /task ---
-There's one more thing to do. 
-
-Currently the plotter is configured to start drawing with the line in the center of the paper and then be able to record positive and negative values. You know that your data values will never be negative in this case, in fact they are unlikely to go much below 40 degrees even with a fan cooling the CPU. So you can move the starting position of the pen to be much closer to the bottom of its range of motion. 
-
---- task ---
-Change the line that currently moves the plotter to the zero position so that it instead sets it to just above the minimum value that you obtained from the calibration step.
-
-
+and
 ```python
-motor_y.run_to_position(-150, 100)
-
+motor_y.run_to_position((sensor_data*scaling_factor)-500, 100, direction="clockwise")
 ```
 
 --- /task ---
 
---- task ---
 Now you can run your program. Make the Raspberry Pi CPU get warmer like you did before and you should see the pen gradually move upwards.
-
---- /task ---
-
-
-
 
 --- save ---
