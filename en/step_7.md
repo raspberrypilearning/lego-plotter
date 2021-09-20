@@ -98,7 +98,7 @@ vcgm = Vcgencmd()
 
 Change the program so that it uses real-time temperature values rather than randomly generated numbers. To do this we need to replace `randint(-180, 180)` with `vcgm.measure_temp()`.
 
-Because the `run_to_position()` function takes only integer values for the desired angular position, you need to convert the real values returned by `measure_temp()` accordingly:
+Because the `run_to_position()` function takes only **integer** values for the desired angular position, you need to convert the real values returned by `measure_temp()` into an **integer** using `int()`:
 
 --- code ---
 ---
@@ -115,10 +115,14 @@ while not button.is_pressed():
 
 Before you can use the temperature of the Raspberry Pi's CPU as a data source for you plotter, you want to make sure that the maximum possible value that will be produced by the data source will be mathematically converted so that it fits on a scale between -180 and 180. 
 
-The range of temperature values produced by `vcgencmd` should be from around 50 degrees C (when the Raspberry Pi is on but not doing very much) to less than 90 degrees C when working hard (at 85 degrees C the Raspberry Pi will throttle its performance to keep the temperature below this value).
+The range of temperature values produced by `vcgencmd` should be from around 50 degrees C (when the Raspberry Pi is on but not doing very much) to less than 90 degrees C when working hard (at 85 degrees C the Raspberry Pi will throttle its performance to keep the temperature below this value). Let's say we want to plot a range from 40 degrees C to 90 degrees C - we need to map this to our available values: -180 to 180.
+
+[image of compared scales](/images/en/scales.png)
+
+We can see here that each degree on our scale will be 7.2 degrees on our motors. 
 
 --- task ---
-Add a scaling factor variable to your plotter.py program so that every change in temperature of 1 degree C causes 1 degree of movement of the motor.
+Add a scaling factor variable to your plotter.py program so that every change in temperature of 1 degree C causes 7 degrees of movement of the motor.
 
 ```python
 scaling_factor = 7.2
@@ -127,11 +131,11 @@ scaling_factor = 7.2
 And the two lines that move the motor either clockwise or anticlockwise should become:
 
 ```python
-motor_y.run_to_position(sensor_data*scaling_factor, 100, direction="anticlockwise")
+motor_y.run_to_position((sensor_data*scaling_factor)-220, 100, direction="anticlockwise")
 ```
 
 --- /task ---
-There's ome more thing to do. 
+There's one more thing to do. 
 
 Currently the plotter is configured to start drawing with the line in the center of the paper and then be able to record positive and negative values. You know that your data values will never be negative in this case, im fact they are unlikely to go muc below 40 degrees even with a fan cooling the CPU. So you can move the starting position of the pen to be much closer to the bottom of its range of motion. 
 
