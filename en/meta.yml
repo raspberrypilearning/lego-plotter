@@ -7,8 +7,10 @@ copyedit: false
 last_tested: "2020-10-27"
 steps:
   - title: Introduction
-  - title: Simulated data
+  - title: Moving the motors with data
+  - title: Creating a plot range
   - title: Building the plotter
-  - title: Paper feeding and button control
-  - title: Adding a real data source
+  - title: Paper feeding
+  - title: Button control
+  - title: Adding a real-time data source
   - title: What next?

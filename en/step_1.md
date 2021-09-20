@@ -34,9 +34,20 @@ OR
 
 + Python 3
 + The Vcgencmd Python3 library:
-Install on your Raspberry Pi with
-`sudo pip3 install vcgencmd`
 
+--- collapse ---
+---
+title: Installing the Vcgencmd python library
+---
+Make sure you are connected to the internet.
+
+Open the terminal on your Raspberry Pi by pressing `Ctrl + Alt + T` on your keyboard.
+
+At the prompt type: `sudo pip3 install vcgencmd` and press Enter.
+ 
+Wait for the confirmation message (it won't take long) then close the terminal window.
+
+--- /collapse --- 
 
 ### Downloads
 
@@ -50,9 +61,9 @@ Install on your Raspberry Pi with
 title: What you will learn
 ---
 
-+ Learning objective 1
-+ How to map data ranges onto appropriate scales for visualisation
-+ Learning objective 3
++ Calculating angles of rotation
++ Mapping data ranges onto appropriate scales for visualisation
++ Using conditional statements  (if/else)
 
 --- /collapse ---
 

@@ -1,80 +1,78 @@
-## Paper feeding and button control
+## Building the plotter
 
-These are the final touches need to make a usable, controllable paper plotter. 
+In this step you will build a simple x/y plotter using LEGO. 
 
-### Paper feeding
+There are plenty of ways you could do this, but the build instructions for the LEGO Spike Prime *Track Your Parcels* project are a great starting point. You can use the motor from the previous step for the y-axis motor (the one holding the pen) in the build. 
 
-Once you're happy that this is working as you'd expect, add a sheet of paper underneath the small wheels and then modify you program to slowly turn these wheels as measurements are recorded.
+[Part one](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf) shows you how to construct the base and the arm that will hold the pen.
 
---- task ---
-Plug the large Technic motor (which drives these wheels) into port B on the BuildHAT. 
---- /task ---
+![A drawing from the LEGO instructions](images/build1.png)
 
 --- task ---
-Create a shortcut variable for this motor below the similar line for `motor_y`:
-```python
-motor_x = Motor('B')
+You will need to adapt the build slightly so that the arm is able to hold a pen. Rubber bands are a great way to hold a pen snugly against LEGO.
 
-```
---- /task ---
-
---- task ---
-Then add a line to start this motor turning immediately before the `while True` loop:
-
-```python
-motor_x.run_at_speed(10, 100)
-
-```
+![A photo of the partially assembled plotter model, with a pen attached to the LEGO elements with a rubber band](images/rubber_bands.jpg)
 
 --- /task ---
 
-### Button control
+Then [part 2](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf) completes the mechanism that uses the two motors to drive the plotter.
 
-To stop and start the plotter running, you can add a button to your build.
+![A drawing from the second part of the LEGO instructions](images/build2.png)
 
 --- task ---
 
-The LEGO Force sensor can act as a simple button. Connect one to port C on your BuildHAT.
-
-![A close-up photo of part of the LEGO plotter that a LEGO force sensor has been added.](images/force.jpg)
+Connect the LEGO Technic motor that drives the pen up and down to port A on the BuildHAT.
 
 --- /task ---
 
+Now you can use your simulated data source to test your plotter. For now, keep the lid on your pen or remove it all together while you observe the motion caused by the data.
+
+### Calibrating the plotter
+
+Your program currently allows the motor to move through its full range of motion (-180 to +180 degrees from the zero point). But the physical constraints of the plotter mean that if we tried to drive the toothed rail to its maximum and minimum positions, it would crash the pen arm into other parts of the build. In order to avoid this, we must centre the bar.
+
 --- task ---
-Edit your plotter.py program to include button control. Add this line to set up a shortcut variable for the button after the similar lines for the motors.
+
+Click into the Shell pane of Thonny (the window beneath the code) so that we can execute Python one line at a time. 
+
+Enter these lines into the shell (you can just copy-and-paste them from your program above) pressing Enter between each one:
 
 ```python
-button = ForceSensor('C')
-
+>>> from buildhat import Motor
 ```
-then change your main loop from `while True` to:
+Press Enter.
 
+Type:
 ```python
-while not button.is_pressed()
-
+>>> motor_y = Motor('A')
 ```
+Press Enter.
+
+Type:
+```python
+>>> motor_y.run_to_position(0, 100)
+```
+Press Enter.
+
+This should centre or *zero* your motor.
+
 --- /task ---
 
 --- task ---
+Adjust the position of your arm by gently pushing the toothed bar to the middle of its travel, without moving the cog. It may click a few times, this is fine.
 
-Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines after - and outside of -  the main loop
+In the positive y direction, you need to make sure that enough of the toothed bar remains in contact with the black cog on which it sits. 
 
-```python
-motor_y.run_to_position(0,100)
-motor_y.stop()
-motor.x.stop()
+![A close-up photo of part of the LEGO plotter showing an arrow pointing at the toothed bar which is touching the black cog on which it sits.](images/motion_limit2.JPG)
 
-```
 --- /task ---
 
-Now you are ready to test your plotter. 
+In the opposite (negative y) direction, the limit to movement is set by the light blue bar that sits below the pen.
 
---- task ---
-Add a piece of paper so that one short edge is just beyond the pen.
+![A close-up photo of part of the LEGO plotter showing an arrow the blue element which prevents the pen arm from moving too far.](images/motion_limit1.JPG)
 
-Start the program in Thonny, and watch as the pen plots your random data on your paper.
+Because of the nature of the code and it's parameters, we need to keep these values between -180 and 180 so we should never extend beyond the limits of travel.
 
-Once the paper has been used, press the Force sensor button to stop everything. 
+In the next step, we will activate the motor that feeds the paper through your plotter.
+--- save ---
 
-![A photo of a piece of paper which on which the plotter has draw a green trace](images/paper.JPG)
---- /task ---
