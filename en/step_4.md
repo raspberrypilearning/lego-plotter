@@ -74,5 +74,6 @@ In the opposite (negative y) direction, the limit to movement is set by the ligh
 Because of the nature of the code and it's parameters, we need to keep these values between -180 and 180 so we should never extend beyond the limits of travel.
 
 In the next step, we will activate the motor that feeds the paper through your plotter.
+
 --- save ---
 
