@@ -1,12 +1,12 @@
 ## Paper feeding
 
-These are the final touches need to make a usable, controllable paper plotter. We will now program the second motor to feed paper through the plotter at a constant rate.
+We will now program the second motor to feed paper through the plotter at a constant rate.
 
 --- task ---
 
 Feed a sheet of A5 paper (or cut up some scrap to about this size) underneath the small wheels from behind.
 
---- /task --
+--- /task ---
 
 --- task ---
 
