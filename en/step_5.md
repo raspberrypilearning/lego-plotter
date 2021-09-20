@@ -3,14 +3,19 @@
 These are the final touches need to make a usable, controllable paper plotter. We will now program the second motor to feed paper through the plotter at a constant rate.
 
 --- task ---
+
 Feed a sheet of A5 paper (or cut up some scrap to about this size) underneath the small wheels from behind.
+
 --- /task --
 
 --- task ---
+
 Plug the rear Technic motor (which drives these wheels) into port B on the BuildHAT. 
+
 --- /task ---
 
 --- task ---
+
 Create a shortcut variable called `motor_x` for this motor, below the similar line for `motor_y`:
 
 --- code ---
@@ -30,6 +35,7 @@ motor_y.run_to_position(0, 100)
 --- /task ---
 
 --- task ---
+
 Add a line to start this motor turning immediately before the `while True` loop:
 
 --- code ---
