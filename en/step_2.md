@@ -154,11 +154,13 @@ while True:
 Now we have some data, we can use this to control the position of a motor.
 
 --- task ---
+
 Connect a LEGO Technic motor to port A on the Build HAT. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning. 
 
 --- /task ---
 
 --- task ---
+
 Line up the element with the line mark on the motor and then set the motor to the zero position:
 
 ![A photo of a LEGO technic motor showing the lollipop and zero labels used to set the encoder to 0 degrees](images/zero.JPG)
@@ -237,6 +239,8 @@ while True:
     sleep(0.1)
 
 --- /code ---
+
+--- /task ---
 
 ![A movie clip showing a LEGO motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor only turns between 0 and 180 degrees, travelling clockwise and anti-clockwise ](images/motor_180.gif)
 
