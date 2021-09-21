@@ -1,9 +1,9 @@
 ## Moving the motors with data
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-You may have seen in earthquake disaster movies where a <span style="color: #0faeb0">[seismometer](https://en.wikipedia.org/wiki/Seismometer) </span> is used to show the impending tremors. 
+You may have seen in earthquake disaster movies where a <span style="color: #0faeb0">[seismometer](https://en.wikipedia.org/wiki/Seismometer) </span> is used to show the the tremors. 
 
-The design of such devices is quite simple: one motor is used to move the paper across the pen (the x-axis) while another at right angles to the first, moves the pen up and down in response to the changing data (y-axis). </p>
+The design of such devices is quite simple: one motor is used to move the paper across the pen (the x-axis) while another, at right angles to the first, in response to the changing data (y-axis). </p>
 
 In this project you will create a plotter from LEGO, and connect it to your Raspberry Pi so it can plot real-time data.
 
@@ -39,7 +39,7 @@ Save this program as `plotter.py` by pressing `Ctrl + s`.
 
 --- task ---
 
-Now use the `randint` function to create a random value between a pre-defined range (in this case -180 to 180) and store it in a variable:
+Now use the `randint` function to create a random value between a range (in this case -180 to 180) and store it in a variable called `sensor_data`:
 
 --- code ---
 ---
@@ -111,7 +111,6 @@ while True:
 
 At the end of your code, press Enter to add another indented line. On this line type `sleep(0.1)`.
 
-
 --- code ---
 ---
 language: python
@@ -131,7 +130,7 @@ while True:
 
 --- task ---
 
-Your modified program should look this this:
+Run your code to see the values printed in the shell. If you have any errors, check that your code looks like this:
 
 --- code ---
 ---
@@ -152,10 +151,10 @@ while True:
 
 --- /task ---
 
-Now we have some reliable data, we can use this to control the position of a motor.
+Now we have some data, we can use this to control the position of a motor.
 
 --- task ---
-Connect a LEGO Technic motor to port A on the Build HAT. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning (a ling straight piece works well as a pointer). 
+Connect a LEGO Technic motor to port A on the Build HAT. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning. 
 
 --- /task ---
 
@@ -172,29 +171,50 @@ To do this, we need to set up our motor to be accessed in the program.
 
 --- task ---
 
-Add two new lines above your `while True:` loop by pressing Enter twice.
+Create a `motor_y` object for port `A` on the Build HAT and then turn the motor to the `0` position with a speed of `100`
+
+--- code ---
+---
+language: python
+filename: plotter.py
+line_numbers: true
+line_number_start: 4
+line_highlights: 5, 6
+---
+
+motor_y = Motor('A')
+motor_y.run_to_position(0, 100)
+
+--- /code ---
 
 --- /task ---
 
 --- task ---
 
-On the first new line enter `motor_y = Motor('A')` - this tells the computer there is a motor connected to port A.
+The next line makes the motor turn to the angle stored in `sensor_data`.
+
+--- code ---
+---
+language: python
+filename: plotter.py
+line_numbers: true
+line_number_start: 7
+line_highlights: 11
+---
+
+while True:
+    sensor_data = randint(-180,180)
+    print(sensor_data)
+    motor_y.run_to_position(sensor_data, 100)
+--- /code ---
 
 --- /task ---
 
 --- task ---
 
-On the line beneath this type `motor_y.run_to_position(0, 100)` to make sure the motor resets to 0 when you run the script. The two numbers in this command represent the position to turn to, and the speed at which to turn.
+Click **Run** and you should see your motor spin clockwise to different positions in response to the changing data. If you run the program again it should reset the motor position back to `0` before moving randomly again. 
 
---- /task ---
-
---- task ---
-
-The final line of code required makes the motor turn to the angle generated each loop. Above your last line of code, press Enter to create a new line and add `motor_y.run_to_position(0, 100)` 
-
---- /task ---
-
-Your final script should look like this: 
+If you have errors then check your code looks like this.
 
 --- code ---
 ---
@@ -218,12 +238,6 @@ while True:
 
 --- /code ---
 
---- task ---
-
-Click **Run** and you should see your motor spin clockwise to different positions in response to the changing data. If you run the program again it should initially reset the motor position back to 0 before following the simulated data values. 
-
 ![A movie clip showing a LEGO motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor only turns between 0 and 180 degrees, travelling clockwise and anti-clockwise ](images/motor_180.gif)
 
---- /task ---
-
-In the next step we will stop our plotter motor from doing full circles, as this will break the machine we are building. 
+--- save ---
