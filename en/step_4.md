@@ -1,6 +1,6 @@
 ## Building the plotter
 
-In this step you will build a simple x/y plotter using LEGO. 
+In this step you will build an x/y plotter using LEGO. 
 
 There are plenty of ways you could do this, but the build instructions for the LEGO Spike Prime *Track Your Parcels* project are a great starting point. You can use the motor from the previous step for the y-axis motor (the one holding the pen) in the build. 
 
@@ -59,21 +59,11 @@ This should centre or *zero* your motor.
 --- /task ---
 
 --- task ---
-Adjust the position of your arm by gently pushing the toothed bar to the middle of its travel, without moving the cog. It may click a few times, this is fine.
+Adjust the position of your arm by gently pushing the toothed bar to the middle of its travel, so that the pencil or pen lines up with the other motor.
 
-In the positive y direction, you need to make sure that enough of the toothed bar remains in contact with the black cog on which it sits. 
-
-![A close-up photo of part of the LEGO plotter showing an arrow pointing at the toothed bar which is touching the black cog on which it sits.](images/motion_limit2.JPG)
+![the pencil is central to the housing, in line with the motor used to drive the paper feeder](images/pencil_lined_up.jpg)
 
 --- /task ---
-
-In the opposite (negative y) direction, the limit to movement is set by the light blue bar that sits below the pen.
-
-![A close-up photo of part of the LEGO plotter showing an arrow the blue element which prevents the pen arm from moving too far.](images/motion_limit1.JPG)
-
-Because of the nature of the code and it's parameters, we need to keep these values between -180 and 180 so we should never extend beyond the limits of travel.
-
-In the next step, we will activate the motor that feeds the paper through your plotter.
 
 --- save ---
 
