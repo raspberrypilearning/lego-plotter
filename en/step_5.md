@@ -6,6 +6,8 @@ We will now program the second motor to feed paper through the plotter at a cons
 
 Feed a sheet of A5 paper (or cut up some scrap to about this size) underneath the small wheels from behind.
 
+![paper has been fed in from the back of the plotter, so that the pencil tip rests on the leading edge](imgaes/paper_in.jpg)
+
 --- /task ---
 
 --- task ---
@@ -16,7 +18,7 @@ Plug the rear Technic motor (which drives these wheels) into port B on the Build
 
 --- task ---
 
-Create a shortcut variable called `motor_x` for this motor, below the similar line for `motor_y`:
+Create an object called `motor_x` for this motor, below the similar line for `motor_y`:
 
 --- code ---
 ---
@@ -57,7 +59,21 @@ motor_x.start(-20)
 
 This will make the feeder motor run at a constant rate of -20 turns per minute when the program starts. Change the number in the brackets to experiment with the speed. 
 
-In the next step, we will make a button that can turn the plotter off. 
+--- task ---
+
+Run your code and watch the paper being fed through the plotter, as the pencil moves randomly in the `y` direction.
+
+![animation showing the paper being fed through the plotter while the pencil moves randomly along the y axis](images/feeding_paper.gif)
+
+--- /task ---
+
+To stop the motor feeding the paper, you can type the following into the **Shell** 
+
+```python
+>>> from buildhat import Motor
+>>> motor_x = Motor('B')
+>>> motor_x.stop()
+```
 
 --- save ---
 
