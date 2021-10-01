@@ -23,33 +23,13 @@ So for example `motor_y.run_to_position(50,100,direction="anticlockwise")` will 
 
 It is possible to add a **conditional check** to your loop to ensure that the motor never passes through 180 degrees and always moves from a higher angle to a lower one by turning in an anti-clockwise direction.
 
-We will store the last position in a variable at the end of the loop and use that at the start of loop to see if the new position is greater or smaller than the preceding one, then choose the right direction to travel to avoid breaking the plotter arm.
+We can find the last position of the motor, by using `motor_y.get_aposition`.
 
 --- /collapse ---
 
 --- task ---
 
-Add a new variable called `last_value` to your code, and set it to `0`.
-
---- code ---
----
-language: python
-filename: plotter.py
-line_numbers: true
-line_number_start: 4
-line_highlights: 7
----
-
-motor_y = Motor('A')
-motor_y.run_to_position(0, 100)
-last_value = 0
---- /code ---
-
---- /task ---
-
---- task ---
-
-Now into the `while` you can add a check to see if the current value of `sensor_data` is greater or less than the `last_value`.
+Check for the motor's current angle at the top of your `while` loop.
 
 --- code ---
 ---
@@ -57,17 +37,13 @@ language: python
 filename: plotter.py
 line_numbers: true
 line_number_start: 7
-line_highlights: 12, 13, 14, 15
+line_highlights: 8
 ---
-last_value = 0
-
 while True:
-    sensor_data = randint(-180, 180)
+    current_angle = motor_y.get_aposition()
+    sensor_data = randint(-180,180)
     print(sensor_data)
-    if sensor_data < last_value:
-        motor_y.run_to_position(sensor_data, 100, direction="anticlockwise") # move anti-clockwise
-    else:
-        motor_y.run_to_position(sensor_data, 100, direction="clockwise") # move clockwise
+    motor_y.run_to_position(sensor_data, 100)
     sleep(0.1)
 --- /code ---
 
@@ -75,7 +51,7 @@ while True:
 
 --- task ---
 
-Then after the check, `last_value` can be set to be the same as `sensor_data`
+Now in the `while` loop you can add a check to see if the current value of `sensor_data` is greater or less than the `current_angle`.
 
 --- code ---
 ---
@@ -83,19 +59,18 @@ language: python
 filename: plotter.py
 line_numbers: true
 line_number_start: 7
-line_highlights: 14, 17 
+line_highlights: 11-16
 ---
-last_value = 0
-
 while True:
+    current_angle = motor_y.get_aposition()
     sensor_data = randint(-180, 180)
     print(sensor_data)
-    if sensor_data < last_value:
-        motor_y.run_to_position(sensor_data, 100, direction="anticlockwise") # move anti-clockwise
-        last_value = sensor_data
-    else:
-        motor_y.run_to_position(sensor_data, 100, direction="clockwise") # move clockwise
-        last_value = sensor_data
+    if sensor_data > current_angle:
+        motor_y.run_to_position(new_angle, 100, direction="clockwise")
+        print('Turning CW')
+    elif new_angle < current_angle:
+        motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
+        print('Turning ACW')
     sleep(0.1)
 --- /code ---
 

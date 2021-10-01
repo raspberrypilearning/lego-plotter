@@ -75,7 +75,7 @@ from vcgencmd import Vcgencmd
 --- /task ---
 
 --- task ---
-create a vcgencmd instance:
+Create a vcgencmd object:
 
 --- code ---
 ---
@@ -83,18 +83,20 @@ language: python
 filename: plotter.py
 line_numbers: true
 line_number_start: 1
-line_highlights: 10
+line_highlights: 9
 ---
 from random import randint
 from time import sleep
 from buildhat import Motor, ForceSensor
+from vcgencmd import Vcgencmd
 
 motor_y = Motor('A')
 motor_x = Motor('B')
 button = ForceSensor('C')
-motor_y.run_to_position(0,100)
-motor_x.start(-20)
 vcgm = Vcgencmd()
+
+motor_y.run_to_position(0,100)
+motor_x.start(-25)
 --- /code ---
 
 --- /task ---
@@ -103,50 +105,66 @@ vcgm = Vcgencmd()
 
 Change the program so that it uses real-time temperature values rather than randomly generated numbers. To do this we need to replace `randint(-180, 180)` with `vcgm.measure_temp()`.
 
-Because the `run_to_position()` function takes only **integer** values for the desired angular position, you need to convert the real values returned by `measure_temp()` into an **integer** using `int()`:
-
 --- code ---
 ---
 language: python
 filename: plotter.py
 line_numbers: true
-line_number_start: 14
-line_highlights: 15
+line_number_start: 15
+line_highlights: 16
 ---
 while not button.is_pressed():
-    sensor_data = int(vcgm.measure_temp())
-    print(sensor_data)
+    temp = vcgm.measure_temp()
+    current_angle = motor_y.get_aposition()
 --- /code ---
 
 --- /task ---
 
 Before you can use the temperature of the Raspberry Pi's CPU as a data source for you plotter, you want to make sure that the maximum possible value that will be produced by the data source will be mathematically converted so that it fits on a scale between -180 and 180. 
 
-The range of temperature values produced by `vcgencmd` should be from around 50 degrees C (when the Raspberry Pi is on but not doing very much) to less than 90 degrees C when working hard (at 85 degrees C the Raspberry Pi will throttle its performance to keep the temperature below this value). Let's say we want to plot a range from 40 degrees C to 90 degrees C - we need to map this to our available values: -180 to 180.
+The range of temperature values produced by `vcgencmd` should be from around 50°C (when the Raspberry Pi is on but not doing very much) to less than 90°C when working hard (at 85°C the Raspberry Pi will throttle its performance to keep the temperature below this value). Let's say we want to plot a range from 40 degrees C to 90°C - we need to map this to our available values: -180 to 180.
 
-[image of compared scales](/images/en/scales.png)
-
-We can see here that each degree on our scale will be 7.2 degrees on our motors. 
+We can create a funtction to remap one range of values to another range of values.
 
 --- task ---
-Add a scaling factor variable to your plotter.py program so that every change in temperature of 1 degree C causes 7 degrees of movement of the motor.
+Add this function above your `while` loop, which will take a temperature range and an angle range and then remap the temperature into an angle.
 
-```python
-scaling_factor = 7.2
-```
+--- code ---
+---
+language: python
+filename: plotter.py
+line_numbers: true
+line_number_start: 12
+line_highlights: 13
+---
+def remap(min_temp, max_temp, min_angle, max_angle, temp):
+    temp_range = (max_temp - min_temp)
+    motor_range = (max_angle - min_angle)
+    mapped = (((temp - min_temp) * motor_range) / temp_range) + min_angle
+    return int(mapped)
+--- /code ---
 
-And the two lines that move the motor either clockwise or anticlockwise should become:
+Now in the `while` loop you can use this function to calculate a new angle for the motor to turn to.
 
-```python
-motor_y.run_to_position((sensor_data*scaling_factor)-500, 100, direction="anticlockwise")
-```
-and
-```python
-motor_y.run_to_position((sensor_data*scaling_factor)-500, 100, direction="clockwise")
-```
+--- code ---
+---
+language: python
+filename: plotter.py
+line_numbers: true
+line_number_start: 21
+line_highlights: 24
+---
+while not button.is_pressed():
+    temp = vcgm.measure_temp()
+    current_angle = motor_y.get_aposition()
+    new_angle = remap(50, 90, -170, 170, temp)
+--- /code ---
 
 --- /task ---
 
-Now you can run your program. Make the Raspberry Pi CPU get warmer like you did before and you should see the pen gradually move upwards.
+Now you can run your program. Make the Raspberry Pi CPU get warmer like you did before and you should see the pen gradually move upwards. Feel free to change the `min_temp` and `max_temp` parameters, if your pen isn't moving too much.
+
+![animation showing the paper moving through the plotter while the pen moves and draws a moving line](images/plotter_demo_2.gif)
+
 
 --- save ---

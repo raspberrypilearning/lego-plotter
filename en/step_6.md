@@ -11,6 +11,7 @@ The LEGO Force sensor can act as a simple button. Connect one to port C on your 
 --- /task ---
 
 --- task ---
+
 Edit your `plotter.py` program to include button control. To the end of the line which says `from buildhat import Motor` add a comma followed by `ForceSensor` (making sure you get **both** capital letters!):
 
 --- code ---
@@ -30,7 +31,7 @@ from buildhat import Motor, ForceSensor
 
 --- task ---
 
-Add this line to set up a shortcut variable for the button after the similar lines for the motors:
+Add this line to create an object for the button after the similar lines for the motors:
 
 --- code ---
 ---
@@ -44,7 +45,7 @@ motor_y = Motor('A')
 motor_x = Motor('B')
 button = ForceSensor('C')
 motor_y.run_to_position(0, 100)
-motor_x.start(-20)
+motor_x.start(-25)
 
 --- /code ---
 
@@ -54,27 +55,40 @@ motor_x.start(-20)
 
 Change your main loop from `while True` to:
 
-```python
+--- code ---
+---
+language: python
+filename: plotter.py
+line_numbers: true
+line_number_start: 13
+line_highlights: 
+---
 while not button.is_pressed():
-```
+    current_angle = motor_y.get_aposition()
+    sensor_data = randint(-180, 180)
+--- /code ---
+
 --- /task ---
 
 --- task ---
 
-Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines after - and outside of -  the main loop
+Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines at the end of you program
 
 --- code ---
 ---
 language: python
 filename: plotter.py
 line_numbers: true
-line_number_start: 24
+line_number_start: 19
+line_highlights: 24-26
 ---
-
-motor_y.run_to_position(0,100)
-motor_y.stop()
+    elif new_angle < current_angle:
+        motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
+        print('Turning ACW')
+    sleep(0.1)
+    
 motor_x.stop()
-
+motor_y.run_to_position(0, 100)
 --- /code ---
 
 --- /task ---
@@ -88,34 +102,33 @@ filename: plotter.py
 line_numbers: true
 line_number_start: 1
 ---
+#!/usr/bin/python3
 from random import randint
 from time import sleep
 from buildhat import Motor, ForceSensor
 
+button = ForceSensor('C')
 motor_y = Motor('A')
 motor_x = Motor('B')
-button = ForceSensor('C')
-motor_y.run_to_position(0,100)
-motor_x.start(-20)
-last_value=0
+
+motor_y.run_to_position(0, 100)
+motor_x.start(speed=-25)
 
 while not button.is_pressed():
-    sensor_data = int(vcgm.measure_temp()-40)
-    print(sensor_data)
-    if sensor_data < last_value:
-        motor_y.run_to_position(sensor_data, 100, direction="anticlockwise")
-        last_value = sensor_data
-    else:
-        motor_y.run_to_position(sensor_data, 100, direction="clockwise")
-        last_value = sensor_data
+    current_angle = motor_y.get_aposition()
+    sensor_data = randint(-180, 180)
+    if sensor_data > current_angle:
+        motor_y.run_to_position(new_angle, 100, direction="clockwise")
+        print('Turning CW')
+    elif sensor_data < current_angle:
+        motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
+        print('Turning ACW')
     sleep(0.1)
     
-motor_y.run_to_position(0,100)
-motor_y.stop()
 motor_x.stop()
+motor_y.run_to_position(0, 100)
 
 --- /code ---
-
 
 --- task ---
 

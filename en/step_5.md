@@ -51,7 +51,7 @@ line_highlights: 8
 motor_y = Motor('A')
 motor_x = Motor('B')
 motor_y.run_to_position(0, 100)
-motor_x.start(-20)
+motor_x.start(-25)
 
 --- /code ---
 
