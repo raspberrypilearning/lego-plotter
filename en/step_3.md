@@ -1,19 +1,19 @@
 ## Creating a plot range
 
-You need to be able to control the direction the motors move in - clockwise or anti-clockwise.
+You need to be able to control the direction the motors move in — clockwise or anti-clockwise.
 
 --- collapse ---
 ---
-title: Why we need to change the way the motors move.
+title: Why you need to change the way the motors move
 ---
 
 Your motor will always take the shortest path to the new position. 
 
-For example; if the motor is at 170 degrees and the next position is -170 degrees, it will travel in a clockwise direction, passing through the 180 degree position in order to get to its destination as quickly as possible. 
+For example, if the motor is at 170 degrees and the next position is -170 degrees, it will travel in a clockwise direction, passing through the 180 degree position in order to get to its destination as quickly as possible. 
 
-![A movie clip showing a LEGO motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor  turns through a full 360 degrees, travelling clockwise and anti-clockwise and sometimes passing through the zero position in either direction.](images/motor_through_zero.gif)
+![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam is rotating like a clock hand in response to the data. The motor turns through a full 360 degrees, travelling clockwise and anti-clockwise, and sometimes passing through the zero position in either direction.](images/motor_through_zero.gif)
 
-This is fine for our simulation, but our plotter will not have this freedom of movement. Once the pen has reached the top or bottom of the paper (y-axis) it cannot continue to travel up to emerge at the bottom - it will break. So your plotter will always need to be prevented from travelling clockwise past the 180 degree mark.
+This is fine for our simulation, but our plotter will not have this freedom of movement. Once the pen has reached the top or bottom of the paper (y-axis), it cannot continue to travel up to emerge at the bottom - it will break. So your plotter will always need to be prevented from travelling clockwise past the 180 degree mark.
 
 This can be achieved by altering the behaviour of the motor when moving to a position. By passing an additional `direction=` parameter to the `run_to_position()` function. You can set this value to `"clockwise"`, `"anticlockwise"` or `"shortest"`, which is the default 'shortest path' behaviour).
 
