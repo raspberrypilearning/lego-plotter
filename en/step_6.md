@@ -4,15 +4,15 @@ To stop and start the plotter running, you can add a button to your build.
 
 --- task ---
 
-The LEGO Force sensor can act as a simple button. Connect one to port C on your BuildHAT.
+The LEGO® SPIKE™ Prime Force Sensor can act as a simple button. Connect one to port C on your Build HAT.
 
-![A close-up photo of part of the LEGO plotter that a LEGO force sensor has been added.](images/force.jpg)
+![A close-up photo of part of the LEGO® plotter where the force sensor has been added.](images/force.jpg)
 
 --- /task ---
 
 --- task ---
 
-Edit your `plotter.py` program to include button control. To the end of the line which says `from buildhat import Motor` add a comma followed by `ForceSensor` (making sure you get **both** capital letters!):
+Edit your `plotter.py` program to include a button control. Add a comma followed by `ForceSensor` (making sure you include **both** capital letters!) to the end of the line that says `from buildhat import Motor`:
 
 --- code ---
 ---
@@ -72,7 +72,7 @@ while not button.is_pressed():
 
 --- task ---
 
-Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines at the end of you program
+Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines at the end of your program.
 
 --- code ---
 ---
@@ -144,10 +144,10 @@ Start the program in Thonny, and watch as the pen plots your random data on your
 
 --- task ---
 
-Once the paper has been used, press the Force sensor button to stop everything. 
+Once the paper has been used, press the Force Sensor button to stop everything. 
 
 --- /task ---
 
-![A photo of a piece of paper which on which the plotter has draw a green trace](images/paper.JPG)
+![A photo of a piece of paper, on which the plotter has draw a green trace.](images/paper.JPG)
 
-In the next step you will use a real-time data source for your input data! 
+In the next step, you will use a real-time data source for your input data! 
