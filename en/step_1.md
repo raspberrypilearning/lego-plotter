@@ -25,9 +25,7 @@ Use LEGO® and the Raspberry Pi Build HAT to create a data plotter.
 + A Raspberry Pi computer
 + A Raspberry Pi Build HAT
 + Two LEGO® Technic™ motors
-+ A LEGO® SPIKE™ force sensor 
-OR
-+ A push button, breadboard, and jumper wires
++ A LEGO® SPIKE™ force sensor OR a push button, breadboard, and jumper wires
 + Assortment of LEGO®, including two small wheels (we used a selection from the [LEGO® Education SPIKE™ Prime
  kit](https://education.lego.com/en-gb/product/spike-prime))
 + A 7.5V power supply with a barrel jack (you could instead use a battery pack, but make sure that all cells are fully charged) 
@@ -44,7 +42,7 @@ OR
 
 --- collapse ---
 ---
-title: Installing the Vcgencmd python library
+title: Install the Vcgencmd python library
 ---
 Make sure you are connected to the internet.
 
