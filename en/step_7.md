@@ -20,7 +20,7 @@ Wait for the confirmation message (it won't take long), then close the terminal 
 
 --- task ---
 
-Using the Shell/REPL in Thonny, enter the following lines of Python to test and read the CPU temperature.
+Using the **Shell/REPL** in Thonny, enter the following lines of Python to test and read the CPU temperature.
 
 ```python
 >>> from vcgencmd import Vcgencmd
@@ -39,7 +39,7 @@ Type:
 ```
 Press <kbd>Enter</kbd>.
 
-You should see the Shell return a number value (it should be somewhere around 50) — this is how hot your CPU is running.
+You should see the **Shell** return a number value (it should be somewhere around 50) — this is how hot your CPU is running.
 
 --- /task ---
 
@@ -124,7 +124,7 @@ Before you can use the temperature of the Raspberry Pi's CPU as a data source fo
 
 The range of temperature values produced by `vcgencmd` should be from around 50°C (when the Raspberry Pi is on, but not doing very much) to less than 90°C when working hard (at 85°C, the Raspberry Pi will throttle its performance to keep the temperature below this value). Let's say you want to plot a range from 40°C to 90°C — you need to map this to your available values: -180 to 180.
 
-You can create a funtction to remap one range of values to another range of values.
+You can create a function to remap one range of values to another range of values.
 
 --- task ---
 Add this function above your `while` loop. It will take a temperature range and an angle range, and then remap the temperature into an angle.
