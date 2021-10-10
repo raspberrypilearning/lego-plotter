@@ -7,9 +7,9 @@ copyedit: false
 last_tested: "2020-10-27"
 steps:
   - title: Introduction
-  - title: Moving the motors with data
-  - title: Creating a plot range
-  - title: Building the plotter
+  - title: Move the motors with data
+  - title: Create a plot range
+  - title: Build the plotter
   - title: Paper feeding
   - title: Button control
   - title: Adding a real-time data source
