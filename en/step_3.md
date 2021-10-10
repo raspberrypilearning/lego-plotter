@@ -1,4 +1,4 @@
-## Creating a plot range
+## Create a plot range
 
 You need to be able to control the direction the motors move in — clockwise or anti-clockwise.
 
