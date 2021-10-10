@@ -25,7 +25,7 @@ Use LEGO® and the Raspberry Pi Build HAT to create a data plotter.
 + A Raspberry Pi computer
 + A Raspberry Pi Build HAT
 + Two LEGO® Technic™ motors
-+ A LEGO® SPIKE™ force sensor OR a push button, breadboard, and jumper wires
++ A LEGO® SPIKE™ Force Sensor OR a push button, breadboard, and jumper wires
 + Assortment of LEGO®, including two small wheels (we used a selection from the [LEGO® Education SPIKE™ Prime
  kit](https://education.lego.com/en-gb/product/spike-prime))
 + A 7.5V power supply with a barrel jack (you could instead use a battery pack, but make sure that all cells are fully charged) 
@@ -37,8 +37,8 @@ Use LEGO® and the Raspberry Pi Build HAT to create a data plotter.
 
 ### Downloads
 
-+ [LEGO® SPIKE™ Prime building instructions: Track your parcels 1/2](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf)
-+ [LEGO® SPIKE™ Prime building instructions: Track your parcels 2/2](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf)
++ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (1/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf)
++ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (2/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf)
 
 --- collapse ---
 ---
