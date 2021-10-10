@@ -2,7 +2,7 @@
 
 + Add a LEGO® Technic™ Color Sensor to detect when the paper has run out.
 
-+ Modify the LEGO® Technic™ Force Fensor code so that the speed of the motor controlling the paper feed is increased by increasing the pressure on the sensor.
++ Modify the LEGO® Technic™ Force Sensor code so that the speed of the motor controlling the paper feed is increased by increasing the pressure on the sensor.
 
 + Add other data sources. You could use another external sensor or a feed for an online data stream. 
 
