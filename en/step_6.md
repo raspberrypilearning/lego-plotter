@@ -132,7 +132,7 @@ motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Feed a piece of paper from the back of the plotter so that one short edge is just beyond the pen.
+Feed a piece of paper from the back of the plotter so that the front short edge is just beyond the pen.
 
 --- /task ---
 
