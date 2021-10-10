@@ -34,9 +34,9 @@ Your program currently allows the motor to move through its full range of motion
 
 --- task ---
 
-Click into the Shell pane of Thonny (the window beneath the code) so that you can execute Python one line at a time. 
+Click into the **Shell pane** of Thonny (the window beneath the code) so that you can execute Python one line at a time. 
 
-Enter these lines into the shell (you can just copy and paste them from your program above) pressing <kbd>Enter</kbd> between each one:
+Enter these lines into the **Shell** (you can just copy and paste them from your program above) pressing <kbd>Enter</kbd> between each one:
 
 ```python
 >>> from buildhat import Motor
