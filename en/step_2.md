@@ -1,9 +1,9 @@
-## Moving the motors with data
+## Move the motors with data
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
 You may have seen in earthquake disaster movies a scene where a <span style="color: #0faeb0">[seismometer](https://en.wikipedia.org/wiki/Seismometer) </span> is used to show the tremors. 
 
-The design of such devices is quite simple: one motor is used to move the paper across the pen (the x-axis) while another, at a right-angle to the first, moves in response to the changing data (y-axis). </p>
+The design of such devices is quite simple: one motor is used to move the paper past the pen (the x-axis), while another, at a right-angle to the first, moves the pen in response to the changing data (y-axis). </p>
 
 In this project, you will create a plotter from LEGO®, and connect it to your Raspberry Pi so it can plot real-time data.
 
@@ -11,7 +11,7 @@ In this project, you will create a plotter from LEGO®, and connect it to your R
 
 Connect a monitor, keyboard, and mouse to your Raspberry Pi. If you've never used a Raspberry Pi before, you might want to start with [this project](https://learning-admin.raspberrypi.org/en/projects/raspberry-pi-getting-started).
 
-Attach the Build HAT to your Raspberry Pi (making sure you can see the Raspberry Pi logo on the top) and connect a 7.5V power supply to the barrel jack of the Build HAT. This will boot your Raspberry Pi.
+Attach the Build HAT to your Raspberry Pi (make sure you can see the Raspberry Pi logo on the top) and connect a 7.5V power supply to the barrel jack of the Build HAT. This will boot your Raspberry Pi.
 
 --- /task ---
 
