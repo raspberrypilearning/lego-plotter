@@ -1,6 +1,6 @@
 ## Create a plot range
 
-You need to be able to control the direction the motors move in — clockwise or anti-clockwise.
+In this step we will control the direction in which the motors move (clockwise or anti-clockwise) to set a maximum point of travel in each direction. 
 
 --- collapse ---
 ---
@@ -41,9 +41,9 @@ line_highlights: 8
 ---
 while True:
     current_angle = motor_y.get_aposition()
-    sensor_data = randint(-180, 180)
-    print(sensor_data)
-    motor_y.run_to_position(sensor_data, 100)
+    new_angle = randint(-180, 180)
+    print(new_angle)
+    motor_y.run_to_position(new_angle, 100)
     sleep(0.1)
 --- /code ---
 
@@ -51,7 +51,7 @@ while True:
 
 --- task ---
 
-Now, in the `while` loop, you can add a check to see if the current value of `sensor_data` is greater or less than the `current_angle`.
+Now, in the `while` loop, you can add a check to see if the current value of `new_angle` is greater or less than the `current_angle`.
 
 --- code ---
 ---
@@ -63,9 +63,9 @@ line_highlights: 11-16
 ---
 while True:
     current_angle = motor_y.get_aposition()
-    sensor_data = randint(-180, 180)
-    print(sensor_data)
-    if sensor_data > current_angle:
+    new_angle = randint(-180, 180)
+    print(new_angle)
+    if new_angle > current_angle:
         motor_y.run_to_position(new_angle, 100, direction="clockwise")
         print('Turning CW')
     elif new_angle < current_angle:
