@@ -151,3 +151,5 @@ Once the paper has been used, press the Force Sensor button to stop everything.
 ![A photo of a piece of paper, on which the plotter has draw a green trace.](images/paper.JPG)
 
 In the next step, you will use a real-time data source for your input data! 
+
+--- save ---
