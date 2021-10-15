@@ -1,51 +1,59 @@
 ## Introduction
 
-Add project description here. What will learners be making? Broadly what skills will they be learning?
+Use LEGO® and the Raspberry Pi Build HAT to create a data plotter. 
 
 ### What you will make
 
 --- no-print ---
-Add instructions for interacting with the embedded content here.
 
-<div class="scratch-preview">
-  <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/160619869/?autostart=false" frameborder="0"></iframe>
-</div>
+![A movie showing the LEGO® plotter in action. A piece of paper is being fed out of the machine with a green signal being traced out by a pen.](images/plotter_demo.gif)
+
 --- /no-print ---
 
 --- print-only ---
-![Complete project](images/showcase_static.png)
+![A photo of the completed plotter project.](images/completed.jpg)
 --- /print-only ---
 
---- collapse ---
----
-title: What you will need
----
+### What you will learn
+
++ How to calculate angles of rotation
++ How to map data ranges onto appropriate scales for visualisation
++ How to use conditional statements (if/else)
+
 ### Hardware
 
-+ A computer or tablet capable of running Scratch 3
++ A Raspberry Pi computer
++ A Raspberry Pi Build HAT
++ Two LEGO® Technic™ motors
++ A LEGO® SPIKE™ Force Sensor OR a push button, breadboard, and jumper wires
++ Assortment of LEGO®, including two small wheels (we used a selection from the [LEGO® Education SPIKE™ Prime
+ kit](https://education.lego.com/en-gb/product/spike-prime))
++ A 7.5V power supply with a barrel jack (you could instead use a battery pack, but make sure that all cells are fully charged) 
 
 ### Software
 
-+ Scratch 3 (either [online](https://scratch.mit.edu/){:target="_blank"} or [offline](https://scratch.mit.edu/download){:target="_blank"})
 + Python 3
-+ This project can be completed in a web browser using [trinket.io](https://trinket.io/)
++ The Vcgencmd Python3 library
 
 ### Downloads
 
-+ Download the project [starter file](http://rpf.io/p/en/projectName-go){:target="_blank"} if working offline
-
---- /collapse ---
++ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (1/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf){:target="_blank"}
++ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (2/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf){:target="_blank"}
++ [Finished script for Lego Plotter](http://rpf.io/p/en/lego-plotter-go){:target="_blank"}
 
 --- collapse ---
 ---
-title: What you will learn
+title: Install the Vcgencmd python library
 ---
+Make sure you are connected to the internet.
 
-+ Learning objective 1
-+ Learning objective 2
-+ Learning objective 3
+Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
 
---- /collapse ---
+At the prompt type: `pip3 install vcgencmd` and press <kbd>Enter</kbd>.
+ 
+Wait for the confirmation message (it won't take long) then close the terminal window.
+
+--- /collapse --- 
 
 --- collapse ---
 ---
