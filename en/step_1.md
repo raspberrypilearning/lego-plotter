@@ -97,6 +97,16 @@ If you have not already done so, set up your Raspberry Pi by following these ins
 --- /task ---
 
 --- task ---
+
+Once the Raspberry Pi has booted, open the Raspberry Pi Configuration tool by clicking on the Raspberry Menu button and then selecting “Preferences” and then “Raspberry Pi Configuration”.
+
+Click on the “interfaces” tab and adjust the Serial settings as shown below:
+
+![Image showing Raspberry Pi OS config screen with serial port enabled and serial console disabled](images/configshot.jpg)
+
+--- /task ---
+
+--- task ---
 You will also need to install the buildhat python library by following these instructions: 
 
 --- collapse ---
