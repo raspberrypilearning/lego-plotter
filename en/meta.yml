@@ -2,8 +2,8 @@ title: LEGO® data plotter
 hero_image: images/banner.png
 description: Plot data with pen and paper, using LEGO® and the Build HAT
 version: 4
-listed: false
-copyedit: false
+listed: true
+copyedit: true
 last_tested: "2020-10-27"
 steps:
   - title: Introduction
