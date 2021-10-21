@@ -36,7 +36,10 @@ Check for the motor's current angle at the top of your `while` loop.
 language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 8
 ---
-while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) print(new_angle) motor_y.run_to_position(new_angle, 100) sleep(0.1) --- /code ---
+
+while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) print(new_angle) motor_y.run_to_position(new_angle, 100) sleep(0.1)
+
+--- /code ---
 
 --- /task ---
 
@@ -49,7 +52,10 @@ Now, in the `while` loop, you can add a check to see if the current value of `ne
 language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 11-16
 ---
-while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) print(new_angle) if new_angle > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif new_angle < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1) --- /code ---
+
+while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) print(new_angle) if new_angle > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif new_angle < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
+
+--- /code ---
 
 --- /task ---
 
