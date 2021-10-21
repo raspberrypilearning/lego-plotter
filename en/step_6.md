@@ -22,9 +22,11 @@ line_numbers: true
 line_number_start: 1
 line_highlights: 3
 ---
+
 from random import randint
 from time import sleep
 from buildhat import Motor, ForceSensor
+
 --- /code ---
 
 --- /task ---
@@ -41,6 +43,7 @@ line_numbers: true
 line_number_start: 5
 line_highlights: 7
 ---
+
 motor_y = Motor('A')
 motor_x = Motor('B')
 button = ForceSensor('C')
@@ -63,9 +66,11 @@ line_numbers: true
 line_number_start: 13
 line_highlights: 
 ---
+
 while not button.is_pressed():
     current_angle = motor_y.get_aposition()
     sensor_data = randint(-180, 180)
+
 --- /code ---
 
 --- /task ---
@@ -82,6 +87,7 @@ line_numbers: true
 line_number_start: 19
 line_highlights: 24-26
 ---
+
     elif new_angle < current_angle:
         motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
         print('Turning ACW')
@@ -89,6 +95,7 @@ line_highlights: 24-26
     
 motor_x.stop()
 motor_y.run_to_position(0, 100)
+
 --- /code ---
 
 --- /task ---
@@ -102,6 +109,7 @@ filename: plotter.py
 line_numbers: true
 line_number_start: 1
 ---
+
 #!/usr/bin/python3
 from random import randint
 from time import sleep

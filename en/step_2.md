@@ -27,6 +27,7 @@ line_numbers: true
 line_number_start: 1
 line_highlights: 1,2,3
 ---
+
 from random import randint
 from time import sleep
 from buildhat import Motor
@@ -49,6 +50,7 @@ line_numbers: true
 line_number_start: 5
 line_highlights: 5,6
 ---
+
 sensor_data = randint(-180,180)
 print(sensor_data)
 
@@ -78,6 +80,7 @@ line_numbers: true
 line_number_start: 5
 line_highlights: 5
 ---
+
 while True:
 sensor_data = randint(-180,180)
 print(sensor_data)
@@ -99,6 +102,7 @@ line_numbers: true
 line_number_start: 5
 line_highlights: 6,7
 ---
+
 while True:
     sensor_data = randint(-180,180)
     print(sensor_data)
@@ -119,6 +123,7 @@ line_numbers: true
 line_number_start: 5
 line_highlights: 8
 ---
+
 while True:
     sensor_data = randint(-180,180)
     print(sensor_data)
@@ -139,6 +144,7 @@ filename: plotter.py
 line_numbers: true
 line_number_start: 1
 ---
+
 from random import randint
 from time import sleep
 from buildhat import Motor
@@ -147,6 +153,7 @@ while True:
     sensor_data = randint(-180,180)
     print(sensor_data)
     sleep(0.1)
+
 --- /code ---
 
 --- /task ---
@@ -208,6 +215,7 @@ while True:
     sensor_data = randint(-180,180)
     print(sensor_data)
     motor_y.run_to_position(sensor_data, 100)
+
 --- /code ---
 
 --- /task ---
@@ -225,6 +233,7 @@ filename: plotter.py
 line_numbers: true
 line_number_start: 1
 ---
+
 from random import randint
 from time import sleep
 from buildhat import Motor
