@@ -19,7 +19,10 @@ Edit your `plotter.py` program to include a button control. Add a comma followed
 language: python filename: plotter.py line_numbers: true line_number_start: 1
 line_highlights: 3
 ---
-from random import randint from time import sleep from buildhat import Motor, ForceSensor --- /code ---
+
+from random import randint from time import sleep from buildhat import Motor, ForceSensor
+
+--- /code ---
 
 --- /task ---
 
@@ -32,6 +35,7 @@ Add this line to create an object for the button after the similar lines for the
 language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 7
 ---
+
 motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_to_position(0, 100) motor_x.start(-25)
 
 --- /code ---
@@ -47,7 +51,10 @@ Change your main loop from `while True` to:
 language: python filename: plotter.py line_numbers: true line_number_start: 13
 line_highlights:
 ---
-while not button.is_pressed(): current_angle = motor_y.get_aposition() sensor_data = randint(-180, 180) --- /code ---
+
+while not button.is_pressed(): current_angle = motor_y.get_aposition() sensor_data = randint(-180, 180)
+
+--- /code ---
 
 --- /task ---
 
@@ -66,7 +73,9 @@ line_highlights: 24-26
         print('Turning ACW')
     sleep(0.1)
 
-motor_x.stop() motor_y.run_to_position(0, 100) --- /code ---
+motor_x.stop() motor_y.run_to_position(0, 100)
+
+--- /code ---
 
 --- /task ---
 
@@ -77,6 +86,7 @@ Now you are ready to test your plotter. Your final script should look like this:
 language: python filename: plotter.py line_numbers: true
 line_number_start: 1
 ---
+
 # !/usr/bin/python3
 from random import randint from time import sleep from buildhat import Motor, ForceSensor
 
