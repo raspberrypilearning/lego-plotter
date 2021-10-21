@@ -7,11 +7,13 @@ There are plenty of ways you could do this, but the build instructions for the L
 ![A drawing from the LEGO® instructions.](images/build1.png)
 
 --- task ---
+
 You will need to adapt the build slightly so that the arm is able to hold a pen. Rubber bands are a great way to hold a pen snugly against LEGO.
 
 ![A photo of the partially assembled plotter model, with a pen attached to the LEGO® elements with a rubber band.](images/rubber_bands.jpg)
 
 <embed src="https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+
 --- /task ---
 
 The second part of the build completes the mechanism that uses the two motors to drive the plotter.
@@ -60,6 +62,7 @@ This should centre or **zero** your motor.
 --- /task ---
 
 --- task ---
+
 Adjust the position of your pen arm by gently pushing the toothed bar to the middle of its path, so that the pencil or pen lines up with the other motor.
 
 ![The pencil is central to the housing, in line with the motor used to drive the paper feeder.](images/pencil_lined_up.jpg)
