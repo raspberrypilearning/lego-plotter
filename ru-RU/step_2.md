@@ -24,6 +24,7 @@ Open Thonny from the programming menu, and add the following lines to begin your
 language: python filename: plotter.py line_numbers: true line_number_start: 1
 line_highlights: 1,2,3
 ---
+
 from random import randint from time import sleep from buildhat import Motor
 
 --- /code ---
@@ -41,6 +42,7 @@ Now use the `randint` function to create a random value between a range (in this
 language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 5,6
 ---
+
 sensor_data = randint(-180,180) print(sensor_data)
 
 --- /code ---
@@ -66,6 +68,7 @@ On this new line, enter `while True:`; make sure you have a capital 'T'.
 language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 5
 ---
+
 while True: sensor_data = randint(-180,180) print(sensor_data)
 
 --- /code ---
@@ -82,6 +85,7 @@ Add four spaces to the start of each of the lines beneath to create an **indente
 language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 6,7
 ---
+
 while True: sensor_data = randint(-180,180) print(sensor_data)
 
 --- /code ---
@@ -97,6 +101,7 @@ At the end of your code, press <kbd>Enter</kbd> to add another indented line. On
 language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 8
 ---
+
 while True: sensor_data = randint(-180,180) print(sensor_data) sleep(0.1)
 
 --- /code ---
@@ -112,9 +117,12 @@ Run your code to see the values printed in the shell. If you get any errors, che
 language: python filename: plotter.py line_numbers: true
 line_number_start: 1
 ---
+
 from random import randint from time import sleep from buildhat import Motor
 
-while True: sensor_data = randint(-180,180) print(sensor_data) sleep(0.1) --- /code ---
+while True: sensor_data = randint(-180,180) print(sensor_data) sleep(0.1)
+
+--- /code ---
 
 --- /task ---
 
@@ -164,7 +172,9 @@ language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 11
 ---
 
-while True: sensor_data = randint(-180,180) print(sensor_data) motor_y.run_to_position(sensor_data, 100) --- /code ---
+while True: sensor_data = randint(-180,180) print(sensor_data) motor_y.run_to_position(sensor_data, 100)
+
+--- /code ---
 
 --- /task ---
 
@@ -179,6 +189,7 @@ If you get errors, then check your code looks like this.
 language: python filename: plotter.py line_numbers: true
 line_number_start: 1
 ---
+
 from random import randint from time import sleep from buildhat import Motor
 
 motor_y = Motor('A') motor_y.run_to_position(0, 100)
