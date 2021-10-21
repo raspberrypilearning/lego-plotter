@@ -6,7 +6,7 @@ You will now program the second motor to feed paper through the plotter at a con
 
 Feed a sheet of A5 paper (or cut up some scrap to about this size) underneath the small wheels from behind.
 
-![Paper has been fed in from the back of the plotter, so that the pencil tip rests on the leading edge.](imgaes/paper_in.jpg)
+![Paper has been fed in from the back of the plotter, so that the pencil tip rests on the leading edge.](images/paper_in.jpg)
 
 --- /task ---
 
@@ -25,6 +25,7 @@ Create an object called `motor_x` for this motor, below the similar line for `mo
 language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 6
 ---
+
 motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100)
 
 --- /code ---
@@ -40,6 +41,7 @@ Add a line to start this motor turning immediately before the `while True` loop:
 language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 8
 ---
+
 motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100) motor_x.start(-25)
 
 --- /code ---
