@@ -8,6 +8,7 @@ Let's start with an in-built data source: the temperature of the CPU on the Rasp
 ---
 title: Install the Vcgencmd python library
 ---
+
 Make sure you are connected to the internet.
 
 Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
@@ -62,6 +63,7 @@ First, underneath the existing import lines at the top of the file, add the line
 language: python filename: plotter.py line_numbers: true line_number_start: 1
 line_highlights: 4
 ---
+
 from random import randint from time import sleep from buildhat import Motor, ForceSensor from vcgencmd import Vcgencmd
 
 --- /code ---
@@ -75,11 +77,14 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 language: python filename: plotter.py line_numbers: true line_number_start: 1
 line_highlights: 9
 ---
+
 from random import randint from time import sleep from buildhat import Motor, ForceSensor from vcgencmd import Vcgencmd
 
 motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') vcgm = Vcgencmd()
 
-motor_y.run_to_position(0, 100) motor_x.start(-25) --- /code ---
+motor_y.run_to_position(0, 100) motor_x.start(-25)
+
+--- /code ---
 
 --- /task ---
 
@@ -92,7 +97,10 @@ Change the program so that it uses real-time temperature values rather than rand
 language: python filename: plotter.py line_numbers: true line_number_start: 15
 line_highlights: 16
 ---
-while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_y.get_aposition() --- /code ---
+
+while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_y.get_aposition()
+
+--- /code ---
 
 --- /task ---
 
@@ -102,14 +110,19 @@ The range of temperature values produced by `vcgencmd` should be from around 50Â
 
 You can create a function to remap one range of values to another range of values.
 
---- task --- Add this function above your `while` loop. It will take a temperature range and an angle range, and then remap the temperature into an angle.
+--- task ---
+
+Add this function above your `while` loop. It will take a temperature range and an angle range, and then remap the temperature into an angle.
 
 --- code ---
 ---
 language: python filename: plotter.py line_numbers: true line_number_start: 12
 line_highlights: 13
 ---
-def remap(min_temp, max_temp, min_angle, max_angle, temp): temp_range = (max_temp - min_temp) motor_range = (max_angle - min_angle) mapped = (((temp - min_temp) * motor_range) / temp_range) + min_angle return int(mapped) --- /code ---
+
+def remap(min_temp, max_temp, min_angle, max_angle, temp): temp_range = (max_temp - min_temp) motor_range = (max_angle - min_angle) mapped = (((temp - min_temp) * motor_range) / temp_range) + min_angle return int(mapped)
+
+--- /code ---
 
 Now, in the `while` loop, you can use this function to calculate a new angle for the motor to turn to.
 
@@ -118,7 +131,10 @@ Now, in the `while` loop, you can use this function to calculate a new angle for
 language: python filename: plotter.py line_numbers: true line_number_start: 21
 line_highlights: 24
 ---
-while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_y.get_aposition() new_angle = remap(50, 90, -170, 170, temp) --- /code ---
+
+while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_y.get_aposition() new_angle = remap(50, 90, -170, 170, temp)
+
+--- /code ---
 
 --- /task ---
 
