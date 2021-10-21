@@ -42,6 +42,7 @@ Use LEGO® and the Raspberry Pi Build HAT to create a data plotter.
 ---
 title: Install the Vcgencmd python library
 ---
+
 Make sure you are connected to the internet.
 
 Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
@@ -103,7 +104,9 @@ Click on the “interfaces” tab and adjust the Serial settings as shown below:
 
 --- /task ---
 
---- task --- You will also need to install the buildhat python library by following these instructions:
+--- task ---
+
+You will also need to install the buildhat python library by following these instructions:
 
 --- collapse ---
 ---
