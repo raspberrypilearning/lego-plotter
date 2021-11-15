@@ -9,7 +9,7 @@ In this project, you will create a plotter from LEGO®, and connect it to your R
 
 --- task ---
 
-Connect a monitor, keyboard, and mouse to your Raspberry Pi. If you've never used a Raspberry Pi before, you might want to start with [this project](https://learning-admin.raspberrypi.org/en/projects/raspberry-pi-getting-started).
+Connect a monitor, keyboard, and mouse to your Raspberry Pi. If you've never used a Raspberry Pi before, you might want to start with [this project](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
 
 Attach the Build HAT to your Raspberry Pi (make sure you can see the Raspberry Pi logo on the top) and connect a 7.5V power supply to the barrel jack of the Build HAT. This will boot your Raspberry Pi.
 
@@ -40,7 +40,7 @@ Save this program as `plotter.py` by pressing <kbd>Ctrl</kbd>+<kbd>s</kbd>.
 
 --- task ---
 
-Now use the `randint` function to create a random value between a range (in this case, -180 to 180) and store it in a variable called `sensor_data`:
+Now use the `randint` function to create a random value between a range (in this case, -180 to 180) and store it in a variable called `new_angle`:
 
 --- code ---
 ---
@@ -51,8 +51,8 @@ line_number_start: 5
 line_highlights: 5,6
 ---
 
-sensor_data = randint(-180,180)
-print(sensor_data)
+new_angle = randint(-180,180)
+print(new_angle)
 
 --- /code ---
 
@@ -82,8 +82,8 @@ line_highlights: 5
 ---
 
 while True:
-sensor_data = randint(-180,180)
-print(sensor_data)
+new_angle = randint(-180,180)
+print(new_angle)
 
 --- /code ---
 
@@ -104,8 +104,8 @@ line_highlights: 6,7
 ---
 
 while True:
-    sensor_data = randint(-180,180)
-    print(sensor_data)
+    new_angle = randint(-180,180)
+    print(new_angle)
 
 --- /code ---
 
@@ -125,8 +125,8 @@ line_highlights: 8
 ---
 
 while True:
-    sensor_data = randint(-180,180)
-    print(sensor_data)
+    new_angle = randint(-180,180)
+    print(new_angle)
     sleep(0.1)
 
 --- /code ---
@@ -150,8 +150,8 @@ from time import sleep
 from buildhat import Motor
 
 while True:
-    sensor_data = randint(-180,180)
-    print(sensor_data)
+    new_angle = randint(-180,180)
+    print(new_angle)
     sleep(0.1)
 
 --- /code ---
@@ -200,7 +200,7 @@ motor_y.run_to_position(0, 100)
 
 --- task ---
 
-The next line makes the motor turn to the angle stored in `sensor_data`.
+The next line makes the motor turn to the angle stored in `new_angle`.
 
 --- code ---
 ---
@@ -212,9 +212,9 @@ line_highlights: 11
 ---
 
 while True:
-    sensor_data = randint(-180,180)
-    print(sensor_data)
-    motor_y.run_to_position(sensor_data, 100)
+    new_angle = randint(-180,180)
+    print(new_angle)
+    motor_y.run_to_position(new_angle, 100)
 
 --- /code ---
 
@@ -242,9 +242,9 @@ motor_y = Motor('A')
 motor_y.run_to_position(0, 100)
 
 while True:
-    sensor_data = randint(-180,180)
-    print(sensor_data)
-    motor_y.run_to_position(sensor_data, 100)
+    new_angle = randint(-180,180)
+    print(new_angle)
+    motor_y.run_to_position(new_angle, 100)
     sleep(0.1)
 
 --- /code ---
