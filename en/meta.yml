@@ -10,7 +10,7 @@ steps:
   - title: Move the motors with data
   - title: Create a plot range
   - title: Build the plotter
-  - title: Paper feeding
-  - title: Button control
-  - title: Adding a real-time data source
+  - title: Feed in paper
+  - title: Add a button control
+  - title: Add a real-time data source
   - title: What next?

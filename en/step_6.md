@@ -1,4 +1,4 @@
-## Button control
+## Add a button control
 
 To stop and start the plotter running, you can add a button to your build.
 
