@@ -69,7 +69,7 @@ line_highlights:
 
 while not button.is_pressed():
     current_angle = motor_y.get_aposition()
-    sensor_data = randint(-180, 180)
+    new_angle = randint(-180, 180)
 
 --- /code ---
 
@@ -124,11 +124,11 @@ motor_x.start(speed=-25)
 
 while not button.is_pressed():
     current_angle = motor_y.get_aposition()
-    sensor_data = randint(-180, 180)
-    if sensor_data > current_angle:
+    new_angle = randint(-180, 180)
+    if new_angle > current_angle:
         motor_y.run_to_position(new_angle, 100, direction="clockwise")
         print('Turning CW')
-    elif sensor_data < current_angle:
+    elif new_angle < current_angle:
         motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
         print('Turning ACW')
     sleep(0.1)
