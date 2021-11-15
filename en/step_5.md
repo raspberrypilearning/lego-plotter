@@ -1,4 +1,4 @@
-## Paper feeding
+## Feed in paper
 
 You will now program the second motor to feed paper through the plotter at a constant rate.
 
