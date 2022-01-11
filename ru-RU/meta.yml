@@ -16,10 +16,10 @@ steps:
   - 
     title: Build the plotter
   - 
-    title: Paper feeding
+    title: Feed in paper
   - 
-    title: Button control
+    title: Add a button control
   - 
-    title: Adding a real-time data source
+    title: Add a real-time data source
   - 
     title: What next?
