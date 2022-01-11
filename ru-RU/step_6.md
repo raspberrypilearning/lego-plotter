@@ -1,4 +1,4 @@
-## Button control
+## Add a button control
 
 To stop and start the plotter running, you can add a button to your build.
 
@@ -52,7 +52,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 13
 line_highlights:
 ---
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() sensor_data = randint(-180, 180)
+while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180)
 
 --- /code ---
 
@@ -94,7 +94,7 @@ button = ForceSensor('C') motor_y = Motor('A') motor_x = Motor('B')
 
 motor_y.run_to_position(0, 100) motor_x.start(speed=-25)
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() sensor_data = randint(-180, 180) if sensor_data > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif sensor_data < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
+while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) if new_angle > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif new_angle < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
 
 motor_x.stop() motor_y.run_to_position(0, 100)
 
