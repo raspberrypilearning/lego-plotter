@@ -1,18 +1,18 @@
-## Button control
+## Add a button control
 
-To stop and start the plotter running, you can add a button to your build.
+Um den Plotter zu stoppen und zu starten, kannst du deinem Gerät einen Schalter hinzufügen.
 
 --- task ---
 
-The LEGO® SPIKE™ Prime Force Sensor can act as a simple button. Connect one to port C on your Build HAT.
+Der LEGO® SPIKE™ Prime Kraft-Sensor kann als einfacher Knopf benutzt werden. Schließe einen an Port C deines Build HAT an.
 
-![A close-up photo of part of the LEGO® plotter where the force sensor has been added.](images/force.jpg)
+![Eine Nahaufnahme eines Teils des LEGO® Plotters, an dem der Kraftsensor hinzugefügt wurde.](images/force.jpg)
 
 --- /task ---
 
 --- task ---
 
-Edit your `plotter.py` program to include a button control. Add a comma followed by `ForceSensor` (making sure you include **both** capital letters!) to the end of the line that says `from buildhat import Motor`:
+Bearbeite dein Programm `plotter.py`, dass es eine Steuerung mittels eines Schalters enthält. Füge ein Komma gefolgt von `ForceSensor` (Achte auf die **beiden** Großbuchstaben!) am Ende der Zeile `from buildhat import Motor` ein:
 
 --- code ---
 ---
@@ -28,7 +28,7 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 
 --- task ---
 
-Add this line to create an object for the button after the similar lines for the motors:
+Um ein Objekt für den Schalter zu erstellen, füge diese Zeile nach den ähnlichen Zeilen für die Motoren hinzu,:
 
 --- code ---
 ---
@@ -36,7 +36,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 7
 ---
 
-motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_to_position(0, 100) motor_x.start(-25)
+motor_y = Motor('A') motor_x = Motor('B') taster = ForceSensor('C') motor_y.run_to_position(0, 100) motor_x.start(-25)
 
 --- /code ---
 
@@ -44,7 +44,7 @@ motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_
 
 --- task ---
 
-Change your main loop from `while True` to:
+Ändere deine Hauptschleife von `while True` zu:
 
 --- code ---
 ---
@@ -52,7 +52,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 13
 line_highlights:
 ---
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() sensor_data = randint(-180, 180)
+while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180)
 
 --- /code ---
 
@@ -60,7 +60,7 @@ while not button.is_pressed(): current_angle = motor_y.get_aposition() sensor_da
 
 --- task ---
 
-Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines at the end of your program.
+Jetzt kannst du den Plotterbetrieb durch Drücken der Taste stoppen. Um alles aufzuräumen und beide Motoren zu stoppen, füge die folgenden Zeilen am Ende deines Programms hinzu.
 
 --- code ---
 ---
@@ -68,9 +68,9 @@ language: python filename: plotter.py line_numbers: true line_number_start: 19
 line_highlights: 24-26
 ---
 
-    elif new_angle < current_angle:
-        motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
-        print('Turning ACW')
+    elif sensor_daten < winkel_jetzt:
+        motor_y.run_to_position(sensor_daten, 100, direction="anticlockwise")
+        print('gegen Uhrzeigersinn')
     sleep(0.1)
 
 motor_x.stop() motor_y.run_to_position(0, 100)
@@ -79,7 +79,7 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- /task ---
 
-Now you are ready to test your plotter. Your final script should look like this:
+Jetzt kannst du deinen Plotter testen. Dein fertiger Code sollte so aussehen:
 
 --- code ---
 ---
@@ -90,11 +90,11 @@ line_number_start: 1
 # !/usr/bin/python3
 from random import randint from time import sleep from buildhat import Motor, ForceSensor
 
-button = ForceSensor('C') motor_y = Motor('A') motor_x = Motor('B')
+taster = ForceSensor('C') motor_y = Motor('A') motor_x = Motor('B')
 
 motor_y.run_to_position(0, 100) motor_x.start(speed=-25)
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() sensor_data = randint(-180, 180) if sensor_data > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif sensor_data < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
+while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) if new_angle > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif new_angle < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
 
 motor_x.stop() motor_y.run_to_position(0, 100)
 
@@ -102,24 +102,24 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Feed a piece of paper from the back of the plotter so that the front short edge is just beyond the pen.
+Führen Sie ein Blatt Papier von der Rückseite des Plotters so ein, dass die vordere kurze Kante knapp nach dem Stift liegt.
 
 --- /task ---
 
 --- task ---
 
-Start the program in Thonny, and watch as the pen plots your random data on your paper!
+Starte das Programm in Thonny und beobachte, wie der Stift deine zufälligen Daten auf dein Papier schreibt!
 
 --- /task ---
 
 --- task ---
 
-Once the paper has been used, press the Force Sensor button to stop everything.
+Sobald das Papier aufgebraucht ist, drückst du die Kraftsensor-Taste, um alles zu stoppen.
 
 --- /task ---
 
-![A photo of a piece of paper, on which the plotter has draw a green trace.](images/paper.JPG)
+![Ein Foto von einem Blatt Papier, auf das der Plotter eine grüne Spur gezeichnet hat.](images/paper.JPG)
 
-In the next step, you will use a real-time data source for your input data!
+Im nächsten Schritt verwendest du eine Echtzeit-Datenquelle für deine Eingabedaten!
 
 --- save ---
