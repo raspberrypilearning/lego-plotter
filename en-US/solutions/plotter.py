@@ -4,9 +4,9 @@ from time import sleep
 from buildhat import Motor, ForceSensor
 from vcgencmd import Vcgencmd
 
-button = ForceSensor('C')
 motor_y = Motor('A')
 motor_x = Motor('B')
+button = ForceSensor('C')
 vcgm = Vcgencmd()
 
 def remap(min_temp, max_temp, min_angle, max_angle, temp):
