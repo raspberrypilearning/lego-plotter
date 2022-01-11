@@ -61,7 +61,7 @@ while True: winkel_jetzt = motor_y.get_aposition() winkel_neu = randint(-180, 18
 
 --- task ---
 
-Führen deinen Code aus. These conditional tests will prevent the motor from changing from a negative value to a positive one by passing through 180 degrees (and vice versa).
+Führen deinen Code aus. Diese bedingten Tests stellen sicher, dass sich der Motor von einem negativen Wert auf einen positiven dreht, ohne dass er 180 Grad durchläuft (und umgekehrt).
 
 --- /task ---
 
