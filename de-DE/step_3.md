@@ -1,35 +1,35 @@
-## Create a plot range
+## Erstelle einen Plotbereich
 
-In this step we will control the direction in which the motors move (clockwise or anti-clockwise) to set a maximum point of travel in each direction.
+In diesem Schritt steuern wir die Bewegungsrichtung der Motoren (im oder gegen den Uhrzeigersinn), um die maximalen Bewegungen in jede Richtung einzustellen.
 
 --- collapse ---
 ---
-title: Why you need to change the way the motors move
+title: Warum du die Bewegungsabläufe der Motoren ändern musst
 ---
 
-Your motor will always take the shortest path to the new position.
+Dein Motor nimmt immer den kürzesten Weg zur neuen Position.
 
-For example, if the motor is at 170 degrees and the next position is -170 degrees, it will travel in a clockwise direction, passing through the 180 degree position in order to get to its destination as quickly as possible.
+Wenn sich der Motor beispielsweise auf 170 Grad befindet und die nächste Position -170 Grad beträgt, fährt er im Uhrzeigersinn durch die 180-Grad-Position, um so schnell wie möglich an sein Ziel zu gelangen.
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam is rotating like a clock hand in response to the data. The motor turns through a full 360 degrees, travelling clockwise and anti-clockwise, and sometimes passing through the zero position in either direction.](images/motor_through_zero.gif)
+![Ein Filmclip, der einen LEGO® Technic™ Motor mit einem daran befestigten schwarzen Balkenelement zeigt. Der Motor dreht sich und der daran befestigte Balken dreht sich wie ein Uhrzeiger als Reaktion auf die Daten. Der Motor dreht sich um volle 360 Grad, im Uhrzeigersinn und gegen den Uhrzeigersinn, und durchläuft manchmal die Nullposition in beide Richtungen.](images/motor_through_zero.gif)
 
-This is fine for our simulation, but our plotter will not have this freedom of movement. Once the pen has reached the top or bottom of the paper (y-axis), it cannot continue to travel up to emerge at the bottom — it will break. So your plotter will need to be prevented from travelling clockwise past the 180 degree mark.
+Für unsere Simulation ist das in Ordnung, aber unser Plotter wird diese Bewegungsfreiheit nicht haben. Sobald der Stift den oberen oder unteren Rand des Papiers (y-Achse) erreicht hat, kann er nicht weiter nach oben fahren, um unten herauszukommen – er wird brechen. Es muss also verhindert werden, dass Ihr Plotter im Uhrzeigersinn über die 180-Grad-Marke hinaus fährt.
 
-This can be achieved by altering the behaviour of the motor when moving to a position. You can do this by passing an additional `direction=` parameter to the `run_to_position()` function. You can set this value to `"clockwise"`, `"anticlockwise"`, or `"shortest"`, which is the default 'shortest path' behaviour.
+Dies kann erreicht werden, indem das Verhalten des Motors beim Anfahren einer Position geändert wird. Du kannst dies tun, indem du einen zusätzlichen `direction=` Parameter an die Funktion `run_to_position()` übergibst. Du kannst diesen Wert auf `"im Uhrzeigersinn"`, `"gegen den Uhrzeigersinn"`oder `"kürzeste"` setzen, wobei das Standardverhalten "kürzester Weg" ist.
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor turns between 0 and 180 degrees, but never passes through zero.](images/motor_not_zero.gif)
+![Ein Filmclip, der einen LEGO® Technic™ Motor mit einem daran befestigten schwarzen Balkenelement zeigt. Der Motor dreht sich und der daran befestigte Balken dreht sich wie ein Uhrzeiger als Reaktion auf die Daten. Der Motor dreht zwischen 0 und 180 Grad, geht aber nie durch Null.](images/motor_not_zero.gif)
 
-So, for example, `motor_y.run_to_position(50, 100, direction="anticlockwise")` will drive a motor to the 50 degrees position, turning anti-clockwise at maximum speed.
+So wird beispielsweise `motor_y.run_to_position(50, 100, direction="anticlockwise")` einen Motor in die 50-Grad-Position fahren und zwar maximaler Geschwindigkeit gegen den Uhrzeigersinn.
 
-It is possible to add a **conditional check** to your loop to ensure that the motor never passes through 180 degrees and always moves from a higher angle to a lower one by turning in an anti-clockwise direction.
+Es ist möglich eine, **Bedingungs-Prüfung** zu deiner Schleife hinzuzufügen, um sicherzustellen, dass der Motor niemals 180 Grad durchläuft und sich von einem höheren Winkel zu einem niedrigeren immer gegen den Uhrzeigersinn bewegt.
 
-You can find the last position of the motor by using `motor_y.get_aposition`.
+Die letzte Position des Motors findest du mit `motor_y.get_aposition`.
 
 --- /collapse ---
 
 --- task ---
 
-Check for the motor's current angle at the top of your `while` loop.
+Überprüfe den aktuellen Winkel des Motors an der Spitze deiner `while` Schleife.
 
 --- code ---
 ---
@@ -37,7 +37,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 8
 ---
 
-while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) print(new_angle) motor_y.run_to_position(new_angle, 100) sleep(0.1)
+while True: winkel_jetzt = motor_y.get_aposition() winkel_neu = randint(-180, 180) print(winkel_neu) motor_y.run_to_position(winkel_neu, 100) sleep(0.1)
 
 --- /code ---
 
@@ -45,7 +45,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Now, in the `while` loop, you can add a check to see if the current value of `new_angle` is greater or less than the `current_angle`.
+Jetzt können Sie in der `while` Schleife eine Prüfung hinzufügen, um zu sehen, ob der aktuelle Wert von `winkel_neu` größer oder kleiner als der `winkel_jetzt` ist.
 
 --- code ---
 ---
@@ -53,7 +53,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 11-16
 ---
 
-while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) print(new_angle) if new_angle > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif new_angle < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
+while True: winkel_jetzt = motor_y.get_aposition() winkel_neu = randint(-180, 180) print(winkel_neu) if winkel_neu > winkel_jetzt: motor_y.run_to_position(winkel_neu, 100, direction="clockwise") print('Turning CW') elif winkel_neu < winkel_jetzt: motor_y.run_to_position(winkel_neu, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
 
 --- /code ---
 
@@ -61,7 +61,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Run your code. This conditional test will be preventing the motor from turning from a negative value to a positive one **without** passing through 180 degrees (and vice versa).
+Führen deinen Code aus. These conditional tests will prevent the motor from changing from a negative value to a positive one by passing through 180 degrees (and vice versa).
 
 --- /task ---
 
