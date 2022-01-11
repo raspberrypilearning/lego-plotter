@@ -1,62 +1,62 @@
-## Add a real-time data source
+## Hinzufügen einer Echtzeit-Datenquelle
 
-There are are a huge variety of sensors you could add to your Raspberry Pi to provide a data feed for your plotter.
+Es gibt eine Vielzahl von Sensoren, die du deinem Raspberry Pi hinzufügen kannst, um einen Datenstrom für deinen Plotter bereitzustellen.
 
-Let's start with an in-built data source: the temperature of the CPU on the Raspberry Pi itself. If you haven't installed the `vcgencmd` library, you should do that now.
+Beginnen wir mit einer eingebauten Datenquelle: der Temperatur der CPU auf dem Raspberry Pi selbst. Wenn Sie die `vcgencmd` Bibliothek nicht installiert haben, sollten Sie dies jetzt tun.
 
 --- collapse ---
 ---
-title: Install the Vcgencmd python library
+title: Installation der Vcgencmd Python-Bibliothek
 ---
 
-Make sure you are connected to the internet.
+Stelle sicher, dass du mit dem Internet verbunden bist.
 
-Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
+Öffne ein Terminal, indem du <kbd>Strg</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> auf deiner Tastatur drückst.
 
-At the prompt type: `sudo pip3 install vcgencmd` and press <kbd>Enter</kbd>.
+Gib an der Eingabeaufforderung `pip3 install vcgencmd` ein und drücke <kbd>Enter</kbd>.
 
-Wait for the confirmation message (it won't take long), then close the terminal window.
+Warte auf die Bestätigungsnachricht (es dauert nicht lange) und schließe dann das Terminalfenster.
 
 --- /collapse ---
 
 --- task ---
 
-Using the **Shell/REPL** in Thonny, enter the following lines of Python to test and read the CPU temperature.
+Gib folgende Zeilen in die Thonny-**Shell** ein, um die CPU-Temperatur zu messen und auszulesen.
 
 ```python
 >>> from vcgencmd import Vcgencmd
 ```
-Press <kbd>Enter</kbd>.
+Drücke <kbd>Enter</kbd>.
 
-Type:
+Tippe:
 ```python
 >>> vcgm = Vcgencmd()
 ```
-Press <kbd>Enter</kbd>.
+Drücke <kbd>Enter</kbd>.
 
-Type:
+Tippe:
 ```python
 >>> vcgm.measure_temp()
 ```
-Press <kbd>Enter</kbd>.
+Drücke <kbd>Enter</kbd>.
 
-You should see the **Shell** return a number value (it should be somewhere around 50) — this is how hot your CPU is running.
-
---- /task ---
-
-Now let's warm things up by getting the CPU to do some work!
-
---- task ---
-
-Open the web browser and watch a YouTube video. After a few seconds, go back to Thonny and re-run the last line of Python and you should see that the temperature has increased.
+Du solltest sehen, dass die **Shell** einen Zahlenwert zurückgibt (er sollte ungefähr 50 sein) – so heiß läuft deine CPU.
 
 --- /task ---
 
-Now that you've seen how to read the temperature of the CPU with Python, you can modify your `plotter.py` program so that it uses this as its data source.
+Jetzt heizen wir die Dinge auf, indem wir die CPU dazu bringen, etwas Arbeit zu machen!
 
 --- task ---
 
-First, underneath the existing import lines at the top of the file, add the lines to import the Vcgencmd library:
+Öffne den Webbrowser und sieh dir ein YouTube-Video an. Gehe nach ein paar Sekunden zurück zu Thonny und führe die letzte Zeile von Python erneut aus. Du solltest sehen, dass die Temperatur gestiegen ist.
+
+--- /task ---
+
+Nachdem du nun gesehen hast, wie du mit Python die Temperatur der CPU auslesen kannst, kannst du dein Programm `plotter.py` so ändern, dass es dies als Datenquelle verwendet.
+
+--- task ---
+
+Füge zunächst unter den vorhandenen Importzeilen am Anfang der Datei die Zeile hinzu, um die Vcgencmd-Bibliothek zu importieren:
 
 --- code ---
 ---
@@ -70,7 +70,7 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 
 --- /task ---
 
---- task --- Create a vcgencmd object:
+--- Aufgabe --- Erstelle ein vcgencmd-Objekt:
 
 --- code ---
 ---
@@ -80,7 +80,7 @@ line_highlights: 9
 
 from random import randint from time import sleep from buildhat import Motor, ForceSensor from vcgencmd import Vcgencmd
 
-motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') vcgm = Vcgencmd()
+motor_y = Motor('A') motor_x = Motor('B') taster = ForceSensor('C') vcgm = Vcgencmd()
 
 motor_y.run_to_position(0, 100) motor_x.start(-25)
 
@@ -90,7 +90,7 @@ motor_y.run_to_position(0, 100) motor_x.start(-25)
 
 --- task ---
 
-Change the program so that it uses real-time temperature values rather than randomly generated numbers. To do this, you need to replace `randint(-180, 180)` with `vcgm.measure_temp()`.
+Ändere das Programm so, dass es Echtzeit-Temperaturwerte anstelle von zufällig generierten Zahlen verwendet. Dazu musst du `randint(-180, 180)` durch `vcgm.measure_temp()`ersetzen.
 
 --- code ---
 ---
@@ -98,21 +98,21 @@ language: python filename: plotter.py line_numbers: true line_number_start: 15
 line_highlights: 16
 ---
 
-while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_y.get_aposition()
+while not taster.is_pressed(): temp = vcgm.measure_temp() sensor_daten = motor_y.get_aposition()
 
 --- /code ---
 
 --- /task ---
 
-Before you can use the temperature of the Raspberry Pi's CPU as a data source for your plotter, you want to make sure that the maximum possible value produced by the data source will be mathematically converted so that it fits on a scale between -180 and 180.
+Bevor du die Temperatur der CPU des Raspberry Pi als Datenquelle für deinen Plotter verwenden kannst, musst du sicherstellen, dass der maximal mögliche Wert der Datenquelle mathematisch so umgerechnet wird, dass er auf eine Skala zwischen -180 und 180. passt.
 
-The range of temperature values produced by `vcgencmd` should be from around 50°C (when the Raspberry Pi is on, but not doing very much) to less than 90°C when working hard (at 85°C, the Raspberry Pi will throttle its performance to keep the temperature below this value). Let's say you want to plot a range from 40°C to 90°C — you need to map this to your available values: -180 to 180.
+Die Temperaturwerte, die von `vcgencmd` geliefert werden liegen zwischen ca 50°C (wenn der Raspberry Pi eingeschaltet ist, aber nicht viel tut) bis knapp unter 90°C wenn er hart arbeitet (bei 85°C beginnt der Raspberry Pi seine Leistung zu drosseln, um die Temperatur unter diesem Wert zu halten). Angenommen, du möchtest einen Bereich von 40 °C bis 90 °C darstellen – dann musst du dies deinen verfügbaren Werten zuordnen: -180 bis 180.
 
-You can create a function to remap one range of values to another range of values.
+Du kannst eine Funktion erstellen, um einen Wertebereich einem anderen Wertebereich zuzuordnen.
 
 --- task ---
 
-Add this function above your `while` loop. It will take a temperature range and an angle range, and then remap the temperature into an angle.
+Füge diese Funktion über deiner `while` Schleife hinzu. Sie nimmt einen Temperaturbereich und einen Winkelbereich an und ordnet die Temperatur dann in einem Winkel zu.
 
 --- code ---
 ---
@@ -120,11 +120,11 @@ language: python filename: plotter.py line_numbers: true line_number_start: 12
 line_highlights: 13
 ---
 
-def remap(min_temp, max_temp, min_angle, max_angle, temp): temp_range = (max_temp - min_temp) motor_range = (max_angle - min_angle) mapped = (((temp - min_temp) * motor_range) / temp_range) + min_angle return int(mapped)
+def umwandlung(min_temp, max_temp, min_winkel, max_winkel, temp): temp_bereich = (max_temp - min_temp) motor_bereich = (max_winkel - min_winkel) gewandelt = (((temp - min_temp) * motor_bereich) / temp_bereich) + min_winkel return int(gewandelt)
 
 --- /code ---
 
-Now, in the `while` loop, you can use this function to calculate a new angle for the motor to turn to.
+Jetzt kannst du in der `while` Schleife diese Funktion verwenden, um einen neuen Drehwinkel für den Motor zu berechnen.
 
 --- code ---
 ---
@@ -132,15 +132,15 @@ language: python filename: plotter.py line_numbers: true line_number_start: 21
 line_highlights: 24
 ---
 
-while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_y.get_aposition() new_angle = remap(50, 90, -170, 170, temp)
+while not taster.is_pressed(): temp = vcgm.measure_temp() winkel_jetzt = motor_y.get_aposition() sensor_daten = umwandlung(50, 90, -170, 170, temp)
 
 --- /code ---
 
 --- /task ---
 
-Now you can run your program. Make the Raspberry Pi CPU get warmer like you did before and you should see the pen gradually move upwards. Feel free to change the `min_temp` and `max_temp` parameters, if your pen isn't moving too much.
+Jetzt kannst du dein Programm ausführen. Lass die Raspberry Pi-CPU wie zuvor wärmer werden und du solltest sehen, wie sich der Stift allmählich nach oben bewegt. Wenn sich dein Stift nicht zu sehr bewegt, kannst du die `min_temp` und `max_temp` ändern, um mehr Bewegung zu sehen.
 
-![Animation showing the paper moving through the plotter while the pen moves and draws a fluctuating line.](images/plotter_demo_2.gif)
+![Animation, die zeigt, wie das Papier durch den Plotter geführt wird, während sich der Bleistift zufällig entlang der y-Achse bewegt.](images/plotter_demo_2.gif)
 
 
 --- save ---
