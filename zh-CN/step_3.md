@@ -61,7 +61,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Run your code. This conditional test will be preventing the motor from turning from a negative value to a positive one **without** passing through 180 degrees (and vice versa).
+Run your code. These conditional tests will prevent the motor from changing from a negative value to a positive one by passing through 180 degrees (and vice versa).
 
 --- /task ---
 
