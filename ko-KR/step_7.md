@@ -1,62 +1,62 @@
-## Add a real-time data source
+## 실시간 데이터 소스 추가하기
 
-There are are a huge variety of sensors you could add to your Raspberry Pi to provide a data feed for your plotter.
+플로터에 데이터 피드를 제공하기 위해 Raspberry Pi에 추가할 수 있는 많은 센서가 있습니다.
 
-Let's start with an in-built data source: the temperature of the CPU on the Raspberry Pi itself. If you haven't installed the `vcgencmd` library, you should do that now.
+내장 데이터 소스부터 시작해 보겠습니다. Raspberry Pi 자체의 CPU 온도를 구할 수 있습니다. `vcgencmd` 라이브러리를 설치하지 않았다면 지금 설치하시면 됩니다.
 
 --- collapse ---
 ---
-title: Install the Vcgencmd python library
+title: Vcgencmd Python 라이브러리 설치
 ---
 
-Make sure you are connected to the internet.
+인터넷에 연결되어 있는지 확인하세요.
 
 Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
 
-At the prompt type: `sudo pip3 install vcgencmd` and press <kbd>Enter</kbd>.
+프롬프트에서 `pip3 install vcgencmd` 을 입력 하고 <kbd>Enter</kbd> 를 입력합니다.
 
-Wait for the confirmation message (it won't take long), then close the terminal window.
+확인 메시지를 기다린 다음(오래 걸리지 않음) 터미널 창을 닫습니다.
 
 --- /collapse ---
 
 --- task ---
 
-Using the **Shell/REPL** in Thonny, enter the following lines of Python to test and read the CPU temperature.
+Thonny의 **Shell/REPL** 을 사용하여 다음 Python 줄을 입력하여 CPU 온도를 테스트하고 읽어 보세요.
 
 ```python
 >>> from vcgencmd import Vcgencmd
 ```
-Press <kbd>Enter</kbd>.
+<kbd>Enter</kbd> 를 누릅니다.
 
-Type:
+유형:
 ```python
 >>> vcgm = Vcgencmd()
 ```
 Press <kbd>Enter</kbd>.
 
-Type:
+유형:
 ```python
 >>> vcgm.measure_temp()
 ```
-Press <kbd>Enter</kbd>.
+<kbd>Enter</kbd> 를 누릅니다.
 
-You should see the **Shell** return a number value (it should be somewhere around 50) — this is how hot your CPU is running.
-
---- /task ---
-
-Now let's warm things up by getting the CPU to do some work!
-
---- task ---
-
-Open the web browser and watch a YouTube video. After a few seconds, go back to Thonny and re-run the last line of Python and you should see that the temperature has increased.
+**Shell** 이 숫자 값을 반환하는 것을 볼 수 있어야 합니다(약 50이어야 합니다). 이것이 CPU가 실행되는 온도입니다.
 
 --- /task ---
 
-Now that you've seen how to read the temperature of the CPU with Python, you can modify your `plotter.py` program so that it uses this as its data source.
+이제 CPU가 일부 작업을 수행하도록 하여 작업을 돌려 보겠습니다.
 
 --- task ---
 
-First, underneath the existing import lines at the top of the file, add the lines to import the Vcgencmd library:
+웹 브라우저를 열고 YouTube 동영상을 보세요. 몇 초 후에 Thonny로 돌아가서 Python의 마지막 줄을 다시 실행하면, 온도가 상승한 것을 볼 수 있습니다.
+
+--- /task ---
+
+이제 Python으로 CPU 온도를 읽는 방법을 보았으므로 이를 데이터 소스로 사용하도록 `plotter.py`를 수정하세요.
+
+--- task ---
+
+먼저 파일 상단의 기존 불러오기 행 아래에, Vcgencmd 라이브러리를 불러오는 행을 추가합니다.
 
 --- code ---
 ---
@@ -90,7 +90,7 @@ motor_y.run_to_position(0, 100) motor_x.start(-25)
 
 --- task ---
 
-Change the program so that it uses real-time temperature values rather than randomly generated numbers. To do this, you need to replace `randint(-180, 180)` with `vcgm.measure_temp()`.
+랜덤하게 생성된 숫자가 아닌 실시간 온도 값을 사용하도록 프로그램을 변경합니다. 이렇게 하려면 `randint(-180, 180)` 을 `vcgm.measure_temp()` 로 바꿔야 합니다.
 
 --- code ---
 ---
@@ -104,15 +104,15 @@ while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_
 
 --- /task ---
 
-Before you can use the temperature of the Raspberry Pi's CPU as a data source for your plotter, you want to make sure that the maximum possible value produced by the data source will be mathematically converted so that it fits on a scale between -180 and 180.
+Raspberry Pi의 CPU 온도를 플로터의 데이터 소스로 사용하기 전에 데이터 소스에서 생성된 가능한 최대 값이 수학적으로 변환되어 -180에서 180 사이의 눈금에 맞도록 하여야 합니다.
 
-The range of temperature values produced by `vcgencmd` should be from around 50°C (when the Raspberry Pi is on, but not doing very much) to less than 90°C when working hard (at 85°C, the Raspberry Pi will throttle its performance to keep the temperature below this value). Let's say you want to plot a range from 40°C to 90°C — you need to map this to your available values: -180 to 180.
+`vcgencmd` 의해 생성된 온도 값의 범위는 약 50°C(Raspberry Pi가 켜져 있지만 그다지 많이 작동하지 않을 때)에서 열심히 일할 때(85°C에서 Raspberry Pi가 작동할 때) 90°C 미만이어야 합니다. 온도를 이 값 아래로 유지하기 위해 성능을 잘 조절하십시오. 40°C ~ 90°C 범위를 표시하고 싶다고 가정해 보겠습니다. 우리는 이를 사용 가능한 값(-180 ~ 180)에 매핑해야 합니다.
 
-You can create a function to remap one range of values to another range of values.
+하나의 값 범위를 다른 값 범위에 다시 매핑하는 함수를 만들 수 있습니다.
 
 --- task ---
 
-Add this function above your `while` loop. It will take a temperature range and an angle range, and then remap the temperature into an angle.
+`while` 루프 위에 이 함수를 추가하십시오. 온도 범위와 각도 범위를 취한 다음 특정 각도로 온도를 할당합니다.
 
 --- code ---
 ---
@@ -124,7 +124,7 @@ def remap(min_temp, max_temp, min_angle, max_angle, temp): temp_range = (max_tem
 
 --- /code ---
 
-Now, in the `while` loop, you can use this function to calculate a new angle for the motor to turn to.
+이제 `while` 루프에서 이 함수를 사용하여 모터가 회전할 새로운 각도를 계산할 수 있습니다.
 
 --- code ---
 ---
@@ -138,9 +138,9 @@ while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_
 
 --- /task ---
 
-Now you can run your program. Make the Raspberry Pi CPU get warmer like you did before and you should see the pen gradually move upwards. Feel free to change the `min_temp` and `max_temp` parameters, if your pen isn't moving too much.
+이제 프로그램을 실행해 보세요. 이전처럼 Raspberry Pi CPU를 따뜻하게 하면 펜이 점점 위로 움직이는 것을 볼 수 있습니다. 펜이 잘 움직이지 않는다면 `min_temp` 및 `max_temp` 매개변수를 자유롭게 수정해 보세요.
 
-![Animation showing the paper moving through the plotter while the pen moves and draws a fluctuating line.](images/plotter_demo_2.gif)
+![펜이 움직이고 변동하는 선을 그리는 동안 플로터를 통해 움직이는 종이를 보여주는 애니메이션](images/plotter_demo_2.gif)
 
 
 --- save ---
