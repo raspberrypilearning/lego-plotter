@@ -1,94 +1,94 @@
-## Introduction
+## 소개
 
-Use LEGO® and the Raspberry Pi Build HAT to create a data plotter.
+LEGO®와 Raspberry Pi Build HAT를 사용하여 데이터 플로터를 만들어 보세요.
 
-### What you will make
+### 만들 작품
 
 --- no-print ---
 
-![A movie showing the LEGO® plotter in action. A piece of paper is being fed out of the machine with a green signal being traced out by a pen.](images/plotter_demo.gif)
+![LEGO® 플로터가 작동하는 모습을 보여주는 동영상 펜으로 추적하는 녹색 신호와 함께 종이 한 장이 기계에서 급지되고 있는 모습](images/plotter_demo.gif)
 
 --- /no-print ---
 
 --- print-only --- ![A photo of the completed plotter project.](images/completed.jpg) --- /print-only ---
 
-### What you will learn
+### 배울 지식
 
-+ How to calculate angles of rotation
-+ How to map data ranges onto appropriate scales for visualisation
-+ How to use conditional statements (if/else)
++ 회전 각도를 계산하는 방법
++ 시각화를 위해 데이터 범위를 적절한 스케일에 매핑하는 방법
++ 조건문 사용 방법(if문/else문)
 
-### Hardware
+### 하드웨어
 
-+ A Raspberry Pi computer
++ Raspberry Pi
 + A Raspberry Pi Build HAT
-+ Two LEGO® Technic™ motors
++ LEGO® Technic™ 모터 2개
 + A LEGO® SPIKE™ Force Sensor OR a push button, breadboard, and jumper wires
-+ Assortment of LEGO®, including two small wheels (we used a selection from the [LEGO® Education SPIKE™ Prime kit](https://education.lego.com/en-gb/product/spike-prime))
-+ A 7.5V power supply with a barrel jack (you could instead use a battery pack, but make sure that all cells are fully charged)
++ 바퀴 2개를 포함한 다양한 LEGO®([LEGO® Education SPIKE™ Prime 키트](https://education.lego.com/en-gb/product/spike-prime)에서 선택 사용)
++ 배럴 잭이 있는 7.5V 전원 공급 장치 (대신 보조배터리를 사용할 수 있지만 모든 셀이 완전히 충전되었는지 확인)
 
-### Software
+### 소프트웨어
 
 + Python 3
-+ The Vcgencmd Python3 library
++ Vcgencmd Python3 라이브러리
 
-### Downloads
+### 다운로드
 
-+ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (1/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf){:target="_blank"}
-+ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (2/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf){:target="_blank"}
-+ [Finished script for Lego Plotter](http://rpf.io/p/en/lego-plotter-go){:target="_blank"}
++ [LEGO® SPIKE™ Prime 조립 설명서: *소포 추적* (1/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf){:target="_blank"}
++ [LEGO® SPIKE™ Prime 조립 설명서: *소포 추적* (2/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf){:target="_blank"}
++ [Lego Plotter 완성된 스크립트](http://rpf.io/p/en/lego-plotter-go){:target="_blank"}
 
 --- collapse ---
 ---
-title: Install the Vcgencmd python library
+title: Vcgencmd Python 라이브러리 설치
 ---
 
-Make sure you are connected to the internet.
+인터넷에 연결되어 있는지 확인하세요.
 
 Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
 
-At the prompt type: `pip3 install vcgencmd` and press <kbd>Enter</kbd>.
+프롬프트에서 `pip3 install vcgencmd` 을 입력 하고 <kbd>Enter</kbd> 를 입력합니다.
 
-Wait for the confirmation message (it won't take long) then close the terminal window.
+확인 메시지를 기다린 다음(오래 걸리지 않음) 터미널 창을 닫습니다.
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: Additional information for educators
+title: 교육자를 위한 추가 정보
 ---
 
-You can download the completed project [here](http://rpf.io/p/en/projectName-get){:target="_blank"}.
+완성 된 프로젝트는 [여기](http://rpf.io/p/en/projectName-get){:target="_blank"} 에서 다운로드 할 수 있습니다.
 
-If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
+이 프로젝트를 인쇄한다면 [프린트용 버전](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}을 사용해 주십시오.
 
 --- /collapse ---
 
-Before you begin, you'll need to have set up your Raspberry Pi computer and attached your Build HAT:
+시작하기 전에 Raspberry Pi 컴퓨터를 설정하고 Build HAT를 연결해야 합니다.
 
 --- task ---
 
-Mount your Raspberry Pi on to the LEGO Build Plate using M2 bolts and nuts, making sure the Raspberry Pi is on the side without the 'edge':
+M2 볼트와 너트를 사용하여 LEGO Build Plate에 Raspberry Pi를 장착하고 Raspberry Pi가 '가장자리' 쪽에 없는지 꼭 확인합니다.
 
- ![Raspberry Pi bolted to a magenta LEGO Build Plate.](images/build_11.jpg)
+ ![마젠타색 LEGO 빌드 플레이트에 볼트로 고정된 Raspberry Pi](images/build_11.jpg)
 
 --- /task ---
 
-Mounting the Raspberry Pi this way round enables easy access to the ports as well as the SD card slot. The Build Plate will allow you to connect the Raspberry Pi to the main structure of your dashboard more easily.
+Mounting the Raspberry Pi this way round enables easy access to the ports as well as the SD card slot. Build Plate를 사용하면 Raspberry Pi를 대시보드에 더 쉽게 연결할 수 있습니다.
 
 --- task ---
 
-Line up the Build HAT with the Raspberry Pi, ensuring you can see the `This way up` label. Make sure all the GPIO pins are covered by the HAT, and press down firmly. (The example uses a [stacking header](https://www.adafruit.com/product/2223){:target="_blank"}, which makes the pins longer.)
+Build HAT를 Raspberry Pi와 정렬하여 `This way up` 레이블이 보이도록 합니다. 모든 GPIO 핀이 HAT로 덮여 있는지 확인하고 단단히 눌러주세요. (이 예시에서는 [스택 헤더](https://www.adafruit.com/product/2223){:target="_blank"}을 사용하므로 핀이 더 길어집니다.)
 
-![Image of GPIO pins poking through the top of the Build HAT.](images/build_15.jpg) ![Animation showing Buildhat fitting to Raspberry Pi](images/haton.gif)
+![Build HAT 상단을 관통하는 GPIO 핀의 이미지](images/build_15.jpg) ![Raspberry Pi에 적합한 Build HAT을 보여주는 애니메이션](images/haton.gif)
 
 --- /task ---
 
-You should now power your Raspberry Pi using the 7.5V barrel jack on the Build HAT, which will allow you to use the motors.
+이제 Build HAT의 7.5V 배럴 잭을 사용하여 Raspberry Pi에 전원을 공급해야 합니다. 그러면 이제부터 모터를 사용할 수 있습니다.
 
 --- task ---
 
-If you have not already done so, set up your Raspberry Pi by following these instructions:
+아직 설정하지 않았다면 다음 지침에 따라 Raspberry Pi를 설정하세요.
 
 [Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up){:target="_blank"}
 
@@ -96,28 +96,28 @@ If you have not already done so, set up your Raspberry Pi by following these ins
 
 --- task ---
 
-Once the Raspberry Pi has booted, open the Raspberry Pi Configuration tool by clicking on the Raspberry Menu button and then selecting “Preferences” and then “Raspberry Pi Configuration”.
+Raspberry Pi가 부팅되면 Raspberry 메뉴 버튼을 클릭하고 "기본 설정(Preferences)"를 선택한 다음 "Raspberry Pi Configuration"을 선택하여 Raspberry Pi Configuration 도구를 엽니다.
 
 Click on the “interfaces” tab and adjust the Serial settings as shown below:
 
-![Image showing Raspberry Pi OS config screen with serial port enabled and serial console disabled](images/configshot.jpg)
+![직렬 포트가 활성화되고 직렬 콘솔이 비활성화된 Raspberry Pi 구성 화면을 보여주는 이미지](images/configshot.jpg)
 
 --- /task ---
 
 --- task ---
 
-You will also need to install the buildhat python library by following these instructions:
+또한 다음 지침에 따라 buildhat python 라이브러리를 설치해야 합니다:
 
 --- collapse ---
 ---
-title: Install the buildhat Python library
+title: buildhat Python 라이브러리 설치
 ---
 
-Open a terminal window on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>.
+<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>를 눌러 Raspberry Pi에서 터미널 창을 엽니다.
 
-At the prompt type: `sudo pip3 install buildhat`
+커맨드 창에서 다음을 입력합니다: `sudo pip3 install buildhat`
 
-Press <kbd>Enter</kbd> and wait for the "installation completed" message.
+<kbd>Enter</kbd> 를 누르고 "설치 완료" 메시지를 확인합니다.
 
 --- /collapse ---
 
