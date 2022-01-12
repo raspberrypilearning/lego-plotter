@@ -1,25 +1,25 @@
 ---
-title: LEGO® data plotter
+title: LEGO® 데이터 플로터
 hero_image: images/banner.png
-description: Plot data with pen and paper, using LEGO® and the Build HAT
+description: LEGO®와 Build HAT를 사용하여 펜과 종이로 데이터를 그려보세요.
 version: 4
 listed: true
 copyedit: true
 last_tested: "2020-10-27"
 steps:
   - 
-    title: Introduction
+    title: 소개
   - 
-    title: Move the motors with data
+    title: 데이터로 모터 이동하기
   - 
-    title: Create a plot range
+    title: 플롯 범위 생성하기
   - 
-    title: Build the plotter
+    title: 플로터 제작하기
   - 
     title: Feed in paper
   - 
     title: Add a button control
   - 
-    title: Add a real-time data source
+    title: 실시간 데이터 소스 추가하기
   - 
-    title: What next?
+    title: 더 나아가기
