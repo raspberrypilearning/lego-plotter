@@ -1,24 +1,24 @@
 ## Feed in paper
 
-You will now program the second motor to feed paper through the plotter at a constant rate.
+이제 플로터를 통해 일정한 속도로 용지를 공급하도록 두 번째 모터를 프로그래밍해 보겠습니다.
 
 --- task ---
 
-Feed a sheet of A5 paper (or cut up some scrap to about this size) underneath the small wheels from behind.
+뒤에서 작은 바퀴 아래에 A5 용지 한 장을 급지합니다(또는 이 크기로 일부 스크랩을 자릅니다).
 
-![Paper has been fed in from the back of the plotter, so that the pencil tip rests on the leading edge.](images/paper_in.jpg)
+![연필 끝이 앞쪽 가장자리에 놓이도록 플로터 뒤쪽에서 용지가 급지됨](images/paper_in.jpg)
 
 --- /task ---
 
 --- task ---
 
-Plug the rear LEGO® Technic™ motor (which drives these wheels) into port B on the Build HAT.
+후면 LEGO® Technic™ 모터(이 휠을 구동함)를 Build HAT의 포트 B에 꽂습니다.
 
 --- /task ---
 
 --- task ---
 
-Create an object called `motor_x` for this motor, below the similar line for `motor_y`:
+`motor_y`대한 유사한 라인 아래에 `motor_x` 이라는 객체를 생성하세요.
 
 --- code ---
 ---
@@ -34,7 +34,7 @@ motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Add a line to start this motor turning immediately before the `while True` loop:
+`while True` 루프 직전에 이 모터 회전을 시작하는 라인을 추가합니다:
 
 --- code ---
 ---
@@ -48,17 +48,17 @@ motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100) motor_
 
 --- /task ---
 
-This will make the feeder motor run at a constant rate of -25 turns per minute when the program starts. Change the number in the brackets to experiment with the speed.
+이렇게 하면 프로그램이 시작될 때 피더 모터가 분당 -25회전의 일정한 속도로 실행되도록 합니다. 속도를 실험하기 위해 괄호 안의 숫자를 변경하세요.
 
 --- task ---
 
-Run your code and watch the paper being fed through the plotter, as the pencil moves randomly in the `y` direction.
+`y` 방향으로 무작위로 움직일 때 코드를 실행하고 플로터를 통해 용지가 공급되는 것을 지켜보세요.
 
-![Animation showing the paper being fed through the plotter while the pencil moves randomly along the y axis.](images/feeding_paper.gif)
+![연필이 y축을 따라 무작위로 움직이는 동안 플로터를 통해 급지되는 용지를 보여주는 애니메이션](images/feeding_paper.gif)
 
 --- /task ---
 
-To stop the motor feeding the paper, you can type the following into the **Shell**.
+용지를 공급하는 모터를 중지하려면 **Shell** 에 아래 코드를 입력할 수 있습니다:
 
 ```python
 >>> from buildhat import Motor
