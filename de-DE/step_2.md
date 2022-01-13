@@ -51,7 +51,7 @@ new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-Führe dein Programm einige Male aus, indem du oben im Fenster auf die Schaltfläche **Run** klickst. In der Shell unter Ihrem Code sollten jedes Mal unterschiedliche Werte angezeigt werden.
+Führe dein Programm einige Male aus, indem du oben im Fenster auf die Schaltfläche **Run** klickst. You should see different values appear in the shell beneath your code each time.
 
 --- /task ---
 
