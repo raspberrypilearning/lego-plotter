@@ -34,7 +34,7 @@ motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Füge eine Zeile direkt vor der `while True` Schleife hinzu, um diesen Motor zu drehen:
+Add a line to start this motor turning immediately before the `while True` loop:
 
 --- code ---
 ---
