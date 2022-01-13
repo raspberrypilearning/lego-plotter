@@ -12,7 +12,7 @@ Der LEGO® SPIKE™ Prime Kraft-Sensor kann als einfacher Knopf benutzt werden. 
 
 --- task ---
 
-Bearbeite dein Programm `plotter.py`, dass es eine Steuerung mittels eines Schalters enthält. Füge ein Komma gefolgt von `ForceSensor` (Achte auf die **beiden** Großbuchstaben!) am Ende der Zeile `from buildhat import Motor` ein:
+Bearbeite dein Programm `plotter.py`, dass es eine Steuerung mittels eines Schalters enthält. Add a comma followed by `ForceSensor` (making sure you include **both** capital letters!) to the end of the line that says `from buildhat import Motor`:
 
 --- code ---
 ---
@@ -102,13 +102,13 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Führen Sie ein Blatt Papier von der Rückseite des Plotters so ein, dass die vordere kurze Kante knapp nach dem Stift liegt.
+Feed a piece of paper from the back of the plotter so that the front short edge is just beyond the pen.
 
 --- /task ---
 
 --- task ---
 
-Starte das Programm in Thonny und beobachte, wie der Stift deine zufälligen Daten auf dein Papier schreibt!
+Start the program in Thonny, and watch as the pen plots your random data on your paper!
 
 --- /task ---
 
