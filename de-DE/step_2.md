@@ -77,7 +77,7 @@ while True: new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-Füge am Anfang jeder der darunter liegenden Zeilen vier Leerzeichen hinzu, um einen um **eingerückten Codeblock**zu erstellen. Dies teilt dem Computer mit, welche Zeilen in deiner Schleife enthalten sind.
+Add four spaces to the start of each of the lines beneath to create an **indented code block**. Dies teilt dem Computer mit, welche Zeilen in deiner Schleife enthalten sind.
 
 
 --- code ---
@@ -130,7 +130,7 @@ Nachdem du nun einige Daten hast, kannst du diese verwenden, um die Position ein
 
 --- task ---
 
-Schließe einen LEGO® Technic™ Motor an Port A des Build HAT an. Füge der Motorachse einige zusätzliche LEGO-Elemente hinzu, damit der Motor leicht zu sehen ist.
+Schließe einen LEGO® Technic™ Motor an Port A des Build HAT an. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning.
 
 --- /task ---
 
@@ -142,13 +142,13 @@ Richte das Element mit der Strichmarkierung am Motor aus und stelle den Motor da
 
 --- /task ---
 
-Änder nun den Hauptteil deines Programms so, dass der vom Motor gedrehte Winkel dem neuesten Wert deines simulierten Sensors entspricht.
+Now, modify the main body of your program so that the angle turned to by the motor is the same as the latest value produced by your simulated sensor.
 
 Dazu musst du deinen Motor so einrichten, dass das Programm darauf zugreifen kann.
 
 --- task ---
 
-Erstellen Sie ein Objekt `motor_y` am Anschluss `A` auf dem Build HAT. Drehe dann den Motor zur `0` Position mit einer Geschwindigkeit von `100`.
+Create a `motor_y` object for port `A` on the Build HAT and then turn the motor to the `0` position with a speed of `100`.
 
 --- code ---
 ---
