@@ -79,7 +79,7 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- /task ---
 
-Now you are ready to test your plotter. Your final script should look like this:
+Ahora estás listo para probar tu trazador. Tu programa final debería verse así:
 
 --- code ---
 ---
@@ -102,24 +102,24 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Feed a piece of paper from the back of the plotter so that the front short edge is just beyond the pen.
+Alimenta un trozo de papel desde la parte posterior del trazador de modo que el borde corto delantero quede un poco más allá del lápiz.
 
 --- /task ---
 
 --- task ---
 
-Start the program in Thonny, and watch as the pen plots your random data on your paper!
+¡Inicia el programa en Thonny y observa cómo la pluma traza tus datos aleatorios en el papel!
 
 --- /task ---
 
 --- task ---
 
-Once the paper has been used, press the Force Sensor button to stop everything.
+Una vez que se termine el papel, presiona el botón Force Sensor para detener todo.
 
 --- /task ---
 
-![A photo of a piece of paper, on which the plotter has draw a green trace.](images/paper.JPG)
+![Una foto de una hoja de papel, en la que el trazador ha dibujado un trazo verde.](images/paper.JPG)
 
-In the next step, you will use a real-time data source for your input data!
+¡En el siguiente paso, utilizará una fuente de datos en tiempo real para tus datos de entrada!
 
 --- save ---
