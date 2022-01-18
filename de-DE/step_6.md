@@ -52,7 +52,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 13
 line_highlights:
 ---
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180)
+while not taster.is_pressed(): winkel_jetzt = motor_y.get_aposition() winkel_neu = randint(-180, 180)
 
 --- /code ---
 
@@ -102,13 +102,13 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Feed a piece of paper from the back of the plotter so that the front short edge is just beyond the pen.
+Führe ein Blatt Papier von der Rückseite des Plotters so ein, dass die vordere kurze Kante knapp nach dem Stift liegt.
 
 --- /task ---
 
 --- task ---
 
-Start the program in Thonny, and watch as the pen plots your random data on your paper!
+Starte das Programm in Thonny und beobachte, wie der Stift deine zufälligen Daten auf das Papier schreibt!
 
 --- /task ---
 
