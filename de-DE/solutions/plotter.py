@@ -21,13 +21,13 @@ motor_x.start(speed=-25)
 while not taster.is_pressed():
     temp = vcgm.measure_temp()
     winkel_jetzt = motor_y.get_aposition()
-    sensor_daten = umwandlung(53, 57, -170, 170, temp)
-    print(f'temp is {temp} Motorstellung ist {winkel_jetzt} sensor-wert ist {sensor-daten}')
-    if sensor_daten > winkel_jetzt:
+    winkel_neu = umwandlung(53, 57, -170, 170, temp)
+    print(f'temp is {temp} Motorstellung ist {winkel_jetzt} sensor-wert ist {winkel_neu}')
+    if winkel_neu > winkel_jetzt:
         motor_y.run_to_position(sensor_daten, 100, direction="clockwise")
         print('im Uhrzeigersinn')
-    elif sensor_daten < winkel_jetzt:
-        motor_y.run_to_position(sensor_daten, 100, direction="anticlockwise")
+    elif winkel_neu < winkel_jetzt:
+        motor_y.run_to_position(winkel_neu, 100, direction="anticlockwise")
         print('gegen Uhrzeigersinn')
     sleep(0.1)
     
