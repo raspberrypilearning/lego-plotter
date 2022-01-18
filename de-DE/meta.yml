@@ -16,9 +16,9 @@ steps:
   - 
     title: Baue den Plotter
   - 
-    title: Feed in paper
+    title: Papierzufuhr
   - 
-    title: Add a button control
+    title: Schaltflächen-Steuerelement hinzufügen
   - 
     title: Hinzufügen einer Echtzeit-Datenquelle
   - 
