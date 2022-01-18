@@ -35,7 +35,7 @@ Speichere dieses Programm als `plotter.py` indem du <kbd>Strg</kbd>+<kbd>s</kbd>
 
 --- task ---
 
-Now use the `randint` function to create a random value between a range (in this case, -180 to 180) and store it in a variable called `new_angle`:
+Verwende nun die `randint` Funktion, um einen zufälligen Wert in einem Bereich (in diesem Fall -180 bis 180) zu erstellen und ihn in einer Variablen namens `winkel_neu` zu speichern:
 
 --- code ---
 ---
@@ -43,7 +43,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 5,6
 ---
 
-new_angle = randint(-180,180) print(new_angle)
+winkel_neu = randint(-180,180) print(winkel_neu)
 
 --- /code ---
 
@@ -51,7 +51,7 @@ new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-Führe dein Programm einige Male aus, indem du oben im Fenster auf die Schaltfläche **Run** klickst. You should see different values appear in the shell beneath your code each time.
+Führe dein Programm einige Male aus, indem du oben im Fenster auf die Schaltfläche **Run** klickst. In der Shell unter deinem Code sollten jedes Mal unterschiedliche Werte angezeigt werden.
 
 --- /task ---
 
@@ -69,7 +69,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 5
 ---
 
-while True: new_angle = randint(-180,180) print(new_angle)
+while True: winkel_neu = randint(-180,180) print(winkel_neu)
 
 --- /code ---
 
@@ -77,7 +77,7 @@ while True: new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-Add four spaces to the start of each of the lines beneath to create an **indented code block**. Dies teilt dem Computer mit, welche Zeilen in deiner Schleife enthalten sind.
+Füge am Anfang jeder der darunter liegenden Zeilen vier Leerzeichen hinzu, um einen **eingerückten Codeblock** zu erstellen. Dies teilt dem Computer mit, welche Zeilen in deiner Schleife enthalten sind.
 
 
 --- code ---
@@ -86,7 +86,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 6,7
 ---
 
-while True: new_angle = randint(-180,180) print(new_angle)
+while True: winkel_neu = randint(-180,180) print(winkel_neu)
 
 --- /code ---
 
@@ -102,7 +102,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 8
 ---
 
-while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
+while True: winkel_neu = randint(-180,180) print(winkel_neu) sleep(0.1)
 
 --- /code ---
 
@@ -120,7 +120,7 @@ line_number_start: 1
 
 from random import randint from time import sleep from buildhat import Motor
 
-while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
+while True: winkel_neu = randint(-180,180) print(winkel_neu) sleep(0.1)
 
 --- /code ---
 
@@ -130,7 +130,7 @@ Nachdem du nun einige Daten hast, kannst du diese verwenden, um die Position ein
 
 --- task ---
 
-Schließe einen LEGO® Technic™ Motor an Port A des Build HAT an. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning.
+Schließe einen LEGO® Technic™ Motor an Port A des Build HAT an. Füge der Motorachse einige zusätzliche LEGO-Elemente hinzu, damit die Bewegungen leicht zu sehen sind.
 
 --- /task ---
 
@@ -142,13 +142,13 @@ Richte das Element mit der Strichmarkierung am Motor aus und stelle den Motor da
 
 --- /task ---
 
-Now, modify the main body of your program so that the angle turned to by the motor is the same as the latest value produced by your simulated sensor.
+Ändere nun den Hauptteil deines Programms so, dass der vom Motor gedrehte Winkel dem neuesten Wert deines simulierten Sensors entspricht.
 
 Dazu musst du deinen Motor so einrichten, dass das Programm darauf zugreifen kann.
 
 --- task ---
 
-Create a `motor_y` object for port `A` on the Build HAT and then turn the motor to the `0` position with a speed of `100`.
+Erstelle ein Objekt `motor_y` am Anschluss `A` auf dem Build HAT. Drehe dann den Motor zur `0` Position mit einer Geschwindigkeit von `100`.
 
 --- code ---
 ---
@@ -164,7 +164,7 @@ motor_y = Motor('A') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-The next line makes the motor turn to the angle stored in `new_angle`.
+Die nächste Zeile lässt den Motor um diesen Winkel drehen, der in `winkel_neu` gespeichert ist.
 
 --- code ---
 ---
@@ -172,7 +172,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 11
 ---
 
-while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_position(new_angle, 100)
+while True: winkel_neu = randint(-180,180) print(winkel_neu) motor_y.run_to_position(winkel_neu, 100)
 
 --- /code ---
 
@@ -194,7 +194,7 @@ from random import randint from time import sleep from buildhat import Motor
 
 motor_y = Motor('A') motor_y.run_to_position(0, 100)
 
-while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_position(new_angle, 100) sleep(0.1)
+while True: winkel_neu = randint(-180,180) print(winkel_neu) motor_y.run_to_position(winkel_neu, 100) sleep(0.1)
 
 --- /code ---
 
