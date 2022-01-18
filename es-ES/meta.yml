@@ -1,25 +1,25 @@
 ---
-title: LEGO® data plotter
+title: Trazador de datos LEGO®
 hero_image: images/banner.png
-description: Plot data with pen and paper, using LEGO® and the Build HAT
+description: Traza datos con lápiz y papel, utilizando LEGO® y Build HAT
 version: 4
 listed: true
 copyedit: true
 last_tested: "2020-10-27"
 steps:
   - 
-    title: Introduction
+    title: Introducción
   - 
-    title: Move the motors with data
+    title: Mueve los motores con datos
   - 
-    title: Create a plot range
+    title: Crear un rango de trazado
   - 
-    title: Build the plotter
+    title: Construye el trazador
   - 
     title: Feed in paper
   - 
     title: Add a button control
   - 
-    title: Add a real-time data source
+    title: Agrega una fuente de datos en tiempo real
   - 
-    title: What next?
+    title: '¿Qué hacer a continuación?'
