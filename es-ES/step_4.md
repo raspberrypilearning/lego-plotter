@@ -1,14 +1,14 @@
-## Build the plotter
+## Construye el trazador
 
-In this step, you will build an x/y plotter using LEGO®.
+En este paso, construirás un trazador x / y usando LEGO®.
 
-There are plenty of ways you could do this, but the build instructions for the LEGO® SPIKE™ Prime *Track Your Parcels* project are a great starting point. You can use the motor from the previous step for the y-axis motor (the one holding the pen) in the build.
+Hay muchas formas de hacerlo, pero las instrucciones de construcción del proyecto LEGO® SPIKE ™ Prime *Sigue tus envíos* son un excelente punto de partida. Puedes usar el motor del paso anterior para el motor del eje y (el que sostiene el lápiz) en la construcción.
 
-![A drawing from the LEGO® instructions.](images/build1.png)
+![Un dibujo de las instrucciones de LEGO®.](images/build1.png)
 
 --- task ---
 
-You will need to adapt the build slightly so that the arm is able to hold a pen. Rubber bands are a great way to hold a pen snugly against LEGO.
+Deberás adaptar la estructura ligeramente para que el brazo pueda sostener un bolígrafo. Las bandas elásticas son una excelente manera de sujetar un bolígrafo cómodamente contra LEGO.
 
 ![A photo of the partially assembled plotter model, with a pen attached to the LEGO® elements with a rubber band.](images/rubber_bands.jpg)
 
@@ -20,11 +20,11 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
   </p>
   
   <p spaces-before="0">
-    The second part of the build completes the mechanism that uses the two motors to drive the plotter.
+    La segunda parte de la construcción completa el mecanismo que usa los dos motores para impulsar el trazador.
   </p>
   
   <p spaces-before="0">
-    <img src="images/build2.png" alt="A drawing from the second part of the LEGO® instructions." />
+    <img src="images/build2.png" alt="Un dibujo de la segunda parte de las instrucciones de LEGO®." />
   </p>
   
   <p spaces-before="0">
@@ -37,7 +37,7 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
       </p>
       
       <p spaces-before="0">
-        Connect the LEGO® Technic™ motor that drives the pen up and down to port A on the Build HAT.
+        Conecta el motor LEGO® Technic ™ que mueve el lápiz hacia arriba y hacia abajo al puerto A del Build HAT.
       </p>
       
       <p spaces-before="0">
@@ -45,15 +45,15 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
       </p>
       
       <p spaces-before="0">
-        Now you can use your simulated data source to test your plotter. For now, keep the lid on your pen or remove it all together while you observe the motion caused by the data.
+        Ahora puedes usar tu fuente de datos simulada para probar tu trazador. Por ahora, mantén el bolígrafo tapado o quítalo del brazo del trazador mientras observas el movimiento causado por los datos.
       </p>
 
 <h3 spaces-before="0">
-  Calibrate the plotter
+  Calibrar el trazador
 </h3>
 
 <p spaces-before="0">
-  Your program currently allows the motor to move through its full range of motion (-180 to +180 degrees from the zero point). But the physical constraints of the plotter mean that if you tried to drive the toothed rail to its maximum and minimum positions, it would crash the pen arm into other parts of the build. In order to avoid this, you must centre the bar.
+  Tu programa actualmente permite que el motor se mueva a través de su rango completo de movimiento (-180 a +180 grados desde el punto cero). Pero las limitaciones físicas del trazador significan que si intentaras mover el riel dentado a sus posiciones máxima y mínima, el brazo de la pluma se estrellará contra otras partes de la construcción. Para evitar esto, debes centrar la barra.
 </p>
 
 <p spaces-before="0">
@@ -61,44 +61,44 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
 </p>
 
 <p spaces-before="0">
-  Click into the <strong x-id="1">Shell pane</strong> of Thonny (the window beneath the code) so that you can execute Python one line at a time.
+  Haz clic en el <strong x-id="1">panel de consola</strong> de Thonny (la ventana debajo del código) para poder ejecutar Python una línea a la vez.
 </p>
 
 <p spaces-before="0">
-  Enter these lines into the <strong x-id="1">Shell</strong> (you can just copy and paste them from your program above) pressing <kbd>Enter</kbd> between each one:
+  Ingresa estas líneas en la <strong x-id="1">Consola</strong> (puedes copiarlas y pegarlas desde tu programa anterior) presionando <kbd>Entrar</kbd> entre cada una:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; from buildhat import Motor
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  Presiona <kbd>Entrar</kbd>.
 </p>
 
 <p spaces-before="0">
-  Type:
+  Escribe:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; motor_y = Motor('A')
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  Presiona <kbd>Entrar</kbd>.
 </p>
 
 <p spaces-before="0">
-  Type:
+  Escribe:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; motor_y.run_to_position(0, 100)
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  Presiona <kbd>Entrar</kbd>.
 </p>
 
 <p spaces-before="0">
-  This should centre or <strong x-id="1">zero</strong> your motor.
+  Esto debería centrar o <strong x-id="1">poner a cero</strong> tu motor.
 </p>
 
 <p spaces-before="0">
@@ -110,11 +110,11 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
 </p>
 
 <p spaces-before="0">
-  Adjust the position of your pen arm by gently pushing the toothed bar to the middle of its path, so that the pencil or pen lines up with the other motor.
+  Ajusta la posición del brazo del bolígrafo empujando suavemente la barra dentada hacia el centro de su recorrido, de modo que el lápiz o bolígrafo se alinee con el otro motor.
 </p>
 
 <p spaces-before="0">
-  <img src="images/pencil_lined_up.jpg" alt="The pencil is central to the housing, in line with the motor used to drive the paper feeder." />
+  <img src="images/pencil_lined_up.jpg" alt="El lápiz está en el centro de la estructura, en línea con el motor utilizado para impulsar el alimentador de papel." />
 </p>
 
 <p spaces-before="0">
