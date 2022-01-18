@@ -98,7 +98,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 15
 line_highlights: 16
 ---
 
-while not taster.is_pressed(): temp = vcgm.measure_temp() sensor_daten = motor_y.get_aposition()
+while not taster.is_pressed(): temp = vcgm.measure_temp() winkel_jetzt = motor_y.get_aposition()
 
 --- /code ---
 
@@ -132,7 +132,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 21
 line_highlights: 24
 ---
 
-while not taster.is_pressed(): temp = vcgm.measure_temp() winkel_jetzt = motor_y.get_aposition() sensor_daten = umwandlung(50, 90, -170, 170, temp)
+while not taster.is_pressed(): temp = vcgm.measure_temp() winkel_jetzt = motor_y.get_aposition() winkel_neu = umwandlung(50, 90, -170, 170, temp)
 
 --- /code ---
 
