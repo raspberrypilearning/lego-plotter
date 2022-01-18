@@ -1,35 +1,35 @@
-## Create a plot range
+## Crear un rango de trazado
 
-In this step we will control the direction in which the motors move (clockwise or anti-clockwise) to set a maximum point of travel in each direction.
+En este paso controlaremos el sentido en el que se mueven los motores (en sentido horario o antihorario) para establecer un punto máximo de recorrido en cada sentido.
 
 --- collapse ---
 ---
-title: Why you need to change the way the motors move
+title: Por qué necesitas cambiar la forma en que se mueven los motores
 ---
 
-Your motor will always take the shortest path to the new position.
+Tu motor siempre tomará el camino más corto hacia la nueva posición.
 
-For example, if the motor is at 170 degrees and the next position is -170 degrees, it will travel in a clockwise direction, passing through the 180 degree position in order to get to its destination as quickly as possible.
+Por ejemplo, si el motor está a 170 grados y la siguiente posición es -170 grados, viajará en el sentido de las agujas del reloj, pasando por la posición de 180 grados para llegar a su destino lo más rápido posible.
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam is rotating like a clock hand in response to the data. The motor turns through a full 360 degrees, travelling clockwise and anti-clockwise, and sometimes passing through the zero position in either direction.](images/motor_through_zero.gif)
+![Un video que muestra un motor LEGO® Technic ™ con una columna negra ensamblada. El motor está girando y la columna gira como una manecilla de reloj en respuesta a los datos. El motor gira 360 grados completos, viajando en el sentido de las agujas del reloj y en sentido antihorario y, a veces, pasa por la posición cero en cualquier dirección.](images/motor_through_zero.gif)
 
-This is fine for our simulation, but our plotter will not have this freedom of movement. Once the pen has reached the top or bottom of the paper (y-axis), it cannot continue to travel up to emerge at the bottom — it will break. So your plotter will need to be prevented from travelling clockwise past the 180 degree mark.
+Esto está bien para nuestra simulación, pero nuestro trazador no tendrá esta libertad de movimiento. Una vez que el bolígrafo ha llegado a la parte superior o inferior del papel (eje y), no puede seguir subiendo para emerger por la parte inferior; se romperá. Por lo tanto, será necesario evitar que tu trazador se desplace en el sentido de las agujas del reloj más allá de la marca de 180 grados.
 
-This can be achieved by altering the behaviour of the motor when moving to a position. You can do this by passing an additional `direction=` parameter to the `run_to_position()` function. You can set this value to `"clockwise"`, `"anticlockwise"`, or `"shortest"`, which is the default 'shortest path' behaviour.
+Esto se puede lograr alterando el comportamiento del motor cuando se mueve a una posición. Puedes hacerlo pasando un parámetro `direction =` a la función `run_to_position()`. Puedes establecer este valor en `"clockwise"`(horario), `"anticlockwise"`(antihorario) o `"shortest'` (el más corto), que es el comportamiento predeterminado de la 'ruta más corta'.
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor turns between 0 and 180 degrees, but never passes through zero.](images/motor_not_zero.gif)
+![Un video que muestra un motor LEGO® Technic ™ con una columna negra ensamblada. El motor está girando y la columna gira como una manecilla de reloj en respuesta a los datos. El motor gira entre 0 y 180 grados, pero nunca pasa por cero.](images/motor_not_zero.gif)
 
-So, for example, `motor_y.run_to_position(50, 100, direction="anticlockwise")` will drive a motor to the 50 degrees position, turning anti-clockwise at maximum speed.
+Entonces, por ejemplo, `motor_y.run_to_position (50, 100, direction = "anticlockwise")` moverá un motor a la posición de 50 grados, girando en sentido antihorario a la velocidad máxima.
 
-It is possible to add a **conditional check** to your loop to ensure that the motor never passes through 180 degrees and always moves from a higher angle to a lower one by turning in an anti-clockwise direction.
+Es posible agregar un **control condicional** a tu bucle para asegurarte de que el motor nunca pase 180 grados y siempre se mueva de un ángulo más alto a uno más bajo girando en sentido antihorario.
 
-You can find the last position of the motor by using `motor_y.get_aposition`.
+Puedes encontrar la última posición del motor usando `motor_y.get_aposition`.
 
 --- /collapse ---
 
 --- task ---
 
-Check for the motor's current angle at the top of your `while` loop.
+Verifica el ángulo actual del motor en la parte superior de tu bucle `while`.
 
 --- code ---
 ---
@@ -45,7 +45,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Now, in the `while` loop, you can add a check to see if the current value of `new_angle` is greater or less than the `current_angle`.
+Ahora, en el bucle `while`, puedes agregar una comprobación para ver si el valor actual de `nuevo_angulo` es mayor o menor que `angulo_actual`.
 
 --- code ---
 ---
@@ -61,7 +61,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Run your code. These conditional tests will prevent the motor from changing from a negative value to a positive one by passing through 180 degrees (and vice versa).
+Ejecuta tu código. These conditional tests will prevent the motor from changing from a negative value to a positive one by passing through 180 degrees (and vice versa).
 
 --- /task ---
 
