@@ -238,7 +238,8 @@ from random import randint
 from time import sleep 
 from buildhat import Motor
 
-motor_y = Motor('A') motor_y.run_to_position(0, 100)
+motor_y = Motor('A') 
+motor_y.run_to_position(0, 100)
 
 while True: 
     winkel_neu = randint(-180,180) 
