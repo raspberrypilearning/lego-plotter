@@ -6,29 +6,29 @@ from vcgencmd import Vcgencmd
 
 motor_y = Motor('A')
 motor_x = Motor('B')
-button = ForceSensor('C')
+boton = ForceSensor('C')
 vcgm = Vcgencmd()
 
-def remap(min_temp, max_temp, min_angle, max_angle, temp):
-    temp_range = (max_temp - min_temp)
-    motor_range = (max_angle - min_angle)
-    mapped = (((temp - min_temp) * motor_range) / temp_range) + min_angle
-    return int(mapped)
+def remap(min_temp, max_temp, min_angulo, max_angulo, temp):
+    temp_rango = (max_temp - min_temp)
+    motor_rango = (max_angulo - min_angulo)
+    mapeado = (((temp - min_temp) * motor_rango) / temp_rango) + min_angulo
+    return int(mapeado)
 
 motor_y.run_to_position(0, 100)
 motor_x.start(speed=-25)
 
-while not button.is_pressed():
+while not boton.is_pressed():
     temp = vcgm.measure_temp()
-    current_angle = motor_y.get_aposition()
-    new_angle = remap(53, 57, -170, 170, temp)
-    print(f'temp is {temp} current_angle is {current_angle} new_angle is {new_angle}')
-    if new_angle > current_angle:
-        motor_y.run_to_position(new_angle, 100, direction="clockwise")
-        print('Turning CW')
-    elif new_angle < current_angle:
-        motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
-        print('Turning ACW')
+    angulo_actual = motor_y.get_aposition()
+    nuevo_angulo = remap(53, 57, -170, 170, temp)
+    print(f'temp is {temp} angulo_actual is {angulo_actual} nuevo_angulo is {nuevo_angulo}')
+    if nuevo_angulo > angulo_actual:
+        motor_y.run_to_position(nuevo_angulo, 100, direction="clockwise")
+        print('Girando en sentido horario')
+    elif nuevo_angulo < angulo_actual:
+        motor_y.run_to_position(nuevo_angulo, 100, direction="anticlockwise")
+        print('girando en sentido antihorario')
     sleep(0.1)
     
 motor_x.stop()
