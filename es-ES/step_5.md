@@ -1,24 +1,24 @@
 ## Feed in paper
 
-You will now program the second motor to feed paper through the plotter at a constant rate.
+Ahora programarás el segundo motor para alimentar papel a través del trazador a una velocidad constante.
 
 --- task ---
 
-Feed a sheet of A5 paper (or cut up some scrap to about this size) underneath the small wheels from behind.
+Carga una hoja de papel A5 (o corte algunos trozos de este tamaño) debajo de las pequeñas ruedas desde atrás.
 
-![Paper has been fed in from the back of the plotter, so that the pencil tip rests on the leading edge.](images/paper_in.jpg)
+![Se ha introducido papel desde la parte posterior del trazador, de modo que la punta del lápiz descansa sobre el borde delantero.](images/paper_in.jpg)
 
 --- /task ---
 
 --- task ---
 
-Plug the rear LEGO® Technic™ motor (which drives these wheels) into port B on the Build HAT.
+Enchufe el motor LEGO® Technic ™ trasero (que impulsa estas ruedas) en el puerto B del Build HAT.
 
 --- /task ---
 
 --- task ---
 
-Create an object called `motor_x` for this motor, below the similar line for `motor_y`:
+Crea un objeto llamado `motor_x` para este motor, debajo de la línea similar para `motor_y`:
 
 --- code ---
 ---
@@ -34,7 +34,7 @@ motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Add a line to start this motor turning immediately before the `while True` loop:
+Agrega una línea para que este motor comience a girar inmediatamente antes del bucle `while True`:
 
 --- code ---
 ---
@@ -48,17 +48,17 @@ motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100) motor_
 
 --- /task ---
 
-This will make the feeder motor run at a constant rate of -25 turns per minute when the program starts. Change the number in the brackets to experiment with the speed.
+Esto hará que el motor del alimentador funcione a una velocidad constante de -25 vueltas por minuto cuando comience el programa. Cambia el número entre paréntesis para experimentar con la velocidad.
 
 --- task ---
 
-Run your code and watch the paper being fed through the plotter, as the pencil moves randomly in the `y` direction.
+Ejecuta tu código y observa cómo se alimenta el papel a través del trazador, mientras el lápiz se mueve aleatoriamente en la dirección `y`.
 
-![Animation showing the paper being fed through the plotter while the pencil moves randomly along the y axis.](images/feeding_paper.gif)
+![Animación que muestra el papel que entrando al trazador mientras el lápiz se mueve aleatoriamente a lo largo del eje y.](images/feeding_paper.gif)
 
 --- /task ---
 
-To stop the motor feeding the paper, you can type the following into the **Shell**.
+Para detener el motor que alimenta el papel, puedes escribir lo siguiente en la **Consola**.
 
 ```python
 >>> from buildhat import Motor
