@@ -1,23 +1,23 @@
-## Move the motors with data
+## Mueve los motores con datos
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-You may have seen in earthquake disaster movies a scene where a <span style="color: #0faeb0">[seismometer](https://en.wikipedia.org/wiki/Seismometer) </span> is used to show the tremors. 
+Es posible que haya visto en las películas de desastres por terremotos una escena en la que utilizan un sismógrafo <span style="color: #0faeb0">[seismometer](https://es.wikipedia.org/wiki/Sism%C3%B3grafo) </span> para mostrar los temblores. 
 
-The design of such devices is quite simple: one motor is used to move the paper past the pen (the x-axis), while another, at a right-angle to the first, moves the pen in response to the changing data (y-axis). </p>
+El diseño de tales dispositivos es bastante simple: un motor se usa para mover el papel más allá del lápiz (el eje x), mientras que otro, en ángulo recto con el primero, mueve el lápiz en respuesta a los datos cambiantes (y -eje). </p>
 
-In this project, you will create a plotter from LEGO®, and connect it to your Raspberry Pi so it can plot real-time data.
+En este proyecto, crearás un trazador con LEGO® y lo conectarás a tu Raspberry Pi para poder trazar datos en tiempo real.
 
 --- task ---
 
-Connect a monitor, keyboard, and mouse to your Raspberry Pi. If you've never used a Raspberry Pi before, you might want to start with [this project](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
+Conecta un monitor, teclado y mouse a tu Raspberry Pi. Si nunca antes has usado una Raspberry Pi, es posible que desees comenzar con [este proyecto](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
 
-Attach the Build HAT to your Raspberry Pi (make sure you can see the Raspberry Pi logo on the top) and connect a 7.5V power supply to the barrel jack of the Build HAT. This will boot your Raspberry Pi.
+Conecta el Build HAT a tu Raspberry Pi (asegúratse de que puedes ver el logotipo de Raspberry Pi en la parte superior) y conecta una fuente de alimentación de 7,5 V al conector de barril del Build HAT. Esto iniciará tu Raspberry Pi.
 
 --- /task ---
 
 --- task ---
 
-Open Thonny from the programming menu, and add the following lines to begin your program by importing the libraries you will be using:
+Abre Thonny desde el menú de programación y agrega las siguientes líneas para comenzar su programa importando las bibliotecas que utilizarás:
 
 --- code ---
 ---
@@ -29,7 +29,7 @@ from random import randint from time import sleep from buildhat import Motor
 
 --- /code ---
 
-Save this program as `plotter.py` by pressing <kbd>Ctrl</kbd>+<kbd>s</kbd>.
+Guarda este programa como `plotter.py` presionando <kbd>Ctrl</kbd>+<kbd>s</kbd>.
 
 --- /task ---
 
@@ -51,17 +51,17 @@ new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-Run your program a few times by clicking the **Run** button at the top of the window. You should see different values appear in the shell beneath your code each time.
+Ejecuta tu programa varias veces haciendo clic en el botón **Ejecutar** en la parte superior de la ventana. Cada vez deberías ver aparecer valores diferentes en la consola debajo de tu código.
 
 --- /task ---
 
-Instead of running this script manually, create a **loop** to run the script repeatedly. To run the same lines continuously, you can use a `while True:` loop.
+En lugar de ejecutar este script manualmente, crea un **bucle ** para ejecutar el script repetidamente. Para ejecutar las mismas líneas continuamente, puedes usar un bucle `while True:`.
 
 --- task ---
 
-Add a blank line above the code you just added by pressing <kbd>Enter</kbd>.
+Agregue una línea en blanco sobre el código que acabas de agregar presionando <kbd>Entrar</kbd>.
 
-On this new line, enter `while True:`; make sure you have a capital 'T'.
+En esta nueva línea, ingresa `while True:`; asegúrese de escribirlo con "T"' mayúscula.
 
 --- code ---
 ---
@@ -77,7 +77,7 @@ while True: new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-Add four spaces to the start of each of the lines beneath to create an **indented code block**. This tells the computer which lines are included in your loop.
+Agregue cuatro espacios al comienzo de cada una de las líneas debajo para crear un **bloque de código indentado**. Esto le dice a la computadora qué líneas están incluidas en tu bucle.
 
 
 --- code ---
@@ -94,7 +94,7 @@ while True: new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-At the end of your code, press <kbd>Enter</kbd> to add another indented line. On this line, type `sleep(0.1)`.
+Al final de tu código, presione <kbd>Entrar</kbd> para agregar otra línea indentada. En esta línea, escribe `sleep (0.1)`.
 
 --- code ---
 ---
@@ -110,7 +110,7 @@ while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
 
 --- task ---
 
-Run your code to see the values printed in the shell. If you get any errors, check that your code looks like this:
+Ejecuta tu código para ver los valores impresos en la consola. Si tienes algún error, verifica que tu código tenga este aspecto:
 
 --- code ---
 ---
@@ -126,29 +126,29 @@ while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
 
 --- /task ---
 
-Now that you have some data, you can use this to control the position of a motor.
+Ahora que tiene algunos datos, puede usarlos para controlar la posición de un motor.
 
 --- task ---
 
-Connect a LEGO® Technic™ motor to port A on the Build HAT. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning.
+Conecte un motor LEGO® Technic ™ al puerto A del Build HAT. Agrega algunos elementos LEGO adicionales al eje del motor para que sea fácil ver el motor girando.
 
 --- /task ---
 
 --- task ---
 
-Line up the element with the line mark on the motor and then set the motor to the zero position:
+Alinea el elemento con la línea marcada en el motor y luego coloca el motor en la posición cero:
 
-![A photo of a LEGO® Technic™ motor showing the lollipop and zero labels used to set the encoder to 0 degrees.](images/zero.JPG)
+![Una foto de un motor LEGO® Technic ™ que muestra la paleta y las etiquetas de cero utilizadas para configurar el codificador en 0 grados.](images/zero.JPG)
 
 --- /task ---
 
-Now, modify the main body of your program so that the angle turned to by the motor is the same as the latest value produced by your simulated sensor.
+Ahora, modifica el cuerpo principal de tu programa para que el ángulo al que gira el motor sea el mismo que el último valor producido por tu sensor simulado.
 
-To do this, you need to set up your motor so it can be accessed by the program.
+Para hacer esto, necesitas configurar tu motor para que el programa pueda acceder a él.
 
 --- task ---
 
-Create a `motor_y` object for port `A` on the Build HAT and then turn the motor to the `0` position with a speed of `100`.
+Crear un objeto `motor_y` para el puerto `A` en el Build HAT y luego gira el motor a la posición `0` con una velocidad de `100`.
 
 --- code ---
 ---
@@ -180,9 +180,9 @@ while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_positi
 
 --- task ---
 
-Click **Run** and you should see your motor spin clockwise to different positions in response to the changing data. If you run the program again, it should reset the motor position back to `0` before moving randomly again.
+Haz clic en **Ejecutar** y deberías ver tu motor gira en el sentido de las agujas del reloj a diferentes posiciones en respuesta a los datos cambiantes. Si vuelves a ejecutar el programa, debería restablecer la posición del motor a `0` antes de volver a moverse aleatoriamente.
 
-If you get errors, then check your code looks like this.
+Si tienes errores, verifica que tu código tenga este aspecto.
 
 --- code ---
 ---
@@ -200,6 +200,6 @@ while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_positi
 
 --- /task ---
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam is rotating like a clock hand in response to the data. The motor only turns between 0 and 180 degrees, travelling clockwise and anti-clockwise.](images/motor_180.gif)
+![Una película que muestra un motor LEGO® Technic ™ con una columna negra ensamblada. El motor está girando y la columna gira como una manecilla de reloj en respuesta a los datos. El motor solo gira entre 0 y 180 grados, viajando en sentido horario y antihorario.](images/motor_180.gif)
 
 --- save ---
