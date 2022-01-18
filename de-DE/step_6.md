@@ -1,4 +1,4 @@
-## Add a button control
+## Schaltflächen-Steuerelement hinzufügen
 
 Um den Plotter zu stoppen und zu starten, kannst du deinem Gerät einen Schalter hinzufügen.
 
@@ -12,7 +12,7 @@ Der LEGO® SPIKE™ Prime Kraft-Sensor kann als einfacher Knopf benutzt werden. 
 
 --- task ---
 
-Bearbeite dein Programm `plotter.py`, dass es eine Steuerung mittels eines Schalters enthält. Add a comma followed by `ForceSensor` (making sure you include **both** capital letters!) to the end of the line that says `from buildhat import Motor`:
+Bearbeite dein Programm `plotter.py`, dass es eine Steuerung mittels eines Schalters enthält. Füge am Ende der Zeile `from buildhat import Motor ` ein Komma gefolgt von `ForceSensor` (Achte auf die **beiden** Großbuchstaben!) ein:
 
 --- code ---
 ---
