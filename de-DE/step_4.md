@@ -57,7 +57,7 @@ Tippe:
 Drücke <kbd>Enter</kbd>.
 
 Dies sollte deinen Motor <strong x-id="1">nullen</strong> oder zentrieren.
-</p>
+
 
 --- /task ---
 

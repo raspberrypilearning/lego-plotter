@@ -43,7 +43,8 @@ line_highlights: 8
 while True: 
     winkel_jetzt = motor_y.get_aposition() 
     winkel_neu = randint(-180, 180) 
-    print(winkel_neu) motor_y.run_to_position(winkel_neu, 100) 
+    print(winkel_neu) 
+    motor_y.run_to_position(winkel_neu, 100) 
     sleep(0.1)
 
 --- /code ---

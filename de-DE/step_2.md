@@ -191,7 +191,8 @@ line_number_start: 4
 line_highlights: 5, 6
 ---
 
-motor_y = Motor('A') motor_y.run_to_position(0, 100)
+motor_y = Motor('A') 
+motor_y.run_to_position(0, 100)
 
 --- /code ---
 
@@ -212,7 +213,8 @@ line_highlights: 11
 
 while True: 
     winkel_neu = randint(-180,180) 
-    print(winkel_neu) motor_y.run_to_position(winkel_neu, 100)
+    print(winkel_neu) 
+    motor_y.run_to_position(winkel_neu, 100)
 
 --- /code ---
 
@@ -240,7 +242,8 @@ motor_y = Motor('A') motor_y.run_to_position(0, 100)
 
 while True: 
     winkel_neu = randint(-180,180) 
-    print(winkel_neu) motor_y.run_to_position(winkel_neu, 100) 
+    print(winkel_neu) 
+    motor_y.run_to_position(winkel_neu, 100) 
     sleep(0.1)
 
 --- /code ---
