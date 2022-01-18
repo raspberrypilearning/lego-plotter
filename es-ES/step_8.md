@@ -1,13 +1,13 @@
 ## What next?
 
-+ Add a LEGO® Technic™ Color Sensor to detect when the paper has run out.
++ Agrega un sensor de color LEGO® Technic ™ para detectar cuándo se ha acabado el papel.
 
-+ Modify the LEGO® Technic™ Force Sensor code so that the speed of the motor controlling the paper feed is increased by increasing the pressure on the sensor.
++ Modifica el código del sensor de fuerza LEGO® Technic ™ para que la velocidad del motor que controla la alimentación del papel aumente al aumentar la presión sobre el sensor.
 
-+ Add other data sources. You could use another external sensor or a feed for an online data stream.
++ Agrega otras fuentes de datos. Puedes usar otro sensor externo o una fuente de datos en línea.
 
-If you are following the [Introduction to LEGO BuildHAT](https://projects.raspberrypi.org/en/pathways/lego-intro) pathway, you can move on to the [LEGO Data Dash](https://projects.raspberrypi.org/en/projects/lego-data-dash) project. In this project, you will make some dials and readouts with LEGO and get them to display the air quality data from anywhere in the world!
+Si está siguiendo la [Introducción a LEGO BuildHAT](https://projects.raspberrypi.org/en/pathways/lego-intro), puedes pasar al proyecto [Tablero de datos LEGO](https://projects.raspberrypi.org/en/projects/lego-data-dash). ¡En este proyecto, harás algunos diales y lecturas con LEGO y harás que muestren los datos de calidad del aire en cualquier parte del mundo!
 
-![LEGO Data Dash Banner image showing dials and a buildhat](images/datadashbanner.png)
+![Imagen de Tablero de datos LEGO que muestra diales y un buidhat](images/datadashbanner.png)
 
-If you want to have more fun exploring python, then you could try out any of [these projects](https://projects.raspberrypi.org/en/projects?software%5B%5D=python).
+Si quieres divertirte explorando Python, entonces puedes probar cualquiera de [estos proyectos](https://projects.raspberrypi.org/en/projects?software%5B%5D=python).
