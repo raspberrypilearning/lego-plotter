@@ -1,4 +1,4 @@
-## Feed in paper
+## Papierzufuhr
 
 Du programmierst nun den zweiten Motor so, dass er das Papier mit einer konstanten Geschwindigkeit durch den Plotter transportiert.
 
@@ -34,7 +34,7 @@ motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Add a line to start this motor turning immediately before the `while True` loop:
+Füge eine Zeile direkt vor der `while True` Schleife hinzu, um diesen Motor zu bewegen:
 
 --- code ---
 ---
