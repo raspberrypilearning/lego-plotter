@@ -1,18 +1,18 @@
 ## Add a button control
 
-To stop and start the plotter running, you can add a button to your build.
+Para detener e iniciar la ejecución del trazador, puedes agregar un botón a su construcción.
 
 --- task ---
 
-The LEGO® SPIKE™ Prime Force Sensor can act as a simple button. Connect one to port C on your Build HAT.
+El sensor de fuerza principal LEGO® SPIKE ™ puede actuar como un simple botón. Conecta uno al puerto C en tu Build HAT.
 
-![A close-up photo of part of the LEGO® plotter where the force sensor has been added.](images/force.jpg)
+![Una foto en primer plano de parte del trazador LEGO® donde se ha agregado el sensor de fuerza.](images/force.jpg)
 
 --- /task ---
 
 --- task ---
 
-Edit your `plotter.py` program to include a button control. Add a comma followed by `ForceSensor` (making sure you include **both** capital letters!) to the end of the line that says `from buildhat import Motor`:
+Edita tu programa `plotter.py` para incluir un botón de control. Agrega una coma seguida de `ForceSensor` (¡asegurándote de incluir **ambas** letras mayúsculas!) Al final de la línea que dice `from buildhat import Motor`:
 
 --- code ---
 ---
@@ -28,7 +28,7 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 
 --- task ---
 
-Add this line to create an object for the button after the similar lines for the motors:
+Agrega esta línea para crear un objeto para el botón después de las líneas similares para los motores:
 
 --- code ---
 ---
@@ -44,7 +44,7 @@ motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_
 
 --- task ---
 
-Change your main loop from `while True` to:
+Cambie su bucle principal de `while True` a:
 
 --- code ---
 ---
@@ -60,7 +60,7 @@ while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle
 
 --- task ---
 
-Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines at the end of your program.
+Ahora puedes detener el funcionamiento del plotter presionando el botón. Para finalizar todo y detener ambos motores, agrega las siguientes líneas al final de tu programa.
 
 --- code ---
 ---
