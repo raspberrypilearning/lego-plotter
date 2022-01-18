@@ -68,8 +68,8 @@ language: python filename: plotter.py line_numbers: true line_number_start: 19
 line_highlights: 24-26
 ---
 
-    elif sensor_daten < winkel_jetzt:
-        motor_y.run_to_position(sensor_daten, 100, direction="anticlockwise")
+    elif winkel_neun < winkel_jetzt:
+        motor_y.run_to_position(winkel_neu, 100, direction="anticlockwise")
         print('gegen Uhrzeigersinn')
     sleep(0.1)
 
@@ -94,7 +94,7 @@ taster = ForceSensor('C') motor_y = Motor('A') motor_x = Motor('B')
 
 motor_y.run_to_position(0, 100) motor_x.start(speed=-25)
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) if new_angle > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif new_angle < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
+while not taster.is_pressed(): winkel_jetzt = motor_y.get_aposition() winkel_neu = randint(-180, 180) if winkel_neu > winkel_jetzt: motor_y.run_to_position(winkel_neu, 100, direction="clockwise") print('im Uhrzeigersinn') elif winkel_neu < winkel_jetzt: motor_y.run_to_position(winkel_neu, 100, direction="anticlockwise") print('gegen Uhrzeigersinn') sleep(0.1)
 
 motor_x.stop() motor_y.run_to_position(0, 100)
 
