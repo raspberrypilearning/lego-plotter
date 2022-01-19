@@ -10,7 +10,7 @@ Hay muchas formas de hacerlo, pero las instrucciones de construcción del proyec
 
 Deberás adaptar la estructura ligeramente para que el brazo pueda sostener un bolígrafo. Las bandas elásticas son una excelente manera de sujetar un bolígrafo cómodamente contra LEGO.
 
-![A photo of the partially assembled plotter model, with a pen attached to the LEGO® elements with a rubber band.](images/rubber_bands.jpg)
+![Una foto del modelo de trazador parcialmente ensamblado, con un bolígrafo unido a los elementos LEGO® con una goma elástica.](images/rubber_bands.jpg)
 
 <embed src="https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
   </p> 
