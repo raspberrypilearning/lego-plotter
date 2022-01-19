@@ -1,4 +1,4 @@
-## Add a button control
+## 버튼 컨트롤 추가하기
 
 플로터 실행을 중지하고 시작하려면 빌드에 버튼을 추가해 주셔야 합니다.
 
@@ -36,7 +36,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 7
 ---
 
-motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_to_position(0, 100) motor_x.start(-25)
+motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100) motor_x.start(-25)
 
 --- /code ---
 
@@ -114,7 +114,7 @@ Thonny에서 프로그램을 시작하고 펜이 종이에 랜덤한 그림을 �
 
 --- task ---
 
-Once the paper has been used, press the Force Sensor button to stop everything.
+용지를 전부 사용한 후에는 힘 센서를 눌러 모든 작업을 중지합니다.
 
 --- /task ---
 
