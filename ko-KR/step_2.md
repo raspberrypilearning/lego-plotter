@@ -11,7 +11,7 @@
 
 모니터, 키보드, 마우스를 Raspberry Pi 장치에 연결합니다. 이전에 Raspberry Pi를 사용한 적이 없다면 [이 프로젝트](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started)로 시작하는 것이 좋습니다.
 
-Build HAT를 Raspberry Pi에 연결하고(상단에 Raspberry Pi 로고가 보이는지 확인) Build HAT의 배럴 잭에 7.5V 전원 공급 장치를 연결합니다. This will boot your Raspberry Pi.
+Build HAT를 Raspberry Pi에 연결하고(상단에 Raspberry Pi 로고가 보이는지 확인) Build HAT의 배럴 잭에 7.5V 전원 공급 장치를 연결합니다. 그러면 Raspberry Pi가 부팅될 것입니다.
 
 --- /task ---
 
@@ -130,7 +130,7 @@ while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
 
 --- task ---
 
-Connect a LEGO® Technic™ motor to port A on the Build HAT. 모터 회전을 쉽게 볼 수 있도록 모터 액슬에 LEGO 부품을 추가하세요.
+LEGO® Technic™ 모터를 Build HAT의 포트 A에 연결하세요. 모터 회전을 쉽게 볼 수 있도록 모터 액슬에 LEGO 부품을 추가하세요.
 
 --- /task ---
 
@@ -180,7 +180,7 @@ while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_positi
 
 --- task ---
 
-Click **Run** and you should see your motor spin clockwise to different positions in response to the changing data. 프로그램을 다시 실행하면 다시 무작위로 이동하기 전에 `0`으로 포지션이 리셋됩니다.
+**Run** 을 클릭하면 변화하는 데이터에 대한 응답으로 모터가 시계 방향으로 다른 위치로 회전하는 것을 볼 수 있습니다. 프로그램을 다시 실행하면 다시 무작위로 이동하기 전에 `0`으로 포지션이 리셋됩니다.
 
 오류가 발생하면 코드가 다음과 같은지 확인하십시오.
 
