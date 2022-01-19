@@ -11,7 +11,7 @@ title: Vcgencmd Python 라이브러리 설치
 
 인터넷에 연결되어 있는지 확인하세요.
 
-Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
+키보드에서 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> 를 눌러 Raspberry Pi에서 터미널을 엽니다.
 
 프롬프트에서 `pip3 install vcgencmd` 을 입력 하고 <kbd>Enter</kbd> 를 입력합니다.
 
@@ -32,7 +32,7 @@ Thonny의 **Shell/REPL** 을 사용하여 다음 Python 줄을 입력하여 CPU 
 ```python
 >>> vcgm = Vcgencmd()
 ```
-Press <kbd>Enter</kbd>.
+<kbd>Enter</kbd> 를 누릅니다.
 
 유형:
 ```python
@@ -70,7 +70,7 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 
 --- /task ---
 
---- task --- Create a vcgencmd object:
+--- task --- vcgencmd 객체를 만드세요:
 
 --- code ---
 ---
