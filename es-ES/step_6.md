@@ -1,4 +1,4 @@
-## Add a button control
+## Agrega un botón de control
 
 Para detener e iniciar la ejecución del trazador, puedes agregar un botón a su construcción.
 
@@ -52,7 +52,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 13
 line_highlights:
 ---
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180)
+while not button.is_pressed(): angulo_actual = motor_y.get_aposition() nuevo_angulo = randint(-180, 180)
 
 --- /code ---
 
@@ -68,9 +68,9 @@ language: python filename: plotter.py line_numbers: true line_number_start: 19
 line_highlights: 24-26
 ---
 
-    elif new_angle < current_angle:
-        motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
-        print('Turning ACW')
+    elif nuevo_angulo < angulo_actual:
+        motor_y.run_to_position(nuevo_angulo, 100, direction="anticlockwise")
+        print('Girando en sentido antihorario')
     sleep(0.1)
 
 motor_x.stop() motor_y.run_to_position(0, 100)
