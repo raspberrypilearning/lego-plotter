@@ -21,9 +21,9 @@ LEGO®와 Raspberry Pi Build HAT를 사용하여 데이터 플로터를 만들�
 ### 하드웨어
 
 + Raspberry Pi
-+ A Raspberry Pi Build HAT
++ Raspberry Pi Build HAT
 + LEGO® Technic™ 모터 2개
-+ A LEGO® SPIKE™ Force Sensor OR a push button, breadboard, and jumper wires
++ LEGO® SPIKE™ 힘 센서 또는 푸시 버튼, 브레드보드 및 점퍼 와이어
 + 바퀴 2개를 포함한 다양한 LEGO®([LEGO® Education SPIKE™ Prime 키트](https://education.lego.com/en-gb/product/spike-prime)에서 선택 사용)
 + 배럴 잭이 있는 7.5V 전원 공급 장치 (대신 보조배터리를 사용할 수 있지만 모든 셀이 완전히 충전되었는지 확인)
 
@@ -45,7 +45,7 @@ title: Vcgencmd Python 라이브러리 설치
 
 인터넷에 연결되어 있는지 확인하세요.
 
-Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
+키보드에서 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> 를 눌러 Raspberry Pi에서 터미널을 엽니다.
 
 프롬프트에서 `pip3 install vcgencmd` 을 입력 하고 <kbd>Enter</kbd> 를 입력합니다.
 
@@ -74,7 +74,7 @@ M2 볼트와 너트를 사용하여 LEGO Build Plate에 Raspberry Pi를 장착�
 
 --- /task ---
 
-Mounting the Raspberry Pi this way round enables easy access to the ports as well as the SD card slot. Build Plate를 사용하면 Raspberry Pi를 대시보드에 더 쉽게 연결할 수 있습니다.
+이런 식으로 Raspberry Pi를 장착하면 향후 포트와 SD 카드 슬롯에 쉽게 액세스할 수 있습니다. Build Plate를 사용하면 Raspberry Pi를 대시보드에 더 쉽게 연결할 수 있습니다.
 
 --- task ---
 
@@ -90,7 +90,7 @@ Build HAT를 Raspberry Pi와 정렬하여 `This way up` 레이블이 보이도�
 
 아직 설정하지 않았다면 다음 지침에 따라 Raspberry Pi를 설정하세요.
 
-[Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up){:target="_blank"}
+[Raspberry Pi 설정하기](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up){:target="_blank"}
 
 --- /task ---
 
@@ -98,7 +98,7 @@ Build HAT를 Raspberry Pi와 정렬하여 `This way up` 레이블이 보이도�
 
 Raspberry Pi가 부팅되면 Raspberry 메뉴 버튼을 클릭하고 "기본 설정(Preferences)"를 선택한 다음 "Raspberry Pi Configuration"을 선택하여 Raspberry Pi Configuration 도구를 엽니다.
 
-Click on the “interfaces” tab and adjust the Serial settings as shown below:
+"interface" 탭을 클릭하고 아래와 같이 시리얼 설정을 조정합니다.
 
 ![직렬 포트가 활성화되고 직렬 콘솔이 비활성화된 Raspberry Pi 구성 화면을 보여주는 이미지](images/configshot.jpg)
 
