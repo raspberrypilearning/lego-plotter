@@ -16,9 +16,9 @@ steps:
   - 
     title: 플로터 제작하기
   - 
-    title: Feed in paper
+    title: 용지 급지
   - 
-    title: Add a button control
+    title: 버튼 컨트롤 추가하기
   - 
     title: 실시간 데이터 소스 추가하기
   - 
