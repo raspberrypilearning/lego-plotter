@@ -83,11 +83,11 @@
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  <kbd>Enter</kbd> 를 누릅니다.
 </p>
 
 <p spaces-before="0">
-  Type:
+  유형:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; motor_y.run_to_position(0, 100)
