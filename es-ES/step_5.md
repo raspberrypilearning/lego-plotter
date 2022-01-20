@@ -1,4 +1,4 @@
-## Feed in paper
+## Pon el papel
 
 Ahora programarás el segundo motor para alimentar papel a través del trazador a una velocidad constante.
 
