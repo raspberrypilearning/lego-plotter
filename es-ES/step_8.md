@@ -1,4 +1,4 @@
-## What next?
+## ¿Qué sigue?
 
 + Agrega un sensor de color LEGO® Technic ™ para detectar cuándo se ha acabado el papel.
 
