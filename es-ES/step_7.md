@@ -80,7 +80,7 @@ line_highlights: 9
 
 from random import randint from time import sleep from buildhat import Motor, ForceSensor from vcgencmd import Vcgencmd
 
-motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') vcgm = Vcgencmd()
+motor_y = Motor('A') motor_x = Motor('B') boton = ForceSensor('C') vcgm = Vcgencmd()
 
 motor_y.run_to_position(0, 100) motor_x.start(-25)
 
@@ -98,7 +98,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 15
 line_highlights: 16
 ---
 
-while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_y.get_aposition()
+while not boton.is_pressed(): temp = vcgm.measure_temp() angulo_actual = motor_y.get_aposition()
 
 --- /code ---
 
@@ -120,7 +120,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 12
 line_highlights: 13
 ---
 
-def remap(min_temp, max_temp, min_angle, max_angle, temp): temp_range = (max_temp - min_temp) motor_range = (max_angle - min_angle) mapped = (((temp - min_temp) * motor_range) / temp_range) + min_angle return int(mapped)
+def remap(min_temp, max_temp, min_angulo, max_angulo, temp): temp_rango = (max_temp - min_temp) motor_rango = (max_angulo - min_angulo) mapeado = (((temp - min_temp) * motor_rango) / temp_rango) + min_angle return int(mapeado)
 
 --- /code ---
 
@@ -132,7 +132,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 21
 line_highlights: 24
 ---
 
-while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_y.get_aposition() new_angle = remap(50, 90, -170, 170, temp)
+while not boton.is_pressed(): temp = vcgm.measure_temp() angulo_actual = motor_y.get_aposition() nuevo_angulo = remap(50, 90, -170, 170, temp)
 
 --- /code ---
 
