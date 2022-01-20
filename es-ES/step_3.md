@@ -37,7 +37,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 8
 ---
 
-while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) print(new_angle) motor_y.run_to_position(new_angle, 100) sleep(0.1)
+while True: angulo_actual= motor_y.get_aposition() nuevo_angulo = randint(-180, 180) print(nuevo_angulo) motor_y.run_to_position(nuevo_angulo, 100) sleep(0.1)
 
 --- /code ---
 
@@ -53,7 +53,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 11-16
 ---
 
-while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) print(new_angle) if new_angle > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif new_angle < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
+while True: angulo_actual = motor_y.get_aposition() nuevo_angulo = randint(-180, 180) print( nuevo_angulo) if nuevo_angulo > angulo_actual: motor_y.run_to_position(nuevo_angulo, 100, direction="clockwise") print('Girando en sentido horario') elif nuevo_angulo < angulo_actual: motor_y.run_to_position(nuevo_angulo, 100, direction="anticlockwise") print('Girando en sentido antihorario') sleep(0.1)
 
 --- /code ---
 
@@ -61,7 +61,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Ejecuta tu código. These conditional tests will prevent the motor from changing from a negative value to a positive one by passing through 180 degrees (and vice versa).
+Ejecuta tu código. Estas pruebas condicionales evitarán que el motor cambie de un valor negativo a uno positivo pasando por 180 grados (y viceversa).
 
 --- /task ---
 
