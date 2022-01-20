@@ -52,7 +52,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 13
 line_highlights:
 ---
 
-while not button.is_pressed(): angulo_actual = motor_y.get_aposition() nuevo_angulo = randint(-180, 180)
+while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180)
 
 --- /code ---
 
