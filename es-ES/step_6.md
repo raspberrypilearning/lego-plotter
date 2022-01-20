@@ -36,7 +36,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 7
 ---
 
-motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_to_position(0, 100) motor_x.start(-25)
+motor_y = Motor('A') motor_x = Motor('B') boton = ForceSensor('C') motor_y.run_to_position(0, 100) motor_x.start(-25)
 
 --- /code ---
 
@@ -52,7 +52,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 13
 line_highlights:
 ---
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180)
+while not boton.is_pressed(): angulo_actual = motor_y.get_aposition() nuevo_angulo = randint(-180, 180)
 
 --- /code ---
 
@@ -90,11 +90,11 @@ line_number_start: 1
 # !/usr/bin/python3
 from random import randint from time import sleep from buildhat import Motor, ForceSensor
 
-button = ForceSensor('C') motor_y = Motor('A') motor_x = Motor('B')
+boton = ForceSensor('C') motor_y = Motor('A') motor_x = Motor('B')
 
 motor_y.run_to_position(0, 100) motor_x.start(speed=-25)
 
-while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle = randint(-180, 180) if new_angle > current_angle: motor_y.run_to_position(new_angle, 100, direction="clockwise") print('Turning CW') elif new_angle < current_angle: motor_y.run_to_position(new_angle, 100, direction="anticlockwise") print('Turning ACW') sleep(0.1)
+while not boton.is_pressed(): angulo_actual = motor_y.get_aposition() nuevo_angulo = randint(-180, 180) if nuevo_angulo > angulo_actual: motor_y.run_to_position(nuevo_angulo, 100, direction="clockwise") print('Girando en sentido horario') elif nuevo_angulo < angulo_actual: motor_y.run_to_position(nuevo_angulo, 100, direction="anticlockwise") print('Girando en sentido anthihorario') sleep(0.1)
 
 motor_x.stop() motor_y.run_to_position(0, 100)
 
