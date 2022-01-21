@@ -82,8 +82,8 @@ line_highlights: 5
 ---
 
 while True: 
-    nuevo_angulo = randint(-180,180) 
-    print(nuevo_angulo)
+nuevo_angulo = randint(-180,180) 
+print(nuevo_angulo)
 
 --- /code ---
 
