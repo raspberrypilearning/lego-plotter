@@ -35,7 +35,7 @@ Guarda este programa como `plotter.py` presionando <kbd>Ctrl</kbd>+<kbd>s</kbd>.
 
 --- task ---
 
-Now use the `randint` function to create a random value between a range (in this case, -180 to 180) and store it in a variable called `new_angle`:
+Ahora usa la función `randint` para crear un valor aleatorio en un rango (en este caso, -180 a 180) y almacénalo en una variable llamada `nuevo_angulo`:
 
 --- code ---
 ---
@@ -43,7 +43,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 5,6
 ---
 
-new_angle = randint(-180,180) print(new_angle)
+nuevo_angulo = randint(-180,180) print(nuevo_angulo)
 
 --- /code ---
 
@@ -69,7 +69,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 5
 ---
 
-while True: new_angle = randint(-180,180) print(new_angle)
+while True: nuevo_angulo = randint(-180,180) print(nuevo_angulo)
 
 --- /code ---
 
@@ -86,7 +86,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 6,7
 ---
 
-while True: new_angle = randint(-180,180) print(new_angle)
+while True: nuevo_angulo = randint(-180,180) print(nuevo_angulo)
 
 --- /code ---
 
@@ -102,7 +102,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 5
 line_highlights: 8
 ---
 
-while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
+while True: nuevo_angulo = randint(-180,180) print(nuevo_angulo) sleep(0.1)
 
 --- /code ---
 
@@ -120,7 +120,7 @@ line_number_start: 1
 
 from random import randint from time import sleep from buildhat import Motor
 
-while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
+while True: nuevo_angulo = randint(-180,180) print(nuevo_angulo) sleep(0.1)
 
 --- /code ---
 
@@ -164,7 +164,7 @@ motor_y = Motor('A') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-The next line makes the motor turn to the angle stored in `new_angle`.
+La siguiente línea hace que el motor gire al ángulo almacenado en `nuevo_angulo`.
 
 --- code ---
 ---
@@ -172,7 +172,7 @@ language: python filename: plotter.py line_numbers: true line_number_start: 7
 line_highlights: 11
 ---
 
-while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_position(new_angle, 100)
+while True: nuevo_angulo  = randint(-180,180) print(nuevo_angulo) motor_y.run_to_position(nuevo_angulo, 100)
 
 --- /code ---
 
@@ -194,7 +194,7 @@ from random import randint from time import sleep from buildhat import Motor
 
 motor_y = Motor('A') motor_y.run_to_position(0, 100)
 
-while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_position(new_angle, 100) sleep(0.1)
+while True: nuevo_angulo = randint(-180,180) print(nuevo_angulo) motor_y.run_to_position(nuevo_angulo, 100) sleep(0.1)
 
 --- /code ---
 
