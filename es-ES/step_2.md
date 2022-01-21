@@ -245,7 +245,7 @@ while True:
     nuevo_angulo = randint(-180,180) 
     print(nuevo_angulo) 
     motor_y.run_to_position(nuevo_angulo, 100) 
-sleep(0.1)
+    sleep(0.1)
 
 --- /code ---
 
