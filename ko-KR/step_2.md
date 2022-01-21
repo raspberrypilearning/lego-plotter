@@ -35,7 +35,7 @@ from random import randint from time import sleep from buildhat import Motor
 
 --- task ---
 
-Now use the `randint` function to create a random value between a range (in this case, -180 to 180) and store it in a variable called `new_angle`:
+이제 `randint` 함수를 사용하여 범위(이 경우 -180 ~ 180) 사이의 랜덤 값을 만들고 `new_angle`이라는 변수에 저장합니다.
 
 --- code ---
 ---
@@ -164,7 +164,7 @@ motor_y = Motor('A') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-The next line makes the motor turn to the angle stored in `new_angle`.
+다음 라인은 `new_angle`에 저장된 각도로 회전하도록 합니다.
 
 --- code ---
 ---
