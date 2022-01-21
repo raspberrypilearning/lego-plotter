@@ -82,8 +82,8 @@ line_highlights: 5
 ---
 
 while True: 
-    winkel_neu = randint(-180,180) 
-    print(winkel_neu)
+winkel_neu = randint(-180,180) 
+print(winkel_neu)
 
 --- /code ---
 
