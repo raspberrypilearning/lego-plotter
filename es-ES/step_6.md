@@ -56,7 +56,7 @@ motor_x.start(-25)
 
 --- task ---
 
-Cambie su bucle principal de `while True` a:
+Cambia su bucle principal de `while True` a:
 
 --- code ---
 ---
