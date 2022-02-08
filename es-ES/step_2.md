@@ -9,7 +9,7 @@ En este proyecto, crearás un trazador con LEGO® y lo conectarás a tu Raspberr
 
 --- task ---
 
-Conecta un monitor, teclado y mouse a tu Raspberry Pi. Si nunca antes has usado una Raspberry Pi, es posible que desees comenzar con [este proyecto](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
+Conecta un monitor, teclado y ratón a tu Raspberry Pi. Si nunca antes has usado una Raspberry Pi, es posible que desees comenzar con [este proyecto](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
 
 Conecta el Build HAT a tu Raspberry Pi (asegúratse de que puedes ver el logotipo de Raspberry Pi en la parte superior) y conecta una fuente de alimentación de 7,5 V al conector de barril del Build HAT. Esto iniciará tu Raspberry Pi.
 
@@ -59,7 +59,7 @@ En lugar de ejecutar este script manualmente, crea un **bucle ** para ejecutar e
 
 --- task ---
 
-Agregue una línea en blanco sobre el código que acabas de agregar presionando <kbd>Entrar</kbd>.
+Agrega una línea en blanco sobre el código que acabas de agregar presionando <kbd>Entrar</kbd>.
 
 En esta nueva línea, ingresa `while True:`; asegúrese de escribirlo con "T"' mayúscula.
 
@@ -77,7 +77,7 @@ while True: nuevo_angulo = randint(-180,180) print(nuevo_angulo)
 
 --- task ---
 
-Agregue cuatro espacios al comienzo de cada una de las líneas debajo para crear un **bloque de código indentado**. Esto le dice a la computadora qué líneas están incluidas en tu bucle.
+Agrega cuatro espacios al comienzo de cada una de las líneas debajo para crear un **bloque de código indentado**. Esto le dice a la computadora qué líneas están incluidas en tu bucle.
 
 
 --- code ---
@@ -94,7 +94,7 @@ while True: nuevo_angulo = randint(-180,180) print(nuevo_angulo)
 
 --- task ---
 
-Al final de tu código, presione <kbd>Entrar</kbd> para agregar otra línea indentada. En esta línea, escribe `sleep (0.1)`.
+Al final de tu código, presiona <kbd>Entrar</kbd> para agregar otra línea indentada. En esta línea, escribe `sleep (0.1)`.
 
 --- code ---
 ---
