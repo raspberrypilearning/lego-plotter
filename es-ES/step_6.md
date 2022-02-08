@@ -44,7 +44,7 @@ motor_y = Motor('A') motor_x = Motor('B') boton = ForceSensor('C') motor_y.run_t
 
 --- task ---
 
-Cambie su bucle principal de `while True` a:
+Cambia su bucle principal de `while True` a:
 
 --- code ---
 ---
