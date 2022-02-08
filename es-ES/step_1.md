@@ -20,7 +20,7 @@ Utiliza LEGO® y Raspberry Pi Build HAT para crear un trazador de datos.
 
 ### Hardware
 
-+ Una computadora Raspberry Pi
++ Un ordenador Raspberry Pi
 + Un Build HAT Raspberry Pi
 + Dos motores LEGO® Technic ™
 + Un sensor de fuerza LEGO® SPIKE ™ O un botón pulsador, una placa de pruebas y cables de puente
@@ -64,7 +64,7 @@ Si necesitas imprimir este proyecto, usa la [versión para imprimir](https://pro
 
 --- /collapse ---
 
-Antes de comenzar, deberás configurar tu computadora Raspberry Pi e instalar el Build HAT:
+Antes de comenzar, deberás configurar tu ordenador Raspberry Pi e instalar el Build HAT:
 
 --- task ---
 
