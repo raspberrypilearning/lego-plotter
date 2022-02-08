@@ -4,7 +4,7 @@ Ahora programarás el segundo motor para alimentar papel a través del trazador 
 
 --- task ---
 
-Carga una hoja de papel A5 (o corte algunos trozos de este tamaño) debajo de las pequeñas ruedas desde atrás.
+Carga una hoja de papel A5 (o corta algunos trozos de este tamaño) debajo de las pequeñas ruedas desde atrás.
 
 ![Se ha introducido papel desde la parte posterior del trazador, de modo que la punta del lápiz descansa sobre el borde delantero.](images/paper_in.jpg)
 
@@ -12,7 +12,7 @@ Carga una hoja de papel A5 (o corte algunos trozos de este tamaño) debajo de la
 
 --- task ---
 
-Enchufe el motor LEGO® Technic ™ trasero (que impulsa estas ruedas) en el puerto B del Build HAT.
+Enchufa el motor LEGO® Technic ™ trasero (que impulsa estas ruedas) en el puerto B del Build HAT.
 
 --- /task ---
 
@@ -52,7 +52,7 @@ Esto hará que el motor del alimentador funcione a una velocidad constante de -2
 
 --- task ---
 
-Ejecuta tu código y observa cómo se alimenta el papel a través del trazador, mientras el lápiz se mueve aleatoriamente en la dirección `y`.
+Ejecuta tu programa y observa cómo se alimenta el papel a través del trazador, mientras el lápiz se mueve aleatoriamente en la dirección `y`.
 
 ![Animación que muestra el papel que entrando al trazador mientras el lápiz se mueve aleatoriamente a lo largo del eje y.](images/feeding_paper.gif)
 
