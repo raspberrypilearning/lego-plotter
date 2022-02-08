@@ -1,0 +1,17 @@
+---
+title: LEGO® 데이터 플로터
+hero_image: images/banner.png
+description: LEGO®와 Build HAT를 사용하여 펜과 종이로 데이터를 그려보세요.
+version: 4
+listed: true
+copyedit: true
+last_tested: "2020-10-27"
+steps:
+  - title: 소개
+  - title: 데이터로 모터 이동하기
+  - title: 플롯 범위 생성하기
+  - title: 플로터 제작하기
+  - title: 용지 급지
+  - title: 버튼 컨트롤 추가하기
+  - title: 실시간 데이터 소스 추가하기
+  - title: 더 나아가기
