@@ -1,123 +1,123 @@
-## Introduction
+## 介绍
 
-Use LEGO® and the Raspberry Pi Build HAT to create a data plotter.
+利用乐高（LEGO®）和 Raspberry Pi Build HAT 创建一个数据绘图仪。
 
-### What you will make
+### 学习成果
 
 --- no-print ---
 
-![A movie showing the LEGO® plotter in action. A piece of paper is being fed out of the machine with a green signal being traced out by a pen.](images/plotter_demo.gif)
+![一部展示正在绘图的乐高（LEGO®）绘图仪的视频。 画笔在从设备渐渐送出的纸张上留下了绿色的信号的动图](images/plotter_demo.gif)
 
 --- /no-print ---
 
---- print-only --- ![A photo of the completed plotter project.](images/completed.jpg) --- /print-only ---
+--- print-only --- 已完成的数据绘图仪的照片 --- /print-only ---
 
-### What you will learn
+### 您将会学到什么
 
-+ How to calculate angles of rotation
-+ How to map data ranges onto appropriate scales for visualisation
-+ How to use conditional statements (if/else)
++ 如何计算旋转的角度
++ 如何将数据映射到适当的比例以便进行可视化
++ 如何使用条件语句（if/else）
 
-### Hardware
+### 硬件
 
-+ A Raspberry Pi computer
-+ A Raspberry Pi Build HAT
-+ Two LEGO® Technic™ motors
-+ A LEGO® SPIKE™ Force Sensor OR a push button, breadboard, and jumper wires
-+ Assortment of LEGO®, including two small wheels (we used a selection from the [LEGO® Education SPIKE™ Prime kit](https://education.lego.com/en-gb/product/spike-prime))
-+ A 7.5V power supply with a barrel jack (you could instead use a battery pack, but make sure that all cells are fully charged)
++ 一台树莓派电脑(Raspberry Pi)
++ 一个Raspberry Pi Build HAT
++ 两个乐高（LEGO®）Technic™ 马达
++ 一个乐高（LEGO®）SPIKE™ 压力传感器或按钮、面包板和一些跳线
++ 各种乐高（LEGO®）组件，包括两个小车轮（我们从 [LEGO® Education SPIKE™ Prime 套件](https://education.lego.com/en-gb/product/spike-prime)中选择了一些）
++ 一个带筒形插孔的 7.5V 电源（您也可以改用电池组，但要确保所有电池都充满电）
 
-### Software
+### 软件
 
 + Python 3
-+ The Vcgencmd Python3 library
++ Vcgencmd Python3 库
 
-### Downloads
+### 下载
 
-+ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (1/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf){:target="_blank"}
-+ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (2/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf){:target="_blank"}
-+ [Finished script for Lego Plotter](http://rpf.io/p/en/lego-plotter-go){:target="_blank"}
++ [乐高（LEGO®）SPIKE™ Prime 搭建说明： *Track Your Parcels* (1/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf){:target="_blank"}
++ [乐高（LEGO®）SPIKE™ Prime 搭建说明： *Track Your Parcels* (2/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf){:target="_blank"}
++ [完整的乐高绘图仪项目脚本](http://rpf.io/p/en/lego-plotter-go){:target="_blank"}
 
 --- collapse ---
 ---
-title: Install the Vcgencmd python library
+title：安装 Vcgencmd Python 库
 ---
 
-Make sure you are connected to the internet.
+确保您已连接到互联网。
 
-Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
+按下<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>，在 Raspberry Pi 上打开一个终端窗口。
 
-At the prompt type: `pip3 install vcgencmd` and press <kbd>Enter</kbd>.
+在提示符后键入： `sudo pip3 install vcgencmd` 并按 <kbd>回车</kbd>。
 
-Wait for the confirmation message (it won't take long) then close the terminal window.
+等收到确认消息后（不会花费很长时间），关闭终端窗口。
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: Additional information for educators
+title: 为教师提供的额外信息
 ---
 
-You can download the completed project [here](http://rpf.io/p/en/projectName-get){:target="_blank"}.
+您可以在 [此处](http://rpf.io/p/en/projectName-get){:target="_blank"}下载已完成的项目。
 
-If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
+如果您需要打印此项目，请使用[适合打印的版本](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
 
 --- /collapse ---
 
-Before you begin, you'll need to have set up your Raspberry Pi computer and attached your Build HAT:
+在开始之前，您需要设置好您的 Raspberry Pi 并连接您的 Build HAT：
 
 --- task ---
 
-Mount your Raspberry Pi on to the LEGO Build Plate using M2 bolts and nuts, making sure the Raspberry Pi is on the side without the 'edge':
+使用 M2 螺栓和螺母将您的 Raspberry Pi 安装到乐高(LEGO®) Build Plate上，请确保将Raspberry Pi 置于没有“边缘”的一侧：
 
- ![Raspberry Pi bolted to a magenta LEGO Build Plate.](images/build_11.jpg)
+ ![通过螺栓固定在洋红色乐高(LEGO®) Build Plate上的树莓派(Raspberry Pi)。](images/build_11.jpg)
 
 --- /task ---
 
-Mounting the Raspberry Pi this way round enables easy access to the ports as well as the SD card slot. The Build Plate will allow you to connect the Raspberry Pi to the main structure of your dashboard more easily.
+以这种方式安装 Raspberry Pi 可以轻松访问（Raspberry Pi的）端口和 SD 卡插槽。 Build Plate 可让您更轻松地将 Raspberry Pi 连接到仪表板的主要部件。
 
 --- task ---
 
-Line up the Build HAT with the Raspberry Pi, ensuring you can see the `This way up` label. Make sure all the GPIO pins are covered by the HAT, and press down firmly. (The example uses a [stacking header](https://www.adafruit.com/product/2223){:target="_blank"}, which makes the pins longer.)
+将 Build HAT 与 Raspberry Pi 对齐，请确保您可以看到 `This way up` 标签。 确保Build HAT准确滴覆盖了所有的 GPIO 引脚，然后用力按下。 （该示例使用了 [堆叠头](https://www.adafruit.com/product/2223){:target="_blank"}，所以有更长的引脚。）
 
-![Image of GPIO pins poking through the top of the Build HAT.](images/build_15.jpg) ![Animation showing Buildhat fitting to Raspberry Pi](images/haton.gif)
+![显示GPIO 引脚穿过 Build HAT 顶部的图片。](images/build_15.jpg) ![将 Buildhat 匹配到 Raspberry Pi的动图](images/haton.gif)
 
 --- /task ---
 
-You should now power your Raspberry Pi using the 7.5V barrel jack on the Build HAT, which will allow you to use the motors.
+现在利用 Build HAT 上的 7.5V 桶形插孔为您的 Raspberry Pi 供电，这也将用于驱动马达。
 
 --- task ---
 
-If you have not already done so, set up your Raspberry Pi by following these instructions:
+如果您尚未设置您的 Raspberry Pi，请按照以下步骤：
 
-[Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up){:target="_blank"}
-
---- /task ---
-
---- task ---
-
-Once the Raspberry Pi has booted, open the Raspberry Pi Configuration tool by clicking on the Raspberry Menu button and then selecting “Preferences” and then “Raspberry Pi Configuration”.
-
-Click on the “interfaces” tab and adjust the Serial settings as shown below:
-
-![Image showing Raspberry Pi OS config screen with serial port enabled and serial console disabled](images/configshot.jpg)
+[设置你的Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up){:target="_blank"}
 
 --- /task ---
 
 --- task ---
 
-You will also need to install the buildhat python library by following these instructions:
+Raspberry Pi 启动后，单击 Raspberry 菜单按钮，然后选择“首选项”，然后选择“Raspberry Pi 配置”，打开 Raspberry Pi 配置工具。
+
+单击“interfaces”选项卡并调整串口设置，如下所示：
+
+![Raspberry Pi 操作系统的配置界面：启用串行端口，禁用串行控制台](images/configshot.jpg)
+
+--- /task ---
+
+--- task ---
+
+您还需要按照以下说明安装 buildhat的 python 库：
 
 --- collapse ---
 ---
-title: Install the buildhat Python library
+title：安装 buildhat Python 库
 ---
 
-Open a terminal window on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>.
+按下<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>，在 Raspberry Pi 上打开一个终端窗口。
 
-At the prompt type: `sudo pip3 install buildhat`
+在提示符后键入： `sudo pip3 install buildhat`
 
-Press <kbd>Enter</kbd> and wait for the "installation completed" message.
+按 <kbd>回车</kbd> 并等待“installation completed”消息。
 
 --- /collapse ---
 
