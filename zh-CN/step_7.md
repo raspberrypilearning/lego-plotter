@@ -6,7 +6,7 @@
 
 --- collapse ---
 ---
-title：安装 Vcgencmd Python 库
+title: 安装 Vcgencmd Python 库
 ---
 
 确保您已连接到互联网。

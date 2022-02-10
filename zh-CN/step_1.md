@@ -42,7 +42,7 @@
 
 --- collapse ---
 ---
-title：安装 Vcgencmd Python 库
+title: 安装 Vcgencmd Python 库
 ---
 
 确保您已连接到互联网。
@@ -112,7 +112,7 @@ Raspberry Pi 启动后，单击 Raspberry 菜单按钮，然后选择“首选�
 
 --- collapse ---
 ---
-title：安装 buildhat Python 库
+title: 安装 buildhat Python 库
 ---
 
 按下<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>，在 Raspberry Pi 上打开一个终端窗口。
