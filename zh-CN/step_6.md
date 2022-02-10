@@ -1,18 +1,18 @@
-## Add a button control
+## 添加一个控制按钮
 
-To stop and start the plotter running, you can add a button to your build.
+您可以在构建中添加一个按钮，来停止和启动绘图仪的运行。
 
 --- task ---
 
-The LEGO® SPIKE™ Prime Force Sensor can act as a simple button. Connect one to port C on your Build HAT.
+乐高（LEGO®）SPIKE™ Prime 的压力传感器可以作为一个简单的按钮。 在 Build HAT 上的端口 C上连接一个（压力传感器）。
 
-![A close-up photo of part of the LEGO® plotter where the force sensor has been added.](images/force.jpg)
+![安装了压力传感器的乐高（LEGO®)绘图仪的特写照片。](images/force.jpg)
 
 --- /task ---
 
 --- task ---
 
-Edit your `plotter.py` program to include a button control. Add a comma followed by `ForceSensor` (making sure you include **both** capital letters!) to the end of the line that says `from buildhat import Motor`:
+编辑您的 `plotter.py` 程序，增加一个按钮控件。 在`from buildhat import Motor`行的末尾添加一个逗号，然后加上 `ForceSensor`（确保包含 **两个** 大写字母！）：
 
 --- code ---
 ---
@@ -28,7 +28,7 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 
 --- task ---
 
-Add this line to create an object for the button after the similar lines for the motors:
+和添加马达对象一样，用下面语句添加一个按钮的对象
 
 --- code ---
 ---
@@ -44,7 +44,7 @@ motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_
 
 --- task ---
 
-Change your main loop from `while True` to:
+将主循环从 `while True` 更改为：
 
 --- code ---
 ---
@@ -60,7 +60,7 @@ while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle
 
 --- task ---
 
-Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines at the end of your program.
+现在您可以通过按下按钮来停止绘图仪的运作。 为了整洁以及能同时停止两个马达，请在程序末尾添加以下行。
 
 --- code ---
 ---
@@ -79,7 +79,7 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- /task ---
 
-Now you are ready to test your plotter. Your final script should look like this:
+现在您已可以测试您的绘图仪了。 您的最终代码应该像这样：
 
 --- code ---
 ---
@@ -102,24 +102,24 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Feed a piece of paper from the back of the plotter so that the front short edge is just beyond the pen.
+从绘图仪的后方送入一张纸，使得纸张的短边正好超过画笔。
 
 --- /task ---
 
 --- task ---
 
-Start the program in Thonny, and watch as the pen plots your random data on your paper!
+在 Thonny 中启动程序，然后观察画笔在纸上绘制着随机数据！
 
 --- /task ---
 
 --- task ---
 
-Once the paper has been used, press the Force Sensor button to stop everything.
+在纸张用完后，按下压力传感器按钮来停止一切。
 
 --- /task ---
 
-![A photo of a piece of paper, on which the plotter has draw a green trace.](images/paper.JPG)
+![一张已经被绘图仪绘制了绿色轨迹的纸片的图片](images/paper.JPG)
 
-In the next step, you will use a real-time data source for your input data!
+下一步，您将使用实时数据源做为输入数据！
 
 --- save ---
