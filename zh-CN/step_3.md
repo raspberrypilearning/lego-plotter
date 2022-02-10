@@ -1,35 +1,35 @@
-## Create a plot range
+## 创建一个绘图区域
 
-In this step we will control the direction in which the motors move (clockwise or anti-clockwise) to set a maximum point of travel in each direction.
+在这一步中，我们将控制马达旋转的方向（顺时针或逆时针），使马达在每个方向都可以达到最大行程点。
 
 --- collapse ---
 ---
-title: Why you need to change the way the motors move
+title：为什么需要改变马达的旋转方式
 ---
 
-Your motor will always take the shortest path to the new position.
+您的马达将始终采用最短路径去达新位置。
 
-For example, if the motor is at 170 degrees and the next position is -170 degrees, it will travel in a clockwise direction, passing through the 180 degree position in order to get to its destination as quickly as possible.
+例如，如果马达目前在 170 度，而下一个位置是 -170 度，那它将按顺时针方向旋转，穿过 180 度的位置，以求尽快到达目的地。
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam is rotating like a clock hand in response to the data. The motor turns through a full 360 degrees, travelling clockwise and anti-clockwise, and sometimes passing through the zero position in either direction.](images/motor_through_zero.gif)
+![一个正在挥动黑色横梁组件的乐高（LEGO®）Technic™ 马达的动图。 马达依据数据转动，带动连接的横梁像时钟指针一样旋转。 马达 360 度旋转，时不时在顺时针和逆时针方向通过零位。](images/motor_through_zero.gif)
 
-This is fine for our simulation, but our plotter will not have this freedom of movement. Once the pen has reached the top or bottom of the paper (y-axis), it cannot continue to travel up to emerge at the bottom — it will break. So your plotter will need to be prevented from travelling clockwise past the 180 degree mark.
+这对我们的模拟环境来说没问题，但是我们的绘图仪并不能这样自由地移动。 一旦画笔到达纸的顶部或底部（y 轴），它就不能继续同向移动以出现在底部或顶部——它将不能运行。 因此，需要防止您的绘图仪在顺时针移动时超过 180 度。
 
-This can be achieved by altering the behaviour of the motor when moving to a position. You can do this by passing an additional `direction=` parameter to the `run_to_position()` function. You can set this value to `"clockwise"`, `"anticlockwise"`, or `"shortest"`, which is the default 'shortest path' behaviour.
+这可以通过改变马达移动到新位置的机制来实现。 您可以通过给 `run_to_position()` 函数赋予额外的 `direction=` 参数来做到这一点。 您可以将此值设置为 `"clockwise"`、 `"anticlockwise"`或 `"shortest"`，”shortest“是默认的行为。
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor turns between 0 and 180 degrees, but never passes through zero.](images/motor_not_zero.gif)
+![一个正在挥动黑色横梁组件的乐高（LEGO®）Technic™ 马达的动图。 马达依据数据转动，带动连接的横梁像时钟指针一样旋转。 马达在 0 到 180 度之间转动，但从不跨过零点。](images/motor_not_zero.gif)
 
-So, for example, `motor_y.run_to_position(50, 100, direction="anticlockwise")` will drive a motor to the 50 degrees position, turning anti-clockwise at maximum speed.
+例如， `motor_y.run_to_position(50, 100, direction="antiitarian")` 会以最大速度逆时针转动，将马达转动到 50 度的位置。
 
-It is possible to add a **conditional check** to your loop to ensure that the motor never passes through 180 degrees and always moves from a higher angle to a lower one by turning in an anti-clockwise direction.
+可以加入 **条件检查** 以确保电机永远不会经过 180 度，并且在从较高角度移动到较低角度时，始终保持逆时针方向转动。
 
-You can find the last position of the motor by using `motor_y.get_aposition`.
+您可以利用`motor_y.get_aposition`函数找到马达的最后位置。
 
 --- /collapse ---
 
 --- task ---
 
-Check for the motor's current angle at the top of your `while` loop.
+在`while` 循环的顶部检查马达的当前角度。
 
 --- code ---
 ---
@@ -45,7 +45,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Now, in the `while` loop, you can add a check to see if the current value of `new_angle` is greater or less than the `current_angle`.
+现在，在 `while` 循环中，您可以添加检查用以查看 `new_angle` 的值是大于还是小于 `current_angle`的值。
 
 --- code ---
 ---
@@ -61,7 +61,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Run your code. These conditional tests will prevent the motor from changing from a negative value to a positive one by passing through 180 degrees (and vice versa).
+运行你的代码。 这些条件测试将防止马达在从负值变为正值时通过 180 度刻度（反之亦然）。
 
 --- /task ---
 
