@@ -1,13 +1,13 @@
-## What next?
+## 接下来还有什么？
 
-+ Add a LEGO® Technic™ Color Sensor to detect when the paper has run out.
++ 添加乐高（LEGO®）Technic™ 颜色传感器以检测纸张何时用完。
 
-+ Modify the LEGO® Technic™ Force Sensor code so that the speed of the motor controlling the paper feed is increased by increasing the pressure on the sensor.
++ 修改乐高（LEGO®）Technic™ 压力传感器代码，以便通过增加传感器上的压力来增加控制进纸的马达速度。
 
-+ Add other data sources. You could use another external sensor or a feed for an online data stream.
++ 添加其他数据源。 您可以使用另一种外部传感器或者使用在线数据流。
 
-If you are following the [Introduction to LEGO BuildHAT](https://projects.raspberrypi.org/en/pathways/lego-intro) pathway, you can move on to the [LEGO Data Dash](https://projects.raspberrypi.org/en/projects/lego-data-dash) project. In this project, you will make some dials and readouts with LEGO and get them to display the air quality data from anywhere in the world!
+如果您依照 [乐高（LEGO®）Build HAT 简介](https://projects.raspberrypi.org/en/pathways/lego-intro)路径学习，您可以继续学习 [乐高（LEGO®）数据面板](https://projects.raspberrypi.org/en/projects/lego-data-dash) 项目。 在这个项目中，您将使用乐高（LEGO®）制作一些刻度盘和读数表，并让它们显示来自世界任何地方的空气质量数据！
 
-![LEGO Data Dash Banner image showing dials and a buildhat](images/datadashbanner.png)
+![带有表盘和Buildhat的乐高（LEGO®）数据面板横幅图像](images/datadashbanner.png)
 
-If you want to have more fun exploring python, then you could try out any of [these projects](https://projects.raspberrypi.org/en/projects?software%5B%5D=python).
+如果您希望探索 Python 获得更多乐趣，那么您可以尝试 [这些项目](https://projects.raspberrypi.org/en/projects?software%5B%5D=python)。
