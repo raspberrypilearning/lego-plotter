@@ -1,24 +1,24 @@
-## Feed in paper
+## Подача бумаги
 
-You will now program the second motor to feed paper through the plotter at a constant rate.
+Теперь ты запрограммируешь второй двигатель для подачи бумаги через плоттер с постоянной скоростью.
 
 --- task ---
 
-Feed a sheet of A5 paper (or cut up some scrap to about this size) underneath the small wheels from behind.
+Подложи лист бумаги формата A5 (или нарежь обрезки примерно такого же размера) под маленькие колеса сзади.
 
-![Paper has been fed in from the back of the plotter, so that the pencil tip rests on the leading edge.](images/paper_in.jpg)
+![Бумага подается с задней стороны плоттера, так что кончик карандаша упирается в переднюю кромку.](images/paper_in.jpg)
 
 --- /task ---
 
 --- task ---
 
-Plug the rear LEGO® Technic™ motor (which drives these wheels) into port B on the Build HAT.
+Подключи задний двигатель LEGO® Technic™ (который приводит в движение эти колеса) к порту B на Build HAT.
 
 --- /task ---
 
 --- task ---
 
-Create an object called `motor_x` for this motor, below the similar line for `motor_y`:
+Создай объект с именем `motor_x` для этого двигателя, ниже аналогичной строки для `motor_y`:
 
 --- code ---
 ---
@@ -34,7 +34,7 @@ motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Add a line to start this motor turning immediately before the `while True` loop:
+Добавь строку, чтобы двигатель начал вращаться непосредственно перед циклом `while True`:
 
 --- code ---
 ---
@@ -48,17 +48,17 @@ motor_y = Motor('A') motor_x = Motor('B') motor_y.run_to_position(0, 100) motor_
 
 --- /task ---
 
-This will make the feeder motor run at a constant rate of -25 turns per minute when the program starts. Change the number in the brackets to experiment with the speed.
+Это заставит двигатель подачи работать с постоянной скоростью 25 оборотов в минуту при запуске программы. Измени число в скобках, чтобы поэкспериментировать со скоростью.
 
 --- task ---
 
-Run your code and watch the paper being fed through the plotter, as the pencil moves randomly in the `y` direction.
+Запусти свой код и посмотри, как бумага проходит через плоттер, а карандаш беспорядочно перемещается в направлении `y`.
 
-![Animation showing the paper being fed through the plotter while the pencil moves randomly along the y axis.](images/feeding_paper.gif)
+![Анимация, показывающая, как бумага проходит через плоттер, а карандаш случайно перемещается по оси y.](images/feeding_paper.gif)
 
 --- /task ---
 
-To stop the motor feeding the paper, you can type the following into the **Shell**.
+Чтобы остановить двигатель, подающий бумагу, ты можешь ввести следующее в **Оболочке**.
 
 ```python
 >>> from buildhat import Motor
