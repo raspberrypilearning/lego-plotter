@@ -1,18 +1,18 @@
-## Add a button control
+## ボタンコントロールを追加する
 
-To stop and start the plotter running, you can add a button to your build.
+プロッターの実行を停止したり開始したりするために、作品にボタンを追加しましょう。
 
 --- task ---
 
-The LEGO® SPIKE™ Prime Force Sensor can act as a simple button. Connect one to port C on your Build HAT.
+LEGO® SPIKE™ Prime フォースセンサーは、シンプルなボタンとして機能します。 これを Build HAT のポート C に接続します。
 
-![A close-up photo of part of the LEGO® plotter where the force sensor has been added.](images/force.jpg)
+![LEGO® プロッターにフォースセンサーが追加された部分をクローズアップした写真。](images/force.jpg)
 
 --- /task ---
 
 --- task ---
 
-Edit your `plotter.py` program to include a button control. Add a comma followed by `ForceSensor` (making sure you include **both** capital letters!) to the end of the line that says `from buildhat import Motor`:
+`plotter.py` プログラムを編集して、ボタンコントロールを含めます。 `from buildhat import Motor` と書かれた行の最後に、コンマと、そのあとに `ForceSensor` (大文字と小文字**両方**を含めてください) を追加します:
 
 --- code ---
 ---
@@ -28,7 +28,7 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 
 --- task ---
 
-Add this line to create an object for the button after the similar lines for the motors:
+モーター向けの似たような行の後に、ボタン向けのオブジェクトを作成する行を追加します。
 
 --- code ---
 ---
@@ -44,7 +44,7 @@ motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_
 
 --- task ---
 
-Change your main loop from `while True` to:
+メインループを `while True` から次のように変更します:
 
 --- code ---
 ---
@@ -60,7 +60,7 @@ while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle
 
 --- task ---
 
-Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines at the end of your program.
+これで、ボタンを押すことでプロッターの動作を停止できます。 すべての片付けをしてから両方のモーターを停止するために、プログラムの最後に次の行を追加します。
 
 --- code ---
 ---
@@ -79,7 +79,7 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- /task ---
 
-Now you are ready to test your plotter. Your final script should look like this:
+プロッターをテストする準備が整いました。 最終的なコードは以下のようになります:
 
 --- code ---
 ---
@@ -102,24 +102,24 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Feed a piece of paper from the back of the plotter so that the front short edge is just beyond the pen.
+プロッターの背面から紙を1枚、紙の前側の短辺がちょうどペンを越すあたりまで送ります。
 
 --- /task ---
 
 --- task ---
 
-Start the program in Thonny, and watch as the pen plots your random data on your paper!
+Thonny でプログラムを開始し、ペンがランダムなデータを紙にプロットするのを見てみましょう！
 
 --- /task ---
 
 --- task ---
 
-Once the paper has been used, press the Force Sensor button to stop everything.
+紙を使用し終えたら、フォースセンサーのボタンを押してすべてを停止します。
 
 --- /task ---
 
-![A photo of a piece of paper, on which the plotter has draw a green trace.](images/paper.JPG)
+![プロッターが緑色のトレースを描いた紙の写真。](images/paper.JPG)
 
-In the next step, you will use a real-time data source for your input data!
+次のステップでは、入力データにリアルタイムデータソースを使用してみましょう！
 
 --- save ---
