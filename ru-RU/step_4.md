@@ -1,16 +1,16 @@
-## Build the plotter
+## Строим плоттер
 
-In this step, you will build an x/y plotter using LEGO®.
+На этом этапе ты построишь координатно-указательный плоттер с помощью LEGO®.
 
-There are plenty of ways you could do this, but the build instructions for the LEGO® SPIKE™ Prime *Track Your Parcels* project are a great starting point. You can use the motor from the previous step for the y-axis motor (the one holding the pen) in the build.
+Есть много способов сделать это, но инструкции по сборке для проекта LEGO® SPIKE™ Prime *Отследи свои посылки* — отличная отправная точка. Ты можешь использовать двигатель из предыдущего шага для двигателя оси Y (тот, который держит перо) в этой сборке.
 
-![A drawing from the LEGO® instructions.](images/build1.png)
+![Рисунок из инструкций LEGO®.](images/build1.png)
 
 --- task ---
 
-You will need to adapt the build slightly so that the arm is able to hold a pen. Rubber bands are a great way to hold a pen snugly against LEGO.
+Тебе нужно будет немного адаптировать конструкцию, чтобы рука могла держать ручку. Резиновые ленты — отличный способ плотно прижать ручку к LEGO.
 
-![A photo of the partially assembled plotter model, with a pen attached to the LEGO® elements with a rubber band.](images/rubber_bands.jpg)
+![Фотография частично собранной модели плоттера с ручкой, прикрепленной к элементам LEGO® резинкой.](images/rubber_bands.jpg)
 
 <embed src="https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
   </p> 
@@ -20,11 +20,11 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
   </p>
   
   <p spaces-before="0">
-    The second part of the build completes the mechanism that uses the two motors to drive the plotter.
+    Вторая часть сборки завершает механизм, который использует два двигателя для привода плоттера.
   </p>
   
   <p spaces-before="0">
-    <img src="images/build2.png" alt="A drawing from the second part of the LEGO® instructions." />
+    <img src="images/build2.png" alt="Рисунок из второй части инструкции LEGO®." />
   </p>
   
   <p spaces-before="0">
@@ -37,7 +37,7 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
       </p>
       
       <p spaces-before="0">
-        Connect the LEGO® Technic™ motor that drives the pen up and down to port A on the Build HAT.
+        Подсоедини двигатель LEGO® Technic™, который двигает ручку вверх и вниз, к порту A на Build HAT.
       </p>
       
       <p spaces-before="0">
@@ -45,15 +45,15 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
       </p>
       
       <p spaces-before="0">
-        Now you can use your simulated data source to test your plotter. For now, keep the lid on your pen or remove it all together while you observe the motion caused by the data.
+        Теперь ты можешь использовать смоделированный источник данных для тестирования плоттера. А пока держи крышку на своей ручке или сними ее целиком, наблюдая за движением, вызванным данными.
       </p>
 
 <h3 spaces-before="0">
-  Calibrate the plotter
+  Калибровка плоттера
 </h3>
 
 <p spaces-before="0">
-  Your program currently allows the motor to move through its full range of motion (-180 to +180 degrees from the zero point). But the physical constraints of the plotter mean that if you tried to drive the toothed rail to its maximum and minimum positions, it would crash the pen arm into other parts of the build. In order to avoid this, you must centre the bar.
+  В настоящее время твоя программа позволяет двигателю совершать полный диапазон движения (от -180 до +180 градусов от нулевой точки). Но физические ограничения плоттера подразумевают, что если ты попытаешься установить зубчатую рейку в ее максимальное и минимальное положения, она врежет ручку пера в другие части сборки. Для того, чтобы этого избежать, необходимо центрировать планку.
 </p>
 
 <p spaces-before="0">
@@ -61,44 +61,44 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
 </p>
 
 <p spaces-before="0">
-  Click into the <strong x-id="1">Shell pane</strong> of Thonny (the window beneath the code) so that you can execute Python one line at a time.
+  Нажми на панель <strong x-id="1">Оболочка</strong> Thonny (окно под кодом), чтобы ты мог выполнять код Python по одной строке за раз.
 </p>
 
 <p spaces-before="0">
-  Enter these lines into the <strong x-id="1">Shell</strong> (you can just copy and paste them from your program above) pressing <kbd>Enter</kbd> between each one:
+  Введи эти строки в оболочку <strong x-id="1">Оболочке</strong> (ты можешь просто скопировать и вставить их из своей программы выше), нажав <kbd>Ввод</kbd> между каждой из них:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; from buildhat import Motor
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  Нажми <kbd>Ввод</kbd>.
 </p>
 
 <p spaces-before="0">
-  Type:
+  Введи:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; motor_y = Motor('A')
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  Нажми <kbd>Ввод</kbd>.
 </p>
 
 <p spaces-before="0">
-  Type:
+  Введи:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; motor_y.run_to_position(0, 100)
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  Нажми <kbd>Ввод</kbd>.
 </p>
 
 <p spaces-before="0">
-  This should centre or <strong x-id="1">zero</strong> your motor.
+  Это должно центрировать или <strong x-id="1">обнулить</strong> твой двигатель.
 </p>
 
 <p spaces-before="0">
@@ -110,11 +110,11 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
 </p>
 
 <p spaces-before="0">
-  Adjust the position of your pen arm by gently pushing the toothed bar to the middle of its path, so that the pencil or pen lines up with the other motor.
+  Отрегулируй положение рычага пера, осторожно надавив на зубчатый стержень до середины его пути, чтобы карандаш или ручка выровнялись с другим мотором.
 </p>
 
 <p spaces-before="0">
-  <img src="images/pencil_lined_up.jpg" alt="The pencil is central to the housing, in line with the motor used to drive the paper feeder." />
+  <img src="images/pencil_lined_up.jpg" alt="Карандаш находится в центре корпуса, на одной линии с двигателем, используемым для привода устройства подачи бумаги." />
 </p>
 
 <p spaces-before="0">
