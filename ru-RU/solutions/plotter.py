@@ -22,13 +22,13 @@ while not button.is_pressed():
     temp = vcgm.measure_temp()
     current_angle = motor_y.get_aposition()
     new_angle = remap(53, 57, -170, 170, temp)
-    print(f'temp is {temp} current_angle is {current_angle} new_angle is {new_angle}')
+    print(f'temp = {temp}, current_angle = {current_angle}, new_angle = {new_angle}')
     if new_angle > current_angle:
         motor_y.run_to_position(new_angle, 100, direction="clockwise")
-        print('Turning CW')
+        print('Поворот по часовой стрелке')
     elif new_angle < current_angle:
         motor_y.run_to_position(new_angle, 100, direction="anticlockwise")
-        print('Turning ACW')
+        print('Поворот против часовой стрелки')
     sleep(0.1)
     
 motor_x.stop()
