@@ -1,35 +1,35 @@
-## Create a plot range
+## Задаём диапазон рисования
 
-In this step we will control the direction in which the motors move (clockwise or anti-clockwise) to set a maximum point of travel in each direction.
+На этом шаге мы будем контролировать направление, в котором вращаются двигатели (по часовой стрелке или против часовой стрелки), чтобы установить максимальную точку перемещения в каждом направлении.
 
 --- collapse ---
 ---
-title: Why you need to change the way the motors move
+title: Почему тебе нужно менять способ движения двигателей
 ---
 
-Your motor will always take the shortest path to the new position.
+Твой двигатель всегда будет выбирать кратчайший путь к новому положению.
 
-For example, if the motor is at 170 degrees and the next position is -170 degrees, it will travel in a clockwise direction, passing through the 180 degree position in order to get to its destination as quickly as possible.
+Например, если двигатель находится в положении 170 градусов, а следующая позиция -170 градусов, он будет двигаться по часовой стрелке, проходя через положение 180 градусов, чтобы добраться до места назначения как можно быстрее.
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam is rotating like a clock hand in response to the data. The motor turns through a full 360 degrees, travelling clockwise and anti-clockwise, and sometimes passing through the zero position in either direction.](images/motor_through_zero.gif)
+![Видеоклип, показывающий двигатель LEGO® Technic™ с прикрепленным черным балочным элементом. Двигатель вращается, а прикрепленная балка вращается, как часовая стрелка, в ответ на данные. Двигатель поворачивается на полные 360 градусов, двигаясь по часовой стрелке и против часовой стрелки, а иногда проходя через нулевое положение в любом направлении.](images/motor_through_zero.gif)
 
-This is fine for our simulation, but our plotter will not have this freedom of movement. Once the pen has reached the top or bottom of the paper (y-axis), it cannot continue to travel up to emerge at the bottom — it will break. So your plotter will need to be prevented from travelling clockwise past the 180 degree mark.
+Это нормально для нашей симуляции, но наш плоттер не будет иметь такой свободы передвижения. Как только ручка достигает верхней или нижней части бумаги (ось Y), она не может продолжать движение вверх, чтобы выйти из нижней части — она сломается. Таким образом, твой плоттер должен быть защищен от перемещения по часовой стрелке за отметку 180 градусов.
 
-This can be achieved by altering the behaviour of the motor when moving to a position. You can do this by passing an additional `direction=` parameter to the `run_to_position()` function. You can set this value to `"clockwise"`, `"anticlockwise"`, or `"shortest"`, which is the default 'shortest path' behaviour.
+Этого можно добиться, изменив поведение двигателя при перемещении в нужную позицию. Ты можешь сделать это, передав дополнительный параметр `direction=` функции `run_to_position()`. Ты можетешь установить это значение на `«по часовой стрелке»`, `«против часовой стрелки»` или `«кратчайший путь»`, что является поведением «кратчайшего пути» по умолчанию.
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam rotating like a clock hand in response to the data. The motor turns between 0 and 180 degrees, but never passes through zero.](images/motor_not_zero.gif)
+![Видеоклип, показывающий двигатель LEGO® Technic™ с прикрепленным черным балочным элементом. Двигатель вращается, а прикрепленная балка вращается, как часовая стрелка, в ответ на данные. Двигатель поворачивается от 0 до 180 градусов, но никогда не проходит через ноль.](images/motor_not_zero.gif)
 
-So, for example, `motor_y.run_to_position(50, 100, direction="anticlockwise")` will drive a motor to the 50 degrees position, turning anti-clockwise at maximum speed.
+Так, например, `motor_y.run_to_position(50, 100, direction="anticlockwise")` приведет двигатель в положение 50 градусов, вращая его против часовой стрелки на максимальной скорости.
 
-It is possible to add a **conditional check** to your loop to ensure that the motor never passes through 180 degrees and always moves from a higher angle to a lower one by turning in an anti-clockwise direction.
+Можно добавить **условную проверку** в твой цикл, чтобы гарантировать, что двигатель никогда не проходит через 180 градусов и всегда перемещается от большего угла к меньшему, поворачиваясь против часовой стрелки.
 
-You can find the last position of the motor by using `motor_y.get_aposition`.
+Ты можешь найти последнее положение двигателя, используя `motor_y.get_aposition`.
 
 --- /collapse ---
 
 --- task ---
 
-Check for the motor's current angle at the top of your `while` loop.
+Проверь текущий угол двигателя в верхней части цикла `while`.
 
 --- code ---
 ---
@@ -45,7 +45,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Now, in the `while` loop, you can add a check to see if the current value of `new_angle` is greater or less than the `current_angle`.
+Теперь в цикле `while` ты можешь добавить проверку, чтобы увидеть, является ли текущее значение `new_angle` больше или меньше, чем `current_angle`.
 
 --- code ---
 ---
@@ -61,7 +61,7 @@ while True: current_angle = motor_y.get_aposition() new_angle = randint(-180, 18
 
 --- task ---
 
-Run your code. These conditional tests will prevent the motor from changing from a negative value to a positive one by passing through 180 degrees (and vice versa).
+Запусти свой код. Эти условные тесты предотвратят изменение мотором значения от отрицательного до положительного при прохождении через 180 градусов (и наоборот).
 
 --- /task ---
 
