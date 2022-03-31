@@ -1,18 +1,18 @@
-## Add a button control
+## Добавляем элемент управления «кнопка»
 
-To stop and start the plotter running, you can add a button to your build.
+Чтобы остановить и запустить плоттер, ты можешь добавить кнопку в свою сборку.
 
 --- task ---
 
-The LEGO® SPIKE™ Prime Force Sensor can act as a simple button. Connect one to port C on your Build HAT.
+Датчик силы LEGO® SPIKE™ Prime может работать как простая кнопка. Подключи её к порту C на твоей плате Build HAT.
 
-![A close-up photo of part of the LEGO® plotter where the force sensor has been added.](images/force.jpg)
+![Фотография крупным планом части плоттера LEGO®, куда был добавлен датчик усилия.](images/force.jpg)
 
 --- /task ---
 
 --- task ---
 
-Edit your `plotter.py` program to include a button control. Add a comma followed by `ForceSensor` (making sure you include **both** capital letters!) to the end of the line that says `from buildhat import Motor`:
+Отредактируй программу `plotter.py`, включив в неё кнопку управления. Добавь запятую, а затем `ForceSensor` (убедись, что ты использовал **обе** заглавные буквы!) в конец строки, которая говорит `from buildhat import Motor`:
 
 --- code ---
 ---
@@ -28,7 +28,7 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 
 --- task ---
 
-Add this line to create an object for the button after the similar lines for the motors:
+Добавь эту строку, чтобы создать объект для кнопки после аналогичных строк для моторов:
 
 --- code ---
 ---
@@ -44,7 +44,7 @@ motor_y = Motor('A') motor_x = Motor('B') button = ForceSensor('C') motor_y.run_
 
 --- task ---
 
-Change your main loop from `while True` to:
+Измени свой основной цикл с `while True` на:
 
 --- code ---
 ---
@@ -60,7 +60,7 @@ while not button.is_pressed(): current_angle = motor_y.get_aposition() new_angle
 
 --- task ---
 
-Now you can stop the plotter operating by pressing the button. To tidy everything up and stop both motors, add the following lines at the end of your program.
+Теперь ты можешь остановить работу плоттера, нажав кнопку. Чтобы все привести в порядок и остановить оба двигателя, добавь следующие строки в конец твоей программы.
 
 --- code ---
 ---
@@ -79,7 +79,7 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- /task ---
 
-Now you are ready to test your plotter. Your final script should look like this:
+Теперь ты готов протестировать свой плоттер. Твой финальный скрипт должен выглядеть вот так:
 
 --- code ---
 ---
@@ -102,24 +102,24 @@ motor_x.stop() motor_y.run_to_position(0, 100)
 
 --- task ---
 
-Feed a piece of paper from the back of the plotter so that the front short edge is just beyond the pen.
+Подай лист бумаги с задней стороны плоттера так, чтобы передний короткий край находился сразу за пером.
 
 --- /task ---
 
 --- task ---
 
-Start the program in Thonny, and watch as the pen plots your random data on your paper!
+Запусти программу в Thonny и наблюдай, как ручка рисует твои случайные данные на бумаге!
 
 --- /task ---
 
 --- task ---
 
-Once the paper has been used, press the Force Sensor button to stop everything.
+Как только бумага будет использована, нажми кнопку датчика силы, чтобы остановить всё.
 
 --- /task ---
 
-![A photo of a piece of paper, on which the plotter has draw a green trace.](images/paper.JPG)
+![Фотография листа бумаги, на котором плоттер нарисовал зеленый след.](images/paper.JPG)
 
-In the next step, you will use a real-time data source for your input data!
+На следующем шаге ты будешь использовать источник данных в реальном времени для твоих входных данных!
 
 --- save ---
