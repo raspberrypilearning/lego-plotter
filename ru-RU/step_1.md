@@ -1,123 +1,123 @@
-## Introduction
+## Введение
 
-Use LEGO® and the Raspberry Pi Build HAT to create a data plotter.
+Используй LEGO® и Raspberry Pi Build HAT, чтобы создать плоттер данных.
 
-### What you will make
+### Что ты сделаешь
 
 --- no-print ---
 
-![A movie showing the LEGO® plotter in action. A piece of paper is being fed out of the machine with a green signal being traced out by a pen.](images/plotter_demo.gif)
+![Фильм, показывающий плоттер LEGO® в действии. Лист бумаги выдается из машины с зеленой линией, начерченной ручкой.](images/plotter_demo.gif)
 
 --- /no-print ---
 
 --- print-only --- ![A photo of the completed plotter project.](images/completed.jpg) --- /print-only ---
 
-### What you will learn
+### Чему ты научишься
 
-+ How to calculate angles of rotation
-+ How to map data ranges onto appropriate scales for visualisation
-+ How to use conditional statements (if/else)
++ Как рассчитать углы поворота
++ Как сопоставить диапазоны данных с соответствующими масштабами для визуализации
++ Как использовать условные операторы (if/else)
 
-### Hardware
+### Оборудование
 
-+ A Raspberry Pi computer
-+ A Raspberry Pi Build HAT
-+ Two LEGO® Technic™ motors
-+ A LEGO® SPIKE™ Force Sensor OR a push button, breadboard, and jumper wires
-+ Assortment of LEGO®, including two small wheels (we used a selection from the [LEGO® Education SPIKE™ Prime kit](https://education.lego.com/en-gb/product/spike-prime))
-+ A 7.5V power supply with a barrel jack (you could instead use a battery pack, but make sure that all cells are fully charged)
++ Компьютер Raspberry Pi
++ Плата Raspberry Pi Build HAT
++ Два двигателя LEGO® Technic™
++ Датчик силы LEGO® SPIKE™ ИЛИ кнопка; макетная плата и провода-перемычки
++ Детали LEGO®, включая 2 малых колеса (мы использовали детали из [набора LEGO® Education SPIKE™ Prime](https://education.lego.com/en-gb/product/spike-prime))
++ Блок питания 7,5 В с циллиндрическим разъемом (вместо него можно использовать батарейный блок, но убедись, что все элементы полностью заряжены)
 
-### Software
+### Программное обеспечение
 
 + Python 3
-+ The Vcgencmd Python3 library
++ Библиотека Python3 Vcgencmd
 
-### Downloads
+### Загрузки
 
-+ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (1/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf){:target="_blank"}
-+ [LEGO® SPIKE™ Prime building instructions: *Track Your Parcels* (2/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf){:target="_blank"}
-+ [Finished script for Lego Plotter](http://rpf.io/p/en/lego-plotter-go){:target="_blank"}
++ [Инструкции по сборке LEGO® SPIKE™ Prime: *Отследи свои посылки* (1/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf){:target="_blank"}
++ [Инструкции по сборке LEGO® SPIKE™ Prime: *Отследи свои посылки* (2/2)](https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book2of2-80dc3c8c61ec2d2ffa785b688326ef74.pdf){:target="_blank"}
++ [Готовый скрипт для Плоттера Lego](http://rpf.io/p/en/lego-plotter-go){:target="_blank"}
 
 --- collapse ---
 ---
-title: Install the Vcgencmd python library
+title: Установка библиотеки Python Vcgencmd
 ---
 
-Make sure you are connected to the internet.
+Убедись, что ты подключён к Интернету.
 
-Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
+Открой окно терминала на Raspberry Pi, нажав <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> на своей клавиатуре.
 
-At the prompt type: `pip3 install vcgencmd` and press <kbd>Enter</kbd>.
+В командной строке введи: `pip3 install vcgencmd` и нажми <kbd>Ввод</kbd>.
 
-Wait for the confirmation message (it won't take long) then close the terminal window.
+Дождись подтверждающего сообщения (это не займет много времени), затем закрой окно терминала.
 
 --- /collapse ---
 
 --- collapse ---
 ---
-title: Additional information for educators
+title: Дополнительная информация для преподавателей
 ---
 
-You can download the completed project [here](http://rpf.io/p/en/projectName-get){:target="_blank"}.
+Ты можешь скачать завершенный проект [здесь](http://rpf.io/p/en/projectName-get){:target="_blank"}.
 
-If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
+Если ты хочешь распечатать этот проект, то воспользуйся [версией для печати](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
 
 --- /collapse ---
 
-Before you begin, you'll need to have set up your Raspberry Pi computer and attached your Build HAT:
+Прежде чем ты начнешь, тебе необходимо настроить твой компьютер Raspberry Pi и подключить свою плату Build HAT:
 
 --- task ---
 
-Mount your Raspberry Pi on to the LEGO Build Plate using M2 bolts and nuts, making sure the Raspberry Pi is on the side without the 'edge':
+Установи Raspberry Pi на Cтроительную Пластину LEGO с помощью болтов и гаек M2, убедившись, что Raspberry Pi лежит на стороне пластины без «борта»:
 
- ![Raspberry Pi bolted to a magenta LEGO Build Plate.](images/build_11.jpg)
+ ![Raspberry Pi прикрученный к пурпурной Строительной Панели LEGO.](images/build_11.jpg)
 
 --- /task ---
 
-Mounting the Raspberry Pi this way round enables easy access to the ports as well as the SD card slot. The Build Plate will allow you to connect the Raspberry Pi to the main structure of your dashboard more easily.
+Установка Raspberry Pi таким образом обеспечивает легкий доступ к портам, а также к слоту для SD-карты. Строительная Платформа позволит тебе более легко подключить Raspberry Pi к основной структуре твоей панели инструментов.
 
 --- task ---
 
-Line up the Build HAT with the Raspberry Pi, ensuring you can see the `This way up` label. Make sure all the GPIO pins are covered by the HAT, and press down firmly. (The example uses a [stacking header](https://www.adafruit.com/product/2223){:target="_blank"}, which makes the pins longer.)
+Совмести плату Build HAT с Raspberry Pi, убедившись, что ты видишь надпись на английском `This way up`. Убедись, что все контакты GPIO закрыты платой HAT, и с усилием надави на плату. (В примере используется [проводные клеммы](https://www.adafruit.com/product/2223){:target="_blank"}, которые делают выводы длиннее)
 
-![Image of GPIO pins poking through the top of the Build HAT.](images/build_15.jpg) ![Animation showing Buildhat fitting to Raspberry Pi](images/haton.gif)
+![Изображение контактов GPIO, торчащих из верхней части платы Build HAT.](images/build_15.jpg) ![Анимация, показывающая установку платы Buildhat в Raspberry Pi](images/haton.gif)
 
 --- /task ---
 
-You should now power your Raspberry Pi using the 7.5V barrel jack on the Build HAT, which will allow you to use the motors.
+Теперь ты должен подать питание на Raspberry Pi с помощью цилиндрического разъема 7,5 В на плате Build HAT, что позволит тебе использовать двигатели.
 
 --- task ---
 
-If you have not already done so, set up your Raspberry Pi by following these instructions:
+Если ты еще этого не сделал, настрой Raspberry Pi, следуя этим инструкциям:
 
-[Setting up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up){:target="_blank"}
-
---- /task ---
-
---- task ---
-
-Once the Raspberry Pi has booted, open the Raspberry Pi Configuration tool by clicking on the Raspberry Menu button and then selecting “Preferences” and then “Raspberry Pi Configuration”.
-
-Click on the “interfaces” tab and adjust the Serial settings as shown below:
-
-![Image showing Raspberry Pi OS config screen with serial port enabled and serial console disabled](images/configshot.jpg)
+[Настройка твоей Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up){:target="_blank"}
 
 --- /task ---
 
 --- task ---
 
-You will also need to install the buildhat python library by following these instructions:
+После загрузки Raspberry Pi открой Инструмент Настройки Raspberry Pi, нажав кнопку Меню Raspberry и выбрав «Настройки», а затем «Конфигурация Raspberry Pi».
+
+Выбери вкладку «Интерфейсы» и настрой параметры последовательного порта, как показано ниже:
+
+![Изображение, показывающее экран конфигурации ОС Raspberry Pi с включенным последовательным портом и отключенной последовательной консолью](images/configshot.jpg)
+
+--- /task ---
+
+--- task ---
+
+Тебе также понадобится установить библиотеку Python buildhat, следуя этим инструкциям:
 
 --- collapse ---
 ---
-title: Install the buildhat Python library
+title: Установка библиотеки Python buildhat
 ---
 
-Open a terminal window on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>.
+Открой окно терминала на Raspberry Pi, нажав <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> на своей клавиатуре.
 
-At the prompt type: `sudo pip3 install buildhat`
+В командной строке введи: `sudo pip3 install buildhat`
 
-Press <kbd>Enter</kbd> and wait for the "installation completed" message.
+Нажми <kbd>Ввод</kbd> и дождись сообщения «установка завершена» (или «installation completed» на английском).
 
 --- /collapse ---
 
