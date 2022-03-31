@@ -1,0 +1,17 @@
+---
+title: LEGO® データプロッター
+hero_image: images/banner.png
+description: LEGO® と Build HAT を使ってペンで紙にデータをプロットする
+version: 4
+listed: true
+copyedit: true
+last_tested: "2020-10-27"
+steps:
+  - title: はじめに
+  - title: データをもとにモーターを動かす
+  - title: プロット範囲を作成する
+  - title: プロッターを組み立てる
+  - title: 紙を送る
+  - title: ボタンコントロールを追加する
+  - title: リアルタイムデータソースを追加する
+  - title: 次は何をしますか？

@@ -1,0 +1,17 @@
+---
+title: Плоттер данных LEGO®
+hero_image: images/banner.png
+description: Нарисуй данные ручкой и бумагой, используя LEGO® и Build HAT
+version: 4
+listed: true
+copyedit: true
+last_tested: "2020-10-27"
+steps:
+  - title: Введение
+  - title: Перемещаем моторы с помощью данных
+  - title: Задаём диапазон рисования
+  - title: Строим плоттер
+  - title: Подача бумаги
+  - title: Добавляем элемент управления «кнопка»
+  - title: Добавляем источник данных в реальном времени
+  - title: Что дальше?
