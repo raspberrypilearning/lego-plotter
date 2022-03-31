@@ -1,16 +1,16 @@
-## Build the plotter
+## プロッターを組み立てる
 
-In this step, you will build an x/y plotter using LEGO®.
+このステップでは、 LEGO® を使用して x/y プロッターを作成します。
 
-There are plenty of ways you could do this, but the build instructions for the LEGO® SPIKE™ Prime *Track Your Parcels* project are a great starting point. You can use the motor from the previous step for the y-axis motor (the one holding the pen) in the build.
+作成方法はたくさんありますが、 LEGO® SPIKE™ Prime *Track Your Percels* プロジェクトの組み立て手順が良い取っ掛かりになります。 なお、前のステップで使ったモーターはY軸のモーター (ペンを押さえる側) の組み立てに使用できます。
 
-![A drawing from the LEGO® instructions.](images/build1.png)
+![LEGO® の説明から抜粋。](images/build1.png)
 
 --- task ---
 
-You will need to adapt the build slightly so that the arm is able to hold a pen. Rubber bands are a great way to hold a pen snugly against LEGO.
+アームがペンを押さえられるように、組み立て方を少し工夫する必要があります。 輪ゴムを使ってペンをレゴにしっかり固定すると良いでしょう。
 
-![A photo of the partially assembled plotter model, with a pen attached to the LEGO® elements with a rubber band.](images/rubber_bands.jpg)
+![部分的に組み立てられ、ペンが LEGO® エレメントに輪ゴムで取り付けられた、プロッターのモデルの写真。](images/rubber_bands.jpg)
 
 <embed src="https://le-www-live-s.legocdn.com/sc/media/lessons/prime/pdf/building-instructions/track-your-packages-bi-pdf-book1of2-05883f81fed73ac3738781d084e0d4e2.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
   </p> 
@@ -20,11 +20,11 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
   </p>
   
   <p spaces-before="0">
-    The second part of the build completes the mechanism that uses the two motors to drive the plotter.
+    組み立ての2番目の部分は、2つのモーターを使用してプロッターを動かすメカニズムを完成させます。
   </p>
   
   <p spaces-before="0">
-    <img src="images/build2.png" alt="A drawing from the second part of the LEGO® instructions." />
+    <img src="images/build2.png" alt="LEGO® の説明の2番目から抜粋。" />
   </p>
   
   <p spaces-before="0">
@@ -37,7 +37,7 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
       </p>
       
       <p spaces-before="0">
-        Connect the LEGO® Technic™ motor that drives the pen up and down to port A on the Build HAT.
+        ペンを上下に動かすための LEGO® Technic™ モーターを Build HAT のポート A に接続します。
       </p>
       
       <p spaces-before="0">
@@ -45,15 +45,15 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
       </p>
       
       <p spaces-before="0">
-        Now you can use your simulated data source to test your plotter. For now, keep the lid on your pen or remove it all together while you observe the motion caused by the data.
+        これで、シミュレートされた情報源を使用してプロッターのテストができます。 データによっておこる動きを観察している間は、ひとまずはペンにふたをしておくか、ペン自体を取り外しておきます。
       </p>
 
 <h3 spaces-before="0">
-  Calibrate the plotter
+  プロッターの調整
 </h3>
 
 <p spaces-before="0">
-  Your program currently allows the motor to move through its full range of motion (-180 to +180 degrees from the zero point). But the physical constraints of the plotter mean that if you tried to drive the toothed rail to its maximum and minimum positions, it would crash the pen arm into other parts of the build. In order to avoid this, you must centre the bar.
+  プログラムはいまのところ、モーターが可動域 (ゼロを起点に -180度 から +180 度まで) 全体に移動できるようになっています。 ただし、プロッターの物理的な制約によって、歯型のレールを最大位置や最小位置に動かそうとすると、ペンのアームが組み立てた他の部分にぶつかってしまいます。 これを回避するには、バーを中央に配置する必要があります。
 </p>
 
 <p spaces-before="0">
@@ -61,44 +61,44 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
 </p>
 
 <p spaces-before="0">
-  Click into the <strong x-id="1">Shell pane</strong> of Thonny (the window beneath the code) so that you can execute Python one line at a time.
+  Thonnyの<strong x-id="1">シェルペイン</strong> (コードの下のウィンドウ) をクリックして、Pythonを1行ずつ実行できるようにします。
 </p>
 
 <p spaces-before="0">
-  Enter these lines into the <strong x-id="1">Shell</strong> (you can just copy and paste them from your program above) pressing <kbd>Enter</kbd> between each one:
+  これらの行を <strong x-id="1">シェル</strong> に入力して (上のプログラムからただコピーして貼り付けられます) 、各行を入力するごとに <kbd>Enter</kbd> を押します。
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; from buildhat import Motor
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  <kbd>Enter</kbd> を押します。
 </p>
 
 <p spaces-before="0">
-  Type:
+  続けて入力します:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; motor_y = Motor('A')
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  <kbd>Enter</kbd> を押します。
 </p>
 
 <p spaces-before="0">
-  Type:
+  続けて入力します:
 </p>
 
 <pre><code class="python">&gt;&gt;&gt; motor_y.run_to_position(0, 100)
 </code></pre>
 
 <p spaces-before="0">
-  Press <kbd>Enter</kbd>.
+  <kbd>Enter</kbd> を押します。
 </p>
 
 <p spaces-before="0">
-  This should centre or <strong x-id="1">zero</strong> your motor.
+  これで、中央の位置がモーターの<strong x-id="1">ゼロ</strong>になります。
 </p>
 
 <p spaces-before="0">
@@ -110,11 +110,11 @@ You will need to adapt the build slightly so that the arm is able to hold a pen.
 </p>
 
 <p spaces-before="0">
-  Adjust the position of your pen arm by gently pushing the toothed bar to the middle of its path, so that the pencil or pen lines up with the other motor.
+  鉛筆もしくはペンが、他のモーターと揃うように、歯型のバーをパスの中央にやさしく押して、ペンのアームの位置を調整します。
 </p>
 
 <p spaces-before="0">
-  <img src="images/pencil_lined_up.jpg" alt="The pencil is central to the housing, in line with the motor used to drive the paper feeder." />
+  <img src="images/pencil_lined_up.jpg" alt="鉛筆は、ペーパーフィーダーの駆動用のモーターに沿って、ハウジングの中央にあります。" />
 </p>
 
 <p spaces-before="0">
