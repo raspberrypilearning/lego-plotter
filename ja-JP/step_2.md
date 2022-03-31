@@ -1,23 +1,23 @@
-## Move the motors with data
+## データをもとにモーターを動かす
 
 <p style="border-left: solid; border-width:10px; border-color: #0faeb0; background-color: aliceblue; padding: 10px;">
-You may have seen in earthquake disaster movies a scene where a <span style="color: #0faeb0">[seismometer](https://en.wikipedia.org/wiki/Seismometer) </span> is used to show the tremors. 
+地震災害の映画で <span style="color: #0faeb0">[地震計](https://ja.wikipedia.org/wiki/%E5%9C%B0%E9%9C%87%E8%A8%88)</span> を使用して振動を表しているシーンを見たことがあるかもしれません。 
 
-The design of such devices is quite simple: one motor is used to move the paper past the pen (the x-axis), while another, at a right-angle to the first, moves the pen in response to the changing data (y-axis). </p>
+このようなデバイスの設計はとてもシンプルで、1つのモーターを使って紙がペンを通過するようにして(x軸)、もう1つのモーターを使ってデータの変化に応じてペンを最初のモーターと直角に動かしています(y軸)。 </p>
 
-In this project, you will create a plotter from LEGO®, and connect it to your Raspberry Pi so it can plot real-time data.
+このプロジェクトでは、 LEGO® でプロッターを作成し、それを Raspberry Pi に接続することでリアルタイムデータをプロットできるようにします。
 
 --- task ---
 
-Connect a monitor, keyboard, and mouse to your Raspberry Pi. If you've never used a Raspberry Pi before, you might want to start with [this project](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started).
+モニター、キーボード、マウスをRaspberry Piに接続します。 これまでに Raspberry Pi を使用したことがない場合は、[このプロジェクト](https://projects.raspberrypi.org/en/projects/raspberry-pi-getting-started)から始めることをおすすめします。
 
-Attach the Build HAT to your Raspberry Pi (make sure you can see the Raspberry Pi logo on the top) and connect a 7.5V power supply to the barrel jack of the Build HAT. This will boot your Raspberry Pi.
+Build HAT を Raspberry Pi に接続し(上部に Raspberry Pi のロゴが表示されていることを確認してください)、 7.5V 電源を Build HAT のバレルジャックに接続します。 すると、 Raspberry Pi が起動します。
 
 --- /task ---
 
 --- task ---
 
-Open Thonny from the programming menu, and add the following lines to begin your program by importing the libraries you will be using:
+プログラミングメニューから Thonny を開き、次の行を追加して、使用するライブラリをインポートしてプログラムを開始します:
 
 --- code ---
 ---
@@ -29,13 +29,13 @@ from random import randint from time import sleep from buildhat import Motor
 
 --- /code ---
 
-Save this program as `plotter.py` by pressing <kbd>Ctrl</kbd>+<kbd>s</kbd>.
+<kbd>Ctrl</kbd>+<kbd>s</kbd> を押してプログラムを `plotter.py` として保存します。
 
 --- /task ---
 
 --- task ---
 
-Now use the `randint` function to create a random value between a range (in this case, -180 to 180) and store it in a variable called `new_angle`:
+次に、 `randint` 関数を使用して範囲 (今回は-180から180) を指定したランダムな値を作成し、それを `new_angle` という変数に格納します。
 
 --- code ---
 ---
@@ -51,17 +51,17 @@ new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-Run your program a few times by clicking the **Run** button at the top of the window. You should see different values appear in the shell beneath your code each time.
+ウィンドウの上部にある **Run** ボタンをクリックしてプログラムを何度か実行します。 常に異なる値がコードの下のシェルに表示されるはずです。
 
 --- /task ---
 
-Instead of running this script manually, create a **loop** to run the script repeatedly. To run the same lines continuously, you can use a `while True:` loop.
+このスクリプトを手で実行するかわりに、 **ループ** を作成してスクリプトを繰り返し実行しましょう。 同じ行を繰り返し実行するには、 `while True:` ループを使用します。
 
 --- task ---
 
-Add a blank line above the code you just added by pressing <kbd>Enter</kbd>.
+<kbd>Enter</kbd> を押して、追加したコードの上に空白行を追加します。
 
-On this new line, enter `while True:`; make sure you have a capital 'T'.
+この新しい行に `While True:` を入力します。大文字の 'T' があることを確認してください。
 
 --- code ---
 ---
@@ -77,7 +77,7 @@ while True: new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-Add four spaces to the start of each of the lines beneath to create an **indented code block**. This tells the computer which lines are included in your loop.
+下の各行の先頭にスペースを4つ追加して、**インデントされたコードブロック**を作成します。 これは、どの行がループに含まれるかをコンピューターに知らせます。
 
 
 --- code ---
@@ -94,7 +94,7 @@ while True: new_angle = randint(-180,180) print(new_angle)
 
 --- task ---
 
-At the end of your code, press <kbd>Enter</kbd> to add another indented line. On this line, type `sleep(0.1)`.
+コードの最後で <kbd>Enter</kbd> を押して、別のインデントされた行を追加します。 この行に `sleep(0.1)` と入力します。
 
 --- code ---
 ---
@@ -110,7 +110,7 @@ while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
 
 --- task ---
 
-Run your code to see the values printed in the shell. If you get any errors, check that your code looks like this:
+コードを実行して、シェルに出力された値を確認します。 なにかエラーが発生した場合は、コードが次のようになっていることを確認してください:
 
 --- code ---
 ---
@@ -126,29 +126,29 @@ while True: new_angle = randint(-180,180) print(new_angle) sleep(0.1)
 
 --- /task ---
 
-Now that you have some data, you can use this to control the position of a motor.
+いくつかのデータが得られたので、これを使用してモーターの位置を制御できます。
 
 --- task ---
 
-Connect a LEGO® Technic™ motor to port A on the Build HAT. Add some additional LEGO elements to the motor axle so that it is easy to see the motor turning.
+LEGO® Technic™ モーターを Build HAT のポート A に接続します。 モーターの回転が簡単に確認できるように、モーターの軸に LEGO の要素をいくつか追加します。
 
 --- /task ---
 
 --- task ---
 
-Line up the element with the line mark on the motor and then set the motor to the zero position:
+要素をモーターのラインマークに合わせてから、モーターをゼロ位置に設定します:
 
-![A photo of a LEGO® Technic™ motor showing the lollipop and zero labels used to set the encoder to 0 degrees.](images/zero.JPG)
+![LEGO® Technic™ モーターのエンコーダーを0度に設定するためにロリポップとゼロのラベルを使用している様子を示す写真。](images/zero.JPG)
 
 --- /task ---
 
-Now, modify the main body of your program so that the angle turned to by the motor is the same as the latest value produced by your simulated sensor.
+次に、モーターによって回転した角度が、シミュレートされたセンサーによって生成された最新の値と同じになるように、プログラム本体を変更します。
 
-To do this, you need to set up your motor so it can be accessed by the program.
+これを行うには、プログラムからアクセスできるようにモーターを設定する必要があります。
 
 --- task ---
 
-Create a `motor_y` object for port `A` on the Build HAT and then turn the motor to the `0` position with a speed of `100`.
+`motor_y` オブジェクトを Build HAT のポート `A` 向けに作成して、モーターを `0` の位置に `100`のスピードで回転させます。
 
 --- code ---
 ---
@@ -164,7 +164,7 @@ motor_y = Motor('A') motor_y.run_to_position(0, 100)
 
 --- task ---
 
-The next line makes the motor turn to the angle stored in `new_angle`.
+次の行では、モーターを `new_angle` に格納された角度に回転させます。
 
 --- code ---
 ---
@@ -180,9 +180,9 @@ while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_positi
 
 --- task ---
 
-Click **Run** and you should see your motor spin clockwise to different positions in response to the changing data. If you run the program again, it should reset the motor position back to `0` before moving randomly again.
+**Run** をクリックすると、変化するデータに応じてモーターが時計回りからさまざまな位置に回転するのが見られます。 プログラムを再度実行すると、ランダムに移動する前に、モーターの位置が `0` にリセットされます。
 
-If you get errors, then check your code looks like this.
+エラーが発生した場合は、コードが次のようになっていることを確認してください。
 
 --- code ---
 ---
@@ -200,6 +200,6 @@ while True: new_angle = randint(-180,180) print(new_angle) motor_y.run_to_positi
 
 --- /task ---
 
-![A movie clip showing a LEGO® Technic™ motor with a black beam element attached. The motor is turning and the attached beam is rotating like a clock hand in response to the data. The motor only turns between 0 and 180 degrees, travelling clockwise and anti-clockwise.](images/motor_180.gif)
+![黒い梁の要素が取り付けられた LEGO® Technic™ モーターを示す動画。 データに応じて、モーターに取り付けられた梁が時計の針のように回転します。 モーターは0度から180度の間でのみ回転し、時計回りと反時計回りに行き来します。](images/motor_180.gif)
 
 --- save ---
