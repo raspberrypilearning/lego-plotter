@@ -1,62 +1,62 @@
-## Add a real-time data source
+## リアルタイムデータソースの追加
 
-There are are a huge variety of sensors you could add to your Raspberry Pi to provide a data feed for your plotter.
+プロッターにデータフィードを提供するために Raspberry Pi に追加できるセンサーはとてもたくさんあります。
 
-Let's start with an in-built data source: the temperature of the CPU on the Raspberry Pi itself. If you haven't installed the `vcgencmd` library, you should do that now.
+Raspberry Pi 自体のCPUの温度という、組み込まれたデータソースから始めましょう。 もし `vcgencmd` ライブラリがインストールされていない場合は、ここでインストールしましょう。
 
 --- collapse ---
 ---
-title: Install the Vcgencmd python library
+title: Vcgencmd python ライブラリのインストール
 ---
 
-Make sure you are connected to the internet.
+インターネットに接続していることを確認してください。
 
-Open the terminal on your Raspberry Pi by pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> on your keyboard.
+キーボードの <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd> を押して、Raspberry Pi上にターミナルウィンドウを開きます。
 
-At the prompt type: `sudo pip3 install vcgencmd` and press <kbd>Enter</kbd>.
+プロンプトで入力します: `sudo pip3 install vcgencmd` そして <kbd>Enter</kbd> キーを入力します。
 
-Wait for the confirmation message (it won't take long), then close the terminal window.
+確認のメッセージを待って(それほどかかりません)、ターミナルウィンドウを閉じます。
 
 --- /collapse ---
 
 --- task ---
 
-Using the **Shell/REPL** in Thonny, enter the following lines of Python to test and read the CPU temperature.
+Thonny の **Shell/REPL** を使用して、試しにCPUの温度を読み取るために、Pythonの次の行を入力します。
 
 ```python
 >>> from vcgencmd import Vcgencmd
 ```
-Press <kbd>Enter</kbd>.
+<kbd>Enter</kbd> を押します。
 
-Type:
+続けて入力します:
 ```python
 >>> vcgm = Vcgencmd()
 ```
-Press <kbd>Enter</kbd>.
+<kbd>Enter</kbd> を押します。
 
-Type:
+続けて入力します:
 ```python
 >>> vcgm.measure_temp()
 ```
-Press <kbd>Enter</kbd>.
+<kbd>Enter</kbd> を押します。
 
-You should see the **Shell** return a number value (it should be somewhere around 50) — this is how hot your CPU is running.
-
---- /task ---
-
-Now let's warm things up by getting the CPU to do some work!
-
---- task ---
-
-Open the web browser and watch a YouTube video. After a few seconds, go back to Thonny and re-run the last line of Python and you should see that the temperature has increased.
+すると **Shell** が数値を返すでしょう(おそらく50前後のはずです)。これはCPUがどのくらいの熱さで動作しているかです。
 
 --- /task ---
 
-Now that you've seen how to read the temperature of the CPU with Python, you can modify your `plotter.py` program so that it uses this as its data source.
+それでは、CPUに作業を行わせて、温めてみましょう。
 
 --- task ---
 
-First, underneath the existing import lines at the top of the file, add the lines to import the Vcgencmd library:
+Web ブラウザーを開いて、 YouTube でビデオを視聴します。 数秒したら Thonny に戻って、 Python の最後の行をもう一度実行すると、温度が上昇していることがわかります。
+
+--- /task ---
+
+Python で CPU の温度を読み取る方法を確認したので、 `plotter.py` を書き換えてこれをデータソースとして使用できます。
+
+--- task ---
+
+はじめに、ファイル上部にすでにある import 行の下に、 Vcgencmd ライブラリをインポートするための行を追加します:
 
 --- code ---
 ---
@@ -70,7 +70,7 @@ from random import randint from time import sleep from buildhat import Motor, Fo
 
 --- /task ---
 
---- task --- Create a vcgencmd object:
+--- task --- vcgencmd オブジェクトを作成します:
 
 --- code ---
 ---
@@ -90,7 +90,7 @@ motor_y.run_to_position(0, 100) motor_x.start(-25)
 
 --- task ---
 
-Change the program so that it uses real-time temperature values rather than randomly generated numbers. To do this, you need to replace `randint(-180, 180)` with `vcgm.measure_temp()`.
+ランダムに生成された数値ではなく、リアルタイムな温度の値を使用するように、プログラムを変更します。 これをするには、 `randint(-180, 180)` を `vcgm.measure_temp()` に置き換える必要があります。
 
 --- code ---
 ---
@@ -104,15 +104,15 @@ while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_
 
 --- /task ---
 
-Before you can use the temperature of the Raspberry Pi's CPU as a data source for your plotter, you want to make sure that the maximum possible value produced by the data source will be mathematically converted so that it fits on a scale between -180 and 180.
+Raspberry Pi の CPU の温度をプロッターのデータソースとして使用する前に、データソースによって生成される可能な最大値が、-180〜180のスケールに収まるように、数学的に変換する必要があります。
 
-The range of temperature values produced by `vcgencmd` should be from around 50°C (when the Raspberry Pi is on, but not doing very much) to less than 90°C when working hard (at 85°C, the Raspberry Pi will throttle its performance to keep the temperature below this value). Let's say you want to plot a range from 40°C to 90°C — you need to map this to your available values: -180 to 180.
+`vcgencmd` が返す温度の値の範囲は、約 50°C (Raspberry Pi がオンでもあまり使っていない時) から、高負荷時で 90°C 未満です (85°C になると、 Raspberry Pi はこの温度を維持するためにパフォーマンスを抑制しだします) 。 例えば、 40°C から 90°C の範囲をプロットしたいとすると、これをプロッターで利用可能な、 -180 から 180 の値にマップする必要があります。
 
-You can create a function to remap one range of values to another range of values.
+ある範囲の値を別の範囲の値に再マップする関数を作成できます。
 
 --- task ---
 
-Add this function above your `while` loop. It will take a temperature range and an angle range, and then remap the temperature into an angle.
+この関数を `while` ループの上に追加します。 温度の範囲と角度の範囲を取得して、温度を角度に再マッピングします。
 
 --- code ---
 ---
@@ -124,7 +124,7 @@ def remap(min_temp, max_temp, min_angle, max_angle, temp): temp_range = (max_tem
 
 --- /code ---
 
-Now, in the `while` loop, you can use this function to calculate a new angle for the motor to turn to.
+これで、 `while` ループの中でこの関数を使用して、モーターが回転する新しい角度を計算できます。
 
 --- code ---
 ---
@@ -138,9 +138,9 @@ while not button.is_pressed(): temp = vcgm.measure_temp() current_angle = motor_
 
 --- /task ---
 
-Now you can run your program. Make the Raspberry Pi CPU get warmer like you did before and you should see the pen gradually move upwards. Feel free to change the `min_temp` and `max_temp` parameters, if your pen isn't moving too much.
+これでプログラムを実行できます。 前と同じように Raspberry Pi CPU を暖かくすると、ペンが徐々に上に移動するのがわかります。 ペンがあまり動かない場合は、 `min_free` と `max_temp` のパラメーターを自由に変更してください。
 
-![Animation showing the paper moving through the plotter while the pen moves and draws a fluctuating line.](images/plotter_demo_2.gif)
+![ペンが移動して変動する線を描いている間に、紙がプロッターを移動する様子を示すアニメーション。](images/plotter_demo_2.gif)
 
 
 --- save ---
