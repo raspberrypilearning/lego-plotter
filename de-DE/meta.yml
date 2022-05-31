@@ -5,13 +5,17 @@ description: Zeichne Daten mit Stift und Papier mit LEGO® und dem Build HAT
 version: 4
 listed: true
 copyedit: true
-last_tested: "2020-10-27"
+last_tested: '2020-10-27'
 steps:
-  - title: Einleitung
-  - title: Bewege die Motoren mit Daten
-  - title: Erstelle einen Plotbereich
-  - title: Baue den Plotter
-  - title: Papierzufuhr
-  - title: Schaltflächen-Steuerelement hinzufügen
-  - title: Hinzufügen einer Echtzeit-Datenquelle
-  - title: Wie geht es weiter?
+- title: Einleitung
+- title: Bewege die Motoren mit Daten
+- title: Erstelle einen Plotbereich
+  completion:
+  - engaged
+- title: Baue den Plotter
+- title: Papierzufuhr
+- title: Schaltflächen-Steuerelement hinzufügen
+- title: Hinzufügen einer Echtzeit-Datenquelle
+  completion:
+  - internal
+- title: Wie geht es weiter?

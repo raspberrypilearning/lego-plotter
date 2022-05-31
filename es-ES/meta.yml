@@ -5,13 +5,17 @@ description: Traza datos con lápiz y papel, utilizando LEGO® y Build HAT
 version: 4
 listed: true
 copyedit: true
-last_tested: "2020-10-27"
+last_tested: '2020-10-27'
 steps:
-  - title: Introducción
-  - title: Mueve los motores con datos
-  - title: Crear un rango de trazado
-  - title: Construye el trazador
-  - title: Pon el papel
-  - title: Agrega un botón de control
-  - title: Agrega una fuente de datos en tiempo real
-  - title: '¿Qué sigue?'
+- title: Introducción
+- title: Mueve los motores con datos
+- title: Crear un rango de trazado
+  completion:
+  - engaged
+- title: Construye el trazador
+- title: Pon el papel
+- title: Agrega un botón de control
+- title: Agrega una fuente de datos en tiempo real
+  completion:
+  - internal
+- title: "¿Qué sigue?"

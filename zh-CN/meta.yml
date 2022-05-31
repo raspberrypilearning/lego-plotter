@@ -5,13 +5,17 @@ description: 利用乐高（LEGO®）和 Build HAT完成用笔和纸绘制数据
 version: 4
 listed: true
 copyedit: true
-last_tested: "2020-10-27"
+last_tested: '2020-10-27'
 steps:
-  - title: 介绍
-  - title: 依据数据移动马达
-  - title: 创建一个绘图区域
-  - title: 搭建绘图仪
-  - title: 进纸
-  - title: 添加一个控制按钮
-  - title: 添加实时数据源
-  - title: 接下来还有什么？
+- title: 介绍
+- title: 依据数据移动马达
+- title: 创建一个绘图区域
+  completion:
+  - engaged
+- title: 搭建绘图仪
+- title: 进纸
+- title: 添加一个控制按钮
+- title: 添加实时数据源
+  completion:
+  - internal
+- title: 接下来还有什么？
