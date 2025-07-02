@@ -18,4 +18,3 @@ steps:
 - title: Добавляем источник данных в реальном времени
   completion:
   - internal
-- title: Что дальше?
